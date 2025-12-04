@@ -1,11 +1,52 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 export default function EarlyAccess() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    role: "",
+    message: "",
+  });
+
+  const submitMutation = trpc.earlyAccess.submit.useMutation({
+    onSuccess: () => {
+      toast.success("Thank you! Your request has been submitted successfully.");
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        role: "",
+        message: "",
+      });
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to submit request. Please try again.");
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    submitMutation.mutate(formData);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
   return (
     <section id="early-access" className="py-24 bg-[#f5f6fb] dark:bg-[#0B102C] relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -85,40 +126,81 @@ export default function EarlyAccess() {
                 <CardDescription>Fill out the form below and we'll be in touch within 24 hours.</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="first-name">First name</Label>
-                      <Input id="first-name" placeholder="Jane" />
+                      <Label htmlFor="firstName">First name</Label>
+                      <Input 
+                        id="firstName" 
+                        placeholder="Jane" 
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="last-name">Last name</Label>
-                      <Input id="last-name" placeholder="Doe" />
+                      <Label htmlFor="lastName">Last name</Label>
+                      <Input 
+                        id="lastName" 
+                        placeholder="Doe" 
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="email">Work Email</Label>
-                    <Input id="email" type="email" placeholder="jane@firm.com" />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="jane@firm.com" 
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="company">Firm / Company Name</Label>
-                    <Input id="company" placeholder="Acme Capital" />
+                    <Input 
+                      id="company" 
+                      placeholder="Acme Capital" 
+                      value={formData.company}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="role">Role</Label>
-                    <Input id="role" placeholder="Partner, Associate, etc." />
+                    <Input 
+                      id="role" 
+                      placeholder="Partner, Associate, etc." 
+                      value={formData.role}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="message">What's your primary deal sourcing challenge?</Label>
-                    <Textarea id="message" placeholder="Tell us about your current workflow..." className="min-h-[100px]" />
+                    <Textarea 
+                      id="message" 
+                      placeholder="Tell us about your current workflow..." 
+                      className="min-h-[100px]" 
+                      value={formData.message}
+                      onChange={handleChange}
+                    />
                   </div>
                   
-                  <Button type="submit" className="w-full bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 h-12 text-base font-semibold shadow-lg shadow-cyan-500/20">
-                    Submit Request
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 h-12 text-base font-semibold shadow-lg shadow-cyan-500/20"
+                    disabled={submitMutation.isPending}
+                  >
+                    {submitMutation.isPending ? "Submitting..." : "Submit Request"}
                   </Button>
                   
                   <p className="text-xs text-center text-muted-foreground pt-2">
