@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
+  const { isAuthenticated, user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,22 +74,34 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button 
-            variant="ghost" 
-            className="text-muted-foreground hover:text-foreground"
-            onClick={() => window.location.href = "#signin"}
-          >
-            Sign In
-          </Button>
-          <Button 
-            className="bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 rounded-xl shadow-lg shadow-cyan-500/20 transition-all hover:-translate-y-0.5"
-            onClick={() => {
-              const element = document.querySelector("#early-access");
-              element?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Get Early Access
-          </Button>
+          {isAuthenticated ? (
+            <Button 
+              onClick={() => setLocation("/dashboard")}
+              className="bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 rounded-xl shadow-lg shadow-cyan-500/20 transition-all hover:-translate-y-0.5"
+            >
+              <User className="w-4 h-4 mr-2" />
+              Dashboard
+            </Button>
+          ) : (
+            <>
+              <Button 
+                variant="ghost" 
+                className="text-muted-foreground hover:text-foreground"
+                onClick={() => window.location.href = getLoginUrl()}
+              >
+                Sign In
+              </Button>
+              <Button 
+                className="bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 rounded-xl shadow-lg shadow-cyan-500/20 transition-all hover:-translate-y-0.5"
+                onClick={() => {
+                  const element = document.querySelector("#early-access");
+                  element?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Get Early Access
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -112,19 +127,38 @@ export default function Navbar() {
             </a>
           ))}
           <div className="flex flex-col gap-3 mt-2">
-            <Button variant="outline" className="w-full justify-center rounded-xl">
-              Sign In
-            </Button>
-            <Button 
-              className="w-full justify-center bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] text-white border-0 rounded-xl"
-              onClick={() => {
-                const element = document.querySelector("#early-access");
-                element?.scrollIntoView({ behavior: "smooth" });
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Get Early Access
-            </Button>
+            {isAuthenticated ? (
+              <Button 
+                onClick={() => {
+                  setLocation("/dashboard");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full justify-center bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] text-white border-0 rounded-xl"
+              >
+                <User className="w-4 h-4 mr-2" />
+                Dashboard
+              </Button>
+            ) : (
+              <>
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-center rounded-xl"
+                  onClick={() => window.location.href = getLoginUrl()}
+                >
+                  Sign In
+                </Button>
+                <Button 
+                  className="w-full justify-center bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] text-white border-0 rounded-xl"
+                  onClick={() => {
+                    const element = document.querySelector("#early-access");
+                    element?.scrollIntoView({ behavior: "smooth" });
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Get Early Access
+                </Button>
+              </>
+            )}
           </div>
         </div>
       )}

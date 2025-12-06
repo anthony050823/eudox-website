@@ -12,3 +12,8 @@
 - [x] API endpoint for form submission
 - [x] Connect frontend form to backend
 - [x] Test database persistence
+- [x] Design client sign-up flow with OAuth authentication
+- [x] Create user dashboard page
+- [x] Add user profile management
+- [x] Implement protected routes for authenticated users
+- [x] Test complete sign-up and authentication flow
