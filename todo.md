@@ -17,3 +17,8 @@
 - [x] Add user profile management
 - [x] Implement protected routes for authenticated users
 - [x] Test complete sign-up and authentication flow
+- [x] Update theme context to support system/dark/light modes
+- [x] Implement time-based auto-switching for system mode
+- [x] Create theme toggle component
+- [x] Add theme toggle to navigation and dashboard
+- [x] Test theme switching functionality

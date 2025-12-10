@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { Loader2, LogOut, User, Mail, Calendar, Shield } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useLocation } from "wouter";
 
 export default function Dashboard() {
@@ -58,15 +59,18 @@ export default function Dashboard() {
             <img src="/Eudoxlogo.png" alt="Eudox" className="w-8 h-8" />
             <h1 className="text-xl font-bold text-white">Eudox Dashboard</h1>
           </div>
-          <Button
-            variant="outline"
-            onClick={handleLogout}
-            disabled={logoutMutation.isPending}
-            className="border-white/20 hover:bg-white/10"
-          >
-            <LogOut className="w-4 h-4 mr-2" />
-            {logoutMutation.isPending ? "Signing out..." : "Sign Out"}
-          </Button>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Button
+              variant="outline"
+              onClick={handleLogout}
+              disabled={logoutMutation.isPending}
+              className="border-white/20 hover:bg-white/10"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              {logoutMutation.isPending ? "Signing out..." : "Sign Out"}
+            </Button>
+          </div>
         </div>
       </header>
 

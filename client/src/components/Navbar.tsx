@@ -4,6 +4,7 @@ import { Menu, X, User } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -74,6 +75,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           {isAuthenticated ? (
             <Button 
               onClick={() => setLocation("/dashboard")}
