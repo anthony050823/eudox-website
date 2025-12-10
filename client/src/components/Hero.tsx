@@ -3,20 +3,20 @@ import { ArrowRight, Play } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B102C]">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B102C] dark:bg-[#0B102C] bg-gradient-to-b from-gray-50 to-white dark:from-[#0B102C] dark:to-[#0B102C]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/images/hero-bg.png" 
           alt="Digital Horizon Background" 
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-0 dark:opacity-60 transition-opacity duration-300"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B102C]/30 via-transparent to-[#f5f6fb] dark:to-[#0B102C]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white dark:from-[#0B102C]/30 dark:via-transparent dark:to-[#0B102C]"></div>
       </div>
 
       <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 animate-in slide-in-from-left-10 duration-700 fade-in">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium text-cyan-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 dark:bg-white/10 backdrop-blur-md border border-cyan-500/30 dark:border-white/20 text-xs font-medium text-cyan-600 dark:text-cyan-300">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -24,14 +24,14 @@ export default function Hero() {
             Now in Early Access
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
             Autonomous <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff]">
               Deal Sourcing
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
             Stop searching. Start discovering. The first AI agent engineered to proactively find private market opportunities before they hit the market.
           </p>
           
@@ -50,25 +50,25 @@ export default function Hero() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="bg-white/5 backdrop-blur-sm border-white/20 text-white hover:bg-white/10 rounded-xl h-14 px-8 text-base"
+              className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm border-gray-300 dark:border-white/20 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 rounded-xl h-14 px-8 text-base"
             >
               <Play className="mr-2 h-4 w-4 fill-current" /> Watch Demo
             </Button>
           </div>
           
-          <div className="pt-8 flex items-center gap-8 text-sm text-gray-400">
+          <div className="pt-8 flex items-center gap-8 text-sm text-gray-500 dark:text-gray-400">
             <div>
-              <p className="font-semibold text-white text-2xl">16M+</p>
+              <p className="font-semibold text-gray-900 dark:text-white text-2xl">16M+</p>
               <p>Companies Tracked</p>
             </div>
-            <div className="w-px h-10 bg-white/10"></div>
+            <div className="w-px h-10 bg-gray-300 dark:bg-white/10"></div>
             <div>
-              <p className="font-semibold text-white text-2xl">24/7</p>
+              <p className="font-semibold text-gray-900 dark:text-white text-2xl">24/7</p>
               <p>Real-time Monitoring</p>
             </div>
-            <div className="w-px h-10 bg-white/10"></div>
+            <div className="w-px h-10 bg-gray-300 dark:bg-white/10"></div>
             <div>
-              <p className="font-semibold text-white text-2xl">10x</p>
+              <p className="font-semibold text-gray-900 dark:text-white text-2xl">10x</p>
               <p>Faster Origination</p>
             </div>
           </div>

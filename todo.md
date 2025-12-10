@@ -22,3 +22,4 @@
 - [x] Create theme toggle component
 - [x] Add theme toggle to navigation and dashboard
 - [x] Test theme switching functionality
+- [x] Fix text contrast in Hero statistics for theme compatibility
