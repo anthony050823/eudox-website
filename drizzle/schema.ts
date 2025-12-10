@@ -1,4 +1,4 @@
-import { int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { index, int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -20,7 +20,10 @@ export const users = mysqlTable("users", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   lastSignedIn: timestamp("lastSignedIn").defaultNow().notNull(),
-});
+}, (table) => ({
+  emailIdx: index("email_idx").on(table.email),
+  openIdIdx: index("open_id_idx").on(table.openId),
+}));
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
@@ -37,7 +40,11 @@ export const earlyAccessRequests = mysqlTable("early_access_requests", {
   role: varchar("role", { length: 255 }).notNull(),
   message: text("message"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+}, (table) => ({
+  emailIdx: index("ea_email_idx").on(table.email),
+  companyIdx: index("ea_company_idx").on(table.company),
+  createdAtIdx: index("ea_created_at_idx").on(table.createdAt),
+}));
 
 export type EarlyAccessRequest = typeof earlyAccessRequests.$inferSelect;
 export type InsertEarlyAccessRequest = typeof earlyAccessRequests.$inferInsert;

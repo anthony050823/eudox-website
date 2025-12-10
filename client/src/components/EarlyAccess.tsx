@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import { AnimatedSection } from "./AnimatedSection";
 
 export default function EarlyAccess() {
   const [formData, setFormData] = useState({
@@ -54,12 +55,13 @@ export default function EarlyAccess() {
           src="/images/early-access-bg.png" 
           alt="Background Pattern" 
           className="w-full h-full object-cover opacity-30"
+          loading="lazy"
         />
       </div>
       
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div>
+          <AnimatedSection animation="slide-right">
             <h2 className="text-3xl md:text-4xl font-bold text-[#11142d] dark:text-white mb-6">
               Join the Future of <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff]">Deal Origination</span>
@@ -117,9 +119,10 @@ export default function EarlyAccess() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
           
-          <div id="contact">
+          <AnimatedSection animation="slide-left">
+            <div id="contact">
             <Card className="border-border shadow-2xl bg-white/80 dark:bg-[#1a1b1f]/80 backdrop-blur-xl">
               <CardHeader>
                 <CardTitle>Request Access</CardTitle>
@@ -209,7 +212,8 @@ export default function EarlyAccess() {
                 </form>
               </CardContent>
             </Card>
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { AnimatedSection } from "./AnimatedSection";
 
 export default function Features() {
   const features = [
@@ -14,7 +15,7 @@ export default function Features() {
     <section id="features" className="py-24 bg-[#f5f6fb] dark:bg-[#11142d]">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1">
+          <AnimatedSection animation="slide-right" className="order-2 lg:order-1">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] rounded-[2rem] opacity-20 blur-xl"></div>
               <div className="relative bg-white dark:bg-[#1a1b1f] rounded-3xl border border-border shadow-xl overflow-hidden">
@@ -70,9 +71,9 @@ export default function Features() {
                 </div>
               </div>
             </div>
-          </div>
-          
-          <div className="order-1 lg:order-2">
+          </AnimatedSection>
+
+          <AnimatedSection animation="slide-left" className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold text-[#11142d] dark:text-white mb-6">
               More Than Just Data. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff]">Actionable Intelligence.</span>
@@ -89,7 +90,7 @@ export default function Features() {
                 </div>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
