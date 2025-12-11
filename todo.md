@@ -38,3 +38,6 @@
 - [x] Add legal page links to footer
 - [x] Add exit button to Privacy Policy and Terms of Service
 - [x] Implement scroll-to-top on page enter for legal pages
+- [x] Draft comprehensive Security page content
+- [x] Create Security page with exit button and scroll-to-top
+- [x] Add Security page route and footer link
