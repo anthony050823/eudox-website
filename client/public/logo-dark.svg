@@ -1,33 +1,21 @@
-<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Left segment (light cyan/mint for dark mode) -->
-  <path d="M290 100 C 150 150, 50 250, 50 400 C 50 550, 150 650, 290 700 L 290 540 C 230 520, 190 465, 190 400 C 190 335, 230 280, 290 260 Z" fill="url(#gradient1)"/>
-  
-  <!-- Right segment (bright cyan for dark mode) -->
-  <path d="M510 100 C 650 150, 750 250, 750 400 C 750 550, 650 650, 510 700 L 510 540 C 570 520, 610 465, 610 400 C 610 335, 570 280, 510 260 Z" fill="url(#gradient2)"/>
-  
-  <!-- Top arrow -->
-  <path d="M 475 50 L 640 185 L 510 185 L 510 260 L 390 260 L 390 185 L 260 185 Z" fill="url(#gradient3)"/>
-  
-  <!-- Bottom arrow -->
-  <path d="M 325 750 L 160 615 L 290 615 L 290 540 L 410 540 L 410 615 L 540 615 Z" fill="url(#gradient4)"/>
-  
-  <defs>
-    <!-- Gradients for dark mode - lighter, more vibrant colors -->
-    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#A0F0E5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6EE7DC;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4EE8DC;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2DD4C7;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#5FF0E8;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4EE8DC;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gradient4" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#A0F0E5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6EE7DC;stop-opacity:1" />
-    </linearGradient>
-  </defs>
+<svg width="786" height="786" viewBox="0 0 786 786" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_174_114)">
+<rect x="260.674" y="529" width="125.417" height="370.579" transform="rotate(46.0226 260.674 529)" fill="#44EFFF"/>
+<rect x="692.7" y="-120.423" width="149.448" height="370.579" transform="rotate(43.0687 692.7 -120.423)" fill="#44EFFF"/>
+<path d="M387.001 50C558.603 49.7716 704.835 172.646 731.679 339.623C757.975 503.196 662.033 661.395 504.617 716.682V488.766C524.791 463.84 535.911 432.298 535.911 397.399C535.911 296.657 449.797 256.885 387.001 251.946V50Z" fill="url(#paint0_linear_174_114)"/>
+<path d="M292.808 285.319C266.929 313.957 251.501 352.749 251.501 391.5C260.354 465.866 303.6 532.802 389.093 539.052V735.203C187.073 727.045 72.8812 602.352 50.5 427.5C38.5247 263.008 136.602 116.427 290.681 66.9558L292.808 285.319Z" fill="url(#paint1_linear_174_114)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_174_114" x1="562.457" y1="659.045" x2="562.457" y2="294.348" gradientUnits="userSpaceOnUse">
+<stop offset="0.18" stop-color="#A7FED9"/>
+<stop offset="1" stop-color="#44EFFF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_174_114" x1="242.98" y1="107.721" x2="211.528" y2="477.324" gradientUnits="userSpaceOnUse">
+<stop offset="0.18" stop-color="#A7FED9"/>
+<stop offset="1" stop-color="#44EFFF"/>
+</linearGradient>
+<clipPath id="clip0_174_114">
+<rect width="786" height="786" rx="50" fill="white"/>
+</clipPath>
+</defs>
 </svg>

@@ -45,3 +45,4 @@
 - [x] Implement theme-aware logo switching in Navbar and Footer
 - [x] Create SVG version of dark mode logo with same dimensions as light logo
 - [x] Update logo references to use SVG for both themes
+- [x] Use the same eudox-logo.svg for both light and dark modes
