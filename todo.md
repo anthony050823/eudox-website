@@ -36,3 +36,5 @@
 - [x] Draft Cookie Policy
 - [x] Create legal pages in website
 - [x] Add legal page links to footer
+- [x] Add exit button to Privacy Policy and Terms of Service
+- [x] Implement scroll-to-top on page enter for legal pages

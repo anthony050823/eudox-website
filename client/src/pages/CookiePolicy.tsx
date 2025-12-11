@@ -1,9 +1,28 @@
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
+import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function CookiePolicy() {
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B102C]">
-      <div className="container py-16 max-w-4xl">
+      <div className="container py-16 max-w-4xl relative">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="fixed top-20 right-4 md:right-8 z-50 bg-background/80 backdrop-blur-sm border border-border hover:bg-accent"
+          onClick={() => setLocation("/")}
+          aria-label="Close and return to home"
+        >
+          <X className="h-5 w-5" />
+        </Button>
         <AnimatedSection animation="fade-up">
           <h1 className="text-4xl font-bold text-[#11142d] dark:text-white mb-4">Cookie Policy</h1>
           <p className="text-muted-foreground mb-8">Last Updated: December 10, 2024</p>
