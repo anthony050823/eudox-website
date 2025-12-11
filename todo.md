@@ -41,3 +41,5 @@
 - [x] Draft comprehensive Security page content
 - [x] Create Security page with exit button and scroll-to-top
 - [x] Add Security page route and footer link
+- [x] Copy new SVG logo to public directory
+- [x] Implement theme-aware logo switching in Navbar and Footer

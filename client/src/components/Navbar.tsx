@@ -5,6 +5,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -12,6 +13,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
   const { isAuthenticated, user } = useAuth();
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,11 +50,11 @@ export default function Navbar() {
     >
       <div className="container flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 flex items-center justify-center bg-[#1a1b1f] rounded-xl overflow-hidden transition-transform group-hover:scale-105">
+          <div className="relative w-10 h-10 flex items-center justify-center rounded-xl overflow-hidden transition-transform group-hover:scale-105">
             <img 
-              src="/logo.png" 
+              src={resolvedTheme === 'dark' ? "/logo-dark.png" : "/logo-light.svg"}
               alt="Eudox Logo" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
           <span className="text-xl font-bold tracking-tight text-[#11142d] dark:text-white">

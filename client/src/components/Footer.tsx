@@ -1,15 +1,22 @@
 import { Link } from "wouter";
 import { Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Footer() {
+  const { resolvedTheme } = useTheme();
+  
   return (
     <footer className="bg-white dark:bg-[#0B102C] border-t border-border/40 pt-16 pb-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 bg-[#1a1b1f] rounded-lg flex items-center justify-center overflow-hidden">
-                <img src="/logo.png" alt="Eudox" className="w-full h-full object-cover" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src={resolvedTheme === 'dark' ? "/logo-dark.png" : "/logo-light.svg"}
+                  alt="Eudox" 
+                  className="w-full h-full object-contain" 
+                />
               </div>
               <span className="text-xl font-bold text-[#11142d] dark:text-white">Eudox</span>
             </Link>
