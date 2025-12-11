@@ -52,7 +52,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 flex items-center justify-center rounded-xl overflow-hidden transition-transform group-hover:scale-105">
             <img 
-              src={resolvedTheme === 'dark' ? "/logo-dark.png" : "/logo-light.svg"}
+              src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
               alt="Eudox Logo" 
               className="w-full h-full object-contain"
             />

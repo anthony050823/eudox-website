@@ -43,3 +43,5 @@
 - [x] Add Security page route and footer link
 - [x] Copy new SVG logo to public directory
 - [x] Implement theme-aware logo switching in Navbar and Footer
+- [x] Create SVG version of dark mode logo with same dimensions as light logo
+- [x] Update logo references to use SVG for both themes

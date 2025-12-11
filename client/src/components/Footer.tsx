@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
                 <img 
-                  src={resolvedTheme === 'dark' ? "/logo-dark.png" : "/logo-light.svg"}
+                  src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
                   alt="Eudox" 
                   className="w-full h-full object-contain" 
                 />
