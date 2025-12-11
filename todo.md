@@ -31,3 +31,8 @@
 - [x] Add lazy loading for images and components
 - [ ] Optimize bundle size and code splitting
 - [x] Test performance improvements
+- [x] Draft Privacy Policy
+- [x] Draft Terms of Service with subscription tier limits
+- [x] Draft Cookie Policy
+- [x] Create legal pages in website
+- [x] Add legal page links to footer
