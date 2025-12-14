@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
-import Security from "./pages/Security";
 import Dashboard from "./pages/Dashboard";
 
 function Router() {
@@ -21,7 +20,6 @@ function Router() {
       <Route path={"/privacy"} component={PrivacyPolicy} />
       <Route path={"/terms"} component={TermsOfService} />
       <Route path={"/cookies"} component={CookiePolicy} />
-      <Route path={"/security"} component={Security} />
       <Route path={"/dashboard"} component={Dashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

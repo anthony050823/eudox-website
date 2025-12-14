@@ -71,3 +71,8 @@
 - [x] Add "Unable to load" text and icon indicator for failed images
 - [x] Add theme toggle functionality to logo click in mobile view
 - [x] Test theme switching via logo on mobile devices
+- [x] Delete Security page file
+- [x] Remove Security page route from App.tsx
+- [x] Remove Security link from Footer
+- [x] Add Terms of Service section to homepage
+- [x] Include liability limits, user obligations, account management, and payment terms
