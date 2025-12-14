@@ -61,3 +61,4 @@
 - [x] Remove admin route from App.tsx
 - [x] Keep API security measures intact
 - [x] Apply stronger contrast to Hero section elements with borders and darker colors
+- [x] Fix duplicate style attributes in Hero section second element

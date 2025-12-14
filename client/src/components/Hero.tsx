@@ -111,9 +111,9 @@ export default function Hero() {
                       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                   </div>
-                  <div className="flex-1 space-y-2">
-                    <div className="h-2 w-32 bg-white/20 rounded-full"></div>
-                    <div className="h-2 w-full bg-white/5 rounded-full"></div>
+                  <div className="flex-1 space-y-2 rounded-xl border p-3 bg-white dark:bg-transparent border-gray-300 dark:border-transparent">
+                    <div className="h-2 w-32 bg-gray-300 dark:bg-white/20 rounded-full"></div>
+                    <div className="h-2 w-full bg-gray-200 dark:bg-white/5 rounded-full"></div>
                   </div>
                 </div>
                 
