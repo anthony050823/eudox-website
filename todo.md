@@ -51,3 +51,9 @@
 - [x] Update signal notification card text to use theme-aware colors
 - [x] Update UI bar (colored dots and agent_status text) to use theme-aware colors
 - [x] Update agent_status text to use darker color in light mode for better contrast
+- [x] Add admin role to user schema
+- [x] Create admin middleware for authorization
+- [x] Build secure admin dashboard for viewing early access requests
+- [x] Protect API endpoints with authentication and authorization
+- [x] Add admin-only routes for database and log access
+- [x] Test security measures

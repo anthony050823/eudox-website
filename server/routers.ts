@@ -3,7 +3,7 @@ import { z } from "zod";
 import { createEarlyAccessRequest, getAllEarlyAccessRequests } from "./db";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router, protectedProcedure } from "./_core/trpc";
+import { publicProcedure, router, protectedProcedure, adminProcedure } from "./_core/trpc";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -42,11 +42,7 @@ export const appRouter = router({
         });
         return { success: true };
       }),
-    list: protectedProcedure.query(async ({ ctx }) => {
-      // Only admins can view all requests
-      if (ctx.user.role !== "admin") {
-        throw new Error("Unauthorized");
-      }
+    list: adminProcedure.query(async () => {
       return await getAllEarlyAccessRequests();
     }),
   }),
