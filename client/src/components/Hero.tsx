@@ -97,9 +97,9 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 space-y-2">
                     <div className="h-2 w-24 bg-white/20 rounded-full"></div>
-                    <div className="h-16 w-full bg-white/5 rounded-lg border border-white/5 p-3">
-                      <div className="h-2 w-3/4 bg-white/10 rounded-full mb-2"></div>
-                      <div className="h-2 w-1/2 bg-white/10 rounded-full"></div>
+                    <div className="h-16 w-full rounded-lg border p-3 bg-white dark:bg-white/5 border-gray-300 dark:border-white/10">
+                      <div className="h-2 w-3/4 bg-gray-300 dark:bg-white/10 rounded-full mb-2"></div>
+                      <div className="h-2 w-1/2 bg-gray-200 dark:bg-white/10 rounded-full"></div>
                     </div>
                   </div>
                 </div>

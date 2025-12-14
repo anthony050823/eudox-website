@@ -60,3 +60,4 @@
 - [x] Remove admin dashboard UI page
 - [x] Remove admin route from App.tsx
 - [x] Keep API security measures intact
+- [x] Apply stronger contrast to Hero section elements with borders and darker colors
