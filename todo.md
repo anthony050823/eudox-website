@@ -80,3 +80,4 @@
 - [x] Fix any component errors preventing display
 - [x] Update full Terms of Service page with detailed legal content
 - [x] Regenerate Terms of Service page with structured format
+- [x] Fix display issue in Terms of Service page (text layering)

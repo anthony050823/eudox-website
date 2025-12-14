@@ -13,7 +13,7 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B102C]">
-      <div className="container py-16 max-w-4xl relative">
+      <div className="container py-16 max-w-4xl relative z-10">
         <Button
           variant="ghost"
           size="icon"
