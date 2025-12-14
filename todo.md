@@ -97,3 +97,4 @@
 - [x] Redesign Terms of Service page with modern Apple-style layout
 - [x] Add Table of Contents navigation for sections
 - [x] Improve typography and spacing
+- [x] Remove physical address from Terms of Service contact section

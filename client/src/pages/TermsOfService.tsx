@@ -461,7 +461,6 @@ export default function TermsOfService() {
                 <p className="font-semibold mb-2">Eudox Inc.</p>
                 <p>Email: <a href="mailto:legal@eudox.com" className="text-blue-600 dark:text-blue-400 hover:underline">legal@eudox.com</a></p>
                 <p>Support: <a href="mailto:support@eudox.com" className="text-blue-600 dark:text-blue-400 hover:underline">support@eudox.com</a></p>
-                <p className="mt-2">Address: 123 Innovation Drive, Wilmington, DE 19801, United States</p>
               </div>
             </div>
           </section>
