@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Product from "@/components/Product";
 import Features from "@/components/Features";
 import Comparison from "@/components/Comparison";
-import TermsSection from "@/components/TermsSection";
 import EarlyAccess from "@/components/EarlyAccess";
 import Footer from "@/components/Footer";
 
@@ -16,7 +15,6 @@ export default function Home() {
         <Product />
         <Features />
         <Comparison />
-        <TermsSection />
         <EarlyAccess />
       </main>
       <Footer />

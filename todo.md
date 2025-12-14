@@ -81,3 +81,7 @@
 - [x] Update full Terms of Service page with detailed legal content
 - [x] Regenerate Terms of Service page with structured format
 - [x] Fix display issue in Terms of Service page (text layering)
+- [x] Delete Terms of Service page file
+- [x] Remove Terms of Service route from App.tsx
+- [x] Remove Terms of Service link from Footer
+- [x] Remove Terms of Service section from homepage
