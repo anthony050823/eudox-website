@@ -76,3 +76,7 @@
 - [x] Remove Security link from Footer
 - [x] Add Terms of Service section to homepage
 - [x] Include liability limits, user obligations, account management, and payment terms
+- [x] Debug why Terms of Service section is not loading
+- [x] Fix any component errors preventing display
+- [x] Update full Terms of Service page with detailed legal content
+- [x] Regenerate Terms of Service page with structured format

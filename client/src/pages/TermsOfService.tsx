@@ -25,255 +25,291 @@ export default function TermsOfService() {
         </Button>
         <AnimatedSection animation="fade-up">
           <h1 className="text-4xl font-bold text-[#11142d] dark:text-white mb-4">Terms of Service</h1>
-          <p className="text-muted-foreground mb-8">Last Updated: December 10, 2024</p>
+          <p className="text-muted-foreground mb-8">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
           
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
+            
+            {/* 1. ESTABLISHES RULES */}
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">1. Acceptance of Terms</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">1. Acceptance and Scope</h2>
               <p className="text-foreground leading-relaxed mb-4">
-                These Terms of Service ("<strong>Terms</strong>") constitute a legally binding agreement between you ("<strong>you</strong>," "<strong>your</strong>," or "<strong>User</strong>") and Eudox, Inc. ("<strong>Eudox</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") governing your access to and use of the Eudox autonomous deal sourcing platform, including our website, software, applications, AI agent, and all related services (collectively, the "<strong>Services</strong>").
+                By accessing or using the Eudox platform (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service. These Terms apply to all users, including visitors, registered users, and subscribers.
               </p>
               <p className="text-foreground leading-relaxed">
-                By creating an account, accessing, or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms, our Privacy Policy, and our Cookie Policy. If you do not agree to these Terms, you must immediately cease all use of our Services. If you are entering into these Terms on behalf of a company or other legal entity, you represent that you have the authority to bind such entity to these Terms, and references to "you" shall refer to such entity.
+                Eudox Inc. ("Eudox," "we," "us," or "our") provides an autonomous AI-powered deal sourcing platform for mergers and acquisitions professionals. The Service includes access to our website, software applications, AI agent, data analytics, and related features.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">2. Description of Services</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">2. User Eligibility and Account Rules</h2>
               <p className="text-foreground leading-relaxed mb-4">
-                Eudox provides an AI-powered autonomous deal sourcing platform designed for mergers and acquisitions professionals, private equity firms, venture capital investors, and corporate development teams. Our Services utilize advanced machine learning algorithms, natural language processing, and proprietary data aggregation to proactively identify, analyze, and recommend investment opportunities that align with your specified investment thesis and criteria.
+                <strong>Age and Capacity:</strong> You must be at least 18 years old and have the legal capacity to enter into binding contracts. If you are accepting these Terms on behalf of an organization, you represent that you have the authority to bind that organization.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                <strong>Account Registration:</strong> To access certain features, you must create an account by providing accurate, current, and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                <strong>One Account Per User:</strong> Each user may maintain only one account. Account sharing, credential sharing, or transferring accounts to third parties is strictly prohibited.
               </p>
               <p className="text-foreground leading-relaxed">
-                The Services include but are not limited to automated monitoring of over sixteen million (16,000,000) companies across global markets, real-time detection of trigger events such as funding rounds, leadership changes, and market signals, AI-driven analysis and scoring of potential acquisition targets, customizable deal sourcing parameters and investment thesis matching, executive contact enrichment and verified email discovery, integration capabilities with customer relationship management (CRM) systems, and automated outreach personalization and workflow execution. We reserve the right to modify, suspend, or discontinue any aspect of the Services at any time, with or without notice, subject to the terms of your active subscription.
+                <strong>Prohibited Uses:</strong> You may not use the Service for any unlawful purpose, to compete with Eudox, to reverse engineer our technology, to scrape or harvest data through automated means not provided by our API, to transmit malware or harmful code, or to violate any applicable laws or regulations.
+              </p>
+            </section>
+
+            {/* 2. LIMITS LIABILITY */}
+            <section>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">3. Disclaimers and Limitation of Liability</h2>
+              
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">3.1 Service "As Is"</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                The Service is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, secure, or free from viruses or other harmful components.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">3.2 Investment Decisions</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                <strong>Not Financial Advice:</strong> The Service provides data, analytics, and AI-generated insights for informational purposes only. Eudox does not provide investment advice, legal advice, or recommendations to buy, sell, or hold any securities or assets. You are solely responsible for your investment decisions and due diligence.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                <strong>No Guarantee of Results:</strong> We make no representations or warranties regarding the accuracy, completeness, reliability, or timeliness of any data, analysis, or recommendations provided through the Service. Investment outcomes are inherently uncertain, and past performance does not guarantee future results.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">3.3 Third-Party Data</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                The Service aggregates data from third-party sources. We are not responsible for the accuracy, completeness, or reliability of third-party data. We do not endorse or verify information provided by third parties.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">3.4 Limitation of Damages</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                To the maximum extent permitted by law, Eudox and its affiliates, officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, use, goodwill, or other intangible losses, arising out of or related to your use of or inability to use the Service.
+              </p>
+              <p className="text-foreground leading-relaxed">
+                <strong>Maximum Liability Cap:</strong> In no event shall our total liability to you for all claims arising out of or related to these Terms or the Service exceed the amount you paid to Eudox in the twelve (12) months immediately preceding the event giving rise to liability, or one hundred dollars ($100), whichever is greater.
+              </p>
+            </section>
+
+            {/* 3. DEFINES RIGHTS & RESPONSIBILITIES */}
+            <section>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">4. User Rights and Responsibilities</h2>
+              
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">4.1 User Responsibilities</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                You agree to use the Service in compliance with all applicable laws and regulations. You are responsible for ensuring that all information you provide is accurate, current, and complete. You must promptly update your account information if it changes.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                You agree to maintain the security and confidentiality of your account credentials. You must immediately notify us of any unauthorized access to your account or any security breach. You are responsible for all activities that occur under your account, whether or not authorized by you.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                You agree to respect usage limits based on your subscription tier. Exceeding usage limits may result in service restrictions, additional charges, or account suspension.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">4.2 Eudox's Responsibilities</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                Eudox will use commercially reasonable efforts to provide the Service in accordance with the features and functionality described in your subscription plan. We will make reasonable efforts to maintain the availability and performance of the Service, subject to scheduled maintenance and unforeseen outages.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                We will handle your personal data in accordance with our Privacy Policy. We will implement reasonable security measures to protect your data from unauthorized access, disclosure, or destruction.
+              </p>
+              <p className="text-foreground leading-relaxed">
+                We reserve the right to modify, suspend, or discontinue any aspect of the Service at any time, with or without notice, subject to the terms of your active subscription. We will provide advance notice of material changes that adversely affect your rights where reasonably practicable.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">4.3 Indemnification</h3>
+              <p className="text-foreground leading-relaxed">
+                You agree to indemnify, defend, and hold harmless Eudox and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys' fees) arising out of or related to your use of the Service, your violation of these Terms, your violation of any rights of another party, or your violation of any applicable laws or regulations.
+              </p>
+            </section>
+
+            {/* 4. MANAGES ACCOUNTS */}
+            <section>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">5. Account Management and Termination</h2>
+              
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">5.1 Suspension and Termination by Eudox</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                We reserve the right to suspend or terminate your account immediately, without prior notice, if we determine in our sole discretion that you have violated these Terms, engaged in fraudulent or illegal activity, posed a security risk, or otherwise acted in a manner detrimental to Eudox or other users.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                <strong>Termination for Cause:</strong> If your account is terminated for cause (violation of Terms), you will not be entitled to any refund of prepaid fees, and you will remain liable for all outstanding amounts owed to Eudox.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                <strong>Data Deletion:</strong> Upon termination, your account data will be retained for thirty (30) days to allow for data export or account reactivation. After thirty (30) days, all account data will be permanently deleted and cannot be recovered.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">5.2 Cancellation by User</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                You may cancel your subscription at any time through your account settings or by contacting our support team at support@eudox.com. Cancellation will be effective at the end of your current billing cycle.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                You will retain access to the Service until the end of your current billing period. No refunds or credits will be provided for partial months of service, unused features, or unused queries.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                <strong>Data Export:</strong> You may export your data at any time during your active subscription or within thirty (30) days after cancellation. After thirty (30) days, your data will be permanently deleted.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">5.3 Reactivation</h3>
+              <p className="text-foreground leading-relaxed">
+                If you wish to reactivate a canceled or suspended account, you may do so by contacting our support team. Reactivation is subject to our approval and current pricing. Previously negotiated discounts or promotional rates may no longer be available upon reactivation.
+              </p>
+            </section>
+
+            {/* 5. COVERS SPECIFICS */}
+            <section>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">6. Payment Terms and Billing</h2>
+              
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">6.1 Subscription Plans and Pricing</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                Eudox offers the following subscription plans:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-foreground mb-4">
+                <li><strong>Starter Plan:</strong> $499 per month (500 AI queries, single user)</li>
+                <li><strong>Pro Firm Plan:</strong> $1,999 per month (3,000 AI queries, up to 5 users)</li>
+                <li><strong>Enterprise Plan:</strong> Custom pricing (unlimited queries and users)</li>
+              </ul>
+              <p className="text-foreground leading-relaxed mb-4">
+                All fees are in U.S. dollars and are exclusive of applicable taxes, duties, or similar governmental assessments. You are responsible for paying all applicable taxes.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">6.2 Billing and Payment</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                Subscription fees are billed in advance on a monthly or annual basis, depending on your selected billing cycle. By providing payment information, you authorize Eudox to charge your designated payment method on a recurring basis until you cancel your subscription.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                If your payment method fails or your account becomes past due, we may suspend your access to the Service until payment is received. You are responsible for providing current, complete, and accurate billing information and promptly updating such information if it changes.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">6.3 Automatic Renewal</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                Your subscription will automatically renew at the end of each billing cycle unless you cancel at least seven (7) days before the renewal date. You will be charged the then-current subscription fee for your plan.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">6.4 Price Changes</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                We reserve the right to change our pricing at any time. Price changes will be communicated to you at least thirty (30) days in advance via email or through the Service. Price changes will take effect on your next billing cycle following the notice period.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                Your continued use of the Service after a price change constitutes your acceptance of the new pricing. If you do not agree to the price change, you may cancel your subscription before the new price takes effect.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">6.5 Refund Policy</h3>
+              <p className="text-foreground leading-relaxed">
+                All subscription fees are non-refundable except as expressly provided in these Terms or required by applicable law. We do not provide refunds or credits for partial months of service, unused features, unused queries, or early cancellation.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">3. Subscription Plans and Usage Limits</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">7. Intellectual Property Rights</h2>
+              
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">7.1 Eudox's Intellectual Property</h3>
               <p className="text-foreground leading-relaxed mb-4">
-                Eudox offers tiered subscription plans with specific usage limits, features, and pricing. Your rights to use the Services are strictly limited by the subscription plan you have purchased. Exceeding the usage limits of your plan without upgrading may result in service restrictions or additional charges.
+                The Service, including all software, algorithms, AI models, data compilations, designs, graphics, text, and other content provided by Eudox (collectively, "Eudox Content"), is owned by Eudox and is protected by copyright, trademark, patent, trade secret, and other intellectual property laws.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                Subject to your compliance with these Terms, Eudox grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Service during your active subscription solely for your internal business purposes.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                You may not copy, modify, distribute, sell, lease, sublicense, reverse engineer, decompile, or create derivative works based on the Service or any Eudox Content, except as expressly permitted by these Terms or applicable law.
               </p>
 
-              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">3.1 Starter Plan</h3>
-              <div className="bg-muted p-6 rounded-lg mb-4">
-                <p className="text-foreground mb-2"><strong>Price:</strong> $499 per month</p>
-                <p className="text-foreground mb-2"><strong>Target Users:</strong> Individual dealmakers, independent consultants, and solo practitioners</p>
-                <p className="text-foreground mb-4"><strong>Usage Limits and Features:</strong></p>
-                <ul className="list-disc list-inside space-y-2 text-foreground">
-                  <li>Single user account with no team collaboration features</li>
-                  <li>Maximum of five hundred (500) AI agent queries per month</li>
-                  <li>Access to up to one thousand (1,000) detailed company profiles per month</li>
-                  <li>Up to twenty (20) active saved searches and deal alerts</li>
-                  <li>Maximum of fifty (50) executive contact enrichments per month</li>
-                  <li>Basic email support with forty-eight (48) hour response time</li>
-                  <li>Standard data refresh frequency of seventy-two (72) hours</li>
-                  <li>No CRM integration or API access</li>
-                  <li>Data export limited to CSV format, maximum one hundred (100) records per export</li>
-                </ul>
-              </div>
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">7.2 User-Generated Content</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                You retain ownership of any investment criteria, notes, saved searches, or other content you upload or create through the Service ("User Content"). By uploading or creating User Content, you grant Eudox a worldwide, non-exclusive, royalty-free license to use, store, process, and display your User Content solely to provide and improve the Service.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                You represent and warrant that you have all necessary rights to grant this license and that your User Content does not violate any third-party rights or applicable laws.
+              </p>
 
-              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">3.2 Pro Firm Plan</h3>
-              <div className="bg-muted p-6 rounded-lg mb-4">
-                <p className="text-foreground mb-2"><strong>Price:</strong> $1,999 per month</p>
-                <p className="text-foreground mb-2"><strong>Target Users:</strong> Investment firms, corporate development teams, and professional services organizations</p>
-                <p className="text-foreground mb-4"><strong>Usage Limits and Features:</strong></p>
-                <ul className="list-disc list-inside space-y-2 text-foreground">
-                  <li>Up to five (5) user accounts with team collaboration and shared workspaces</li>
-                  <li>Maximum of three thousand (3,000) AI agent queries per month across all users</li>
-                  <li>Access to up to ten thousand (10,000) detailed company profiles per month</li>
-                  <li>Up to one hundred (100) active saved searches and deal alerts per team</li>
-                  <li>Maximum of five hundred (500) executive contact enrichments per month</li>
-                  <li>Priority email and chat support with twelve (12) hour response time</li>
-                  <li>Enhanced data refresh frequency of twenty-four (24) hours</li>
-                  <li>CRM integration with Salesforce, HubSpot, and Microsoft Dynamics</li>
-                  <li>API access with rate limit of one thousand (1,000) requests per day</li>
-                  <li>Advanced data export in CSV, Excel, and JSON formats, maximum five thousand (5,000) records per export</li>
-                  <li>Custom investment thesis modeling and advanced filtering</li>
-                  <li>Quarterly business review with dedicated customer success manager</li>
-                </ul>
-              </div>
-
-              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">3.3 Enterprise Plan</h3>
-              <div className="bg-muted p-6 rounded-lg mb-4">
-                <p className="text-foreground mb-2"><strong>Price:</strong> Custom pricing based on requirements</p>
-                <p className="text-foreground mb-2"><strong>Target Users:</strong> Large investment firms, global corporations, and institutional investors</p>
-                <p className="text-foreground mb-4"><strong>Usage Limits and Features:</strong></p>
-                <ul className="list-disc list-inside space-y-2 text-foreground">
-                  <li>Unlimited user accounts with advanced role-based access controls</li>
-                  <li>Unlimited AI agent queries and company profile access</li>
-                  <li>Unlimited saved searches, deal alerts, and executive contact enrichments</li>
-                  <li>Dedicated account management and twenty-four/seven (24/7) priority support</li>
-                  <li>Real-time data refresh and early access to new features</li>
-                  <li>Custom CRM integrations and white-label API access</li>
-                  <li>Unlimited data exports in all formats with bulk export capabilities</li>
-                  <li>Custom AI model training on proprietary deal data</li>
-                  <li>On-premise deployment options and single sign-on (SSO) integration</li>
-                  <li>Service level agreement (SLA) with ninety-nine point nine percent (99.9%) uptime guarantee</li>
-                  <li>Dedicated infrastructure and data isolation options</li>
-                </ul>
-              </div>
-
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">7.3 Feedback and Suggestions</h3>
               <p className="text-foreground leading-relaxed">
-                Usage limits reset on the first day of each billing cycle. Unused queries, profile views, or other limited resources do not roll over to subsequent billing periods. If you exceed your plan's usage limits, we reserve the right to throttle, restrict, or suspend access to certain features until you upgrade your subscription or the next billing cycle begins. We will make reasonable efforts to notify you before imposing such restrictions.
+                If you provide Eudox with any feedback, suggestions, or ideas regarding the Service ("Feedback"), you grant Eudox a perpetual, irrevocable, worldwide, royalty-free license to use, modify, and incorporate such Feedback into the Service without any obligation to compensate you or provide attribution.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">4. Account Registration and Security</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">8. Data Privacy and Security</h2>
               <p className="text-foreground leading-relaxed mb-4">
-                To access certain features of the Services, you must create an account by providing accurate, current, and complete information. You are solely responsible for maintaining the confidentiality of your account credentials, including your username and password, and for all activities that occur under your account. You agree to immediately notify us of any unauthorized use of your account or any other breach of security.
+                Your use of the Service is also governed by our Privacy Policy, which describes how we collect, use, and protect your personal information. By using the Service, you consent to the collection and use of your information as described in the Privacy Policy.
+              </p>
+              <p className="text-foreground leading-relaxed mb-4">
+                We implement reasonable administrative, technical, and physical security measures to protect your data from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.
               </p>
               <p className="text-foreground leading-relaxed">
-                You represent and warrant that you are at least eighteen (18) years of age and have the legal capacity to enter into these Terms. You may not use the Services if you are a competitor of Eudox or if you are using the Services for competitive analysis, benchmarking, or reverse engineering purposes. We reserve the right to refuse service, terminate accounts, or remove or edit content at our sole discretion.
+                You are responsible for maintaining the security of your account credentials and for any activities that occur under your account. You agree to immediately notify us of any unauthorized access or security breach.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">5. Payment Terms and Billing</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">9. Dispute Resolution and Governing Law</h2>
+              
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">9.1 Governing Law</h3>
               <p className="text-foreground leading-relaxed mb-4">
-                Subscription fees are billed in advance on a monthly basis and are non-refundable except as expressly provided in these Terms or required by applicable law. By providing payment information, you authorize us to charge the applicable subscription fees to your designated payment method on a recurring basis until you cancel your subscription. All fees are exclusive of applicable taxes, duties, or similar governmental assessments, which you are responsible for paying.
+                These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law principles.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">9.2 Dispute Resolution</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                Any dispute, claim, or controversy arising out of or relating to these Terms or the Service shall be resolved through binding arbitration in accordance with the Commercial Arbitration Rules of the American Arbitration Association (AAA). The arbitration shall be conducted in Wilmington, Delaware, or remotely via videoconference.
               </p>
               <p className="text-foreground leading-relaxed mb-4">
-                We reserve the right to change our pricing upon thirty (30) days' notice, which may be provided by email or through the Services. Price changes will take effect at the start of the next billing cycle following the notice period. Your continued use of the Services after the price change constitutes your acceptance of the new pricing. If you do not agree to the price change, you may cancel your subscription before the new price takes effect.
+                <strong>Class Action Waiver:</strong> You agree that any arbitration or proceeding shall be conducted on an individual basis and not as a class action, consolidated action, or representative action. You waive any right to participate in a class action lawsuit or class-wide arbitration.
               </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">9.3 Exceptions</h3>
               <p className="text-foreground leading-relaxed">
-                If your payment method fails or your account is past due, we may suspend or terminate your access to the Services until payment is received. You are responsible for providing current, complete, and accurate billing information and promptly updating such information if it changes.
+                Notwithstanding the foregoing, either party may seek injunctive or equitable relief in any court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation, or violation of intellectual property rights.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">6. Cancellation and Refunds</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">10. Modifications to Terms</h2>
               <p className="text-foreground leading-relaxed mb-4">
-                You may cancel your subscription at any time through your account settings or by contacting our customer support team. Cancellation will be effective at the end of your current billing cycle, and you will retain access to the Services until that time. We do not provide refunds or credits for partial months of service or for unused features or content.
+                We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms on our website and updating the "Last Updated" date at the top of this page. We may also notify you via email or through the Service.
               </p>
-              <p className="text-foreground leading-relaxed">
-                If you cancel during a free trial period, your cancellation will be effective immediately, and you will not be charged. If you signed up for a discounted promotional rate, canceling and resubscribing may result in losing that promotional pricing.
+              <p className="text-foreground leading-relaxed mb-4">
+                Your continued use of the Service after the effective date of the modified Terms constitutes your acceptance of the changes. If you do not agree to the modified Terms, you must stop using the Service and cancel your subscription.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">7. Acceptable Use Policy</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">11. General Provisions</h2>
+              
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">11.1 Entire Agreement</h3>
               <p className="text-foreground leading-relaxed mb-4">
-                You agree to use the Services only for lawful purposes and in accordance with these Terms. You shall not use the Services to violate any applicable local, state, national, or international law or regulation; infringe upon or misappropriate the intellectual property rights of Eudox or any third party; transmit any material that is defamatory, obscene, offensive, or otherwise objectionable; engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Services; attempt to gain unauthorized access to the Services, other accounts, computer systems, or networks; interfere with or disrupt the Services or servers or networks connected to the Services; use any robot, spider, scraper, or other automated means to access the Services without our prior written permission; reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Services; remove, alter, or obscure any proprietary notices on the Services; or resell, sublicense, or redistribute the Services or any data obtained from the Services without our express written consent.
+                These Terms, together with our Privacy Policy and Cookie Policy, constitute the entire agreement between you and Eudox regarding the Service and supersede all prior agreements and understandings.
               </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">11.2 Severability</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">11.3 Waiver</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                No waiver of any term or condition of these Terms shall be deemed a further or continuing waiver of such term or any other term.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">11.4 Assignment</h3>
+              <p className="text-foreground leading-relaxed mb-4">
+                You may not assign or transfer these Terms or your rights under these Terms without our prior written consent. Eudox may assign or transfer these Terms without restriction.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#11142d] dark:text-white mt-6 mb-3">11.5 Force Majeure</h3>
               <p className="text-foreground leading-relaxed">
-                We reserve the right to investigate and take appropriate legal action against anyone who violates this Acceptable Use Policy, including removing offending content, suspending or terminating accounts, and reporting violations to law enforcement authorities.
+                Eudox shall not be liable for any failure or delay in performance due to causes beyond its reasonable control, including but not limited to acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, pandemics, strikes, or shortages of transportation facilities, fuel, energy, labor, or materials.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">8. Intellectual Property Rights</h2>
+              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">12. Contact Information</h2>
               <p className="text-foreground leading-relaxed mb-4">
-                The Services, including all software, algorithms, databases, text, graphics, logos, icons, images, audio clips, video clips, data compilations, and other content, are owned by Eudox or our licensors and are protected by United States and international copyright, trademark, patent, trade secret, and other intellectual property laws. Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Services solely for your internal business purposes in accordance with your subscription plan.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                You retain all rights to any data, content, or materials that you submit, upload, or input into the Services ("<strong>User Content</strong>"). By submitting User Content, you grant us a worldwide, non-exclusive, royalty-free, sublicensable license to use, copy, modify, create derivative works of, distribute, publicly display, and publicly perform your User Content solely to the extent necessary to provide the Services to you and to improve our Services. This license terminates when you delete your User Content or close your account, except to the extent that the User Content has been shared with others and they have not deleted it, or as necessary to comply with legal obligations.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">9. Data Accuracy and Limitations</h2>
-              <p className="text-foreground leading-relaxed mb-4">
-                While we strive to provide accurate, timely, and comprehensive data through our Services, we do not warrant or guarantee the accuracy, completeness, reliability, or timeliness of any information, data, or recommendations provided by the Services or our AI agent. The Services aggregate data from publicly available sources, proprietary databases, and third-party data providers, and such data may contain errors, omissions, or inaccuracies.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                You acknowledge that the Services are tools to assist in your deal sourcing and investment analysis processes and should not be relied upon as the sole basis for making investment decisions. You are solely responsible for conducting your own due diligence, verification, and analysis before pursuing any investment opportunity identified through the Services. Eudox is not a registered investment advisor, broker-dealer, or financial institution, and the Services do not constitute investment advice, financial advice, or recommendations to buy or sell any securities or assets.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">10. Disclaimer of Warranties</h2>
-              <p className="text-foreground leading-relaxed mb-4">
-                THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, EUDOX DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                EUDOX DOES NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. EUDOX DOES NOT WARRANT THAT ANY DEFECTS OR ERRORS WILL BE CORRECTED OR THAT THE SERVICES WILL MEET YOUR REQUIREMENTS OR EXPECTATIONS. YOU ASSUME ALL RESPONSIBILITY AND RISK FOR YOUR USE OF THE SERVICES AND ANY DECISIONS MADE BASED ON INFORMATION OBTAINED THROUGH THE SERVICES.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">11. Limitation of Liability</h2>
-              <p className="text-foreground leading-relaxed mb-4">
-                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL EUDOX, ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE SERVICES, EVEN IF EUDOX HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, EUDOX'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES SHALL NOT EXCEED THE AMOUNT YOU PAID TO EUDOX IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE LIABILITY, OR ONE HUNDRED DOLLARS ($100), WHICHEVER IS GREATER. THESE LIMITATIONS APPLY REGARDLESS OF THE LEGAL THEORY ON WHICH THE CLAIM IS BASED, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR OTHERWISE.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">12. Indemnification</h2>
-              <p className="text-foreground leading-relaxed">
-                You agree to indemnify, defend, and hold harmless Eudox, its affiliates, and their respective officers, directors, employees, agents, and licensors from and against any and all claims, liabilities, damages, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising from your use of the Services, your violation of these Terms, your violation of any rights of another party, or your User Content. We reserve the right to assume the exclusive defense and control of any matter subject to indemnification by you, in which case you agree to cooperate with our defense of such claim.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">13. Term and Termination</h2>
-              <p className="text-foreground leading-relaxed mb-4">
-                These Terms commence on the date you first access or use the Services and continue until terminated by either party. You may terminate these Terms at any time by canceling your subscription and ceasing all use of the Services. We may suspend or terminate your access to the Services immediately, without prior notice or liability, for any reason, including if you breach these Terms.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                Upon termination, your right to use the Services will immediately cease, and you must promptly destroy all copies of any materials obtained from the Services. The following sections shall survive termination: Sections 5 (Payment Terms), 8 (Intellectual Property Rights), 9 (Data Accuracy and Limitations), 10 (Disclaimer of Warranties), 11 (Limitation of Liability), 12 (Indemnification), 15 (Dispute Resolution and Arbitration), 16 (Governing Law), and 17 (General Provisions).
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">14. Modifications to Terms</h2>
-              <p className="text-foreground leading-relaxed">
-                We reserve the right to modify these Terms at any time in our sole discretion. We will provide notice of material changes by posting the updated Terms on our website with a new "Last Updated" date and, where required by law, by sending you an email notification or displaying a prominent notice within the Services. Your continued use of the Services after the effective date of the updated Terms constitutes your acceptance of the changes. If you do not agree to the modified Terms, you must stop using the Services and cancel your subscription.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">15. Dispute Resolution and Arbitration</h2>
-              <p className="text-foreground leading-relaxed mb-4">
-                Any dispute, claim, or controversy arising out of or relating to these Terms or the Services shall be resolved through binding arbitration administered by the American Arbitration Association (AAA) in accordance with its Commercial Arbitration Rules. The arbitration shall be conducted by a single arbitrator in the English language in [Your Jurisdiction]. The arbitrator's decision shall be final and binding, and judgment on the award may be entered in any court having jurisdiction.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                YOU AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION. You may opt out of this arbitration agreement by sending written notice to legal@eudox.com within thirty (30) days of first accepting these Terms. If you opt out, this arbitration provision will not apply to you, but all other terms of these Terms will remain in effect.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">16. Governing Law</h2>
-              <p className="text-foreground leading-relaxed">
-                These Terms shall be governed by and construed in accordance with the laws of the State of [Your State], United States, without regard to its conflict of law principles. Any legal action or proceeding arising out of or related to these Terms that is not subject to arbitration shall be brought exclusively in the federal or state courts located in [Your County], [Your State], and you consent to the personal jurisdiction of such courts.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">17. General Provisions</h2>
-              <p className="text-foreground leading-relaxed mb-4">
-                <strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy and Cookie Policy, constitute the entire agreement between you and Eudox regarding the Services and supersede all prior or contemporaneous understandings and agreements, whether written or oral.
-              </p>
-              <p className="text-foreground leading-relaxed mb-4">
-                <strong>Severability:</strong> If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect.
-              </p>
-              <p className="text-foreground leading-relaxed mb-4">
-                <strong>Waiver:</strong> No waiver of any term or condition of these Terms shall be deemed a further or continuing waiver of such term or any other term, and our failure to assert any right or provision under these Terms shall not constitute a waiver of such right or provision.
-              </p>
-              <p className="text-foreground leading-relaxed mb-4">
-                <strong>Assignment:</strong> You may not assign or transfer these Terms or your rights under these Terms without our prior written consent. We may assign these Terms without restriction.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                <strong>Force Majeure:</strong> Eudox shall not be liable for any failure or delay in performance due to causes beyond our reasonable control, including acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, pandemics, strikes, or shortages of transportation facilities, fuel, energy, labor, or materials.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">18. Contact Information</h2>
-              <p className="text-foreground leading-relaxed mb-4">
-                If you have questions or concerns about these Terms, please contact us at:
+                If you have any questions, concerns, or complaints regarding these Terms or the Service, please contact us at:
               </p>
               <div className="bg-muted p-6 rounded-lg">
-                <p className="text-foreground font-semibold mb-2">Eudox, Inc.</p>
-                <p className="text-foreground">Legal Department</p>
-                <p className="text-foreground">Email: legal@eudox.com</p>
-                <p className="text-foreground">Address: [Your Company Address]</p>
-                <p className="text-foreground">Phone: 1-800-EUDOX-AI</p>
+                <p className="text-foreground mb-2"><strong>Eudox Inc.</strong></p>
+                <p className="text-foreground mb-2">Email: legal@eudox.com</p>
+                <p className="text-foreground mb-2">Support: support@eudox.com</p>
+                <p className="text-foreground">Address: 123 Innovation Drive, Wilmington, DE 19801, United States</p>
               </div>
             </section>
+
           </div>
         </AnimatedSection>
       </div>
