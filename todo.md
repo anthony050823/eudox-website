@@ -88,3 +88,6 @@
 - [x] Create comprehensive Terms of Service page with service-specific details
 - [x] Add Terms of Service route to App.tsx
 - [x] Add Terms of Service link to Footer
+- [x] Fix Terms of Service page display issue (text visibility and layering)
+- [x] Ensure proper text color contrast against background
+- [x] Verify z-index layering puts text on top

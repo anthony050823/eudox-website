@@ -1,4 +1,4 @@
-import { AnimatedSection } from "@/components/AnimatedSection";
+
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { X } from "lucide-react";
@@ -12,7 +12,7 @@ export default function TermsOfService() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0B102C]">
+    <div className="min-h-screen bg-white dark:bg-[#0B102C] text-[#11142d] dark:text-white">
       <div className="container py-16 max-w-4xl relative z-10">
         <Button
           variant="ghost"
@@ -23,7 +23,7 @@ export default function TermsOfService() {
         >
           <X className="h-5 w-5" />
         </Button>
-        <AnimatedSection animation="fade-up">
+        <div>
           <h1 className="text-4xl font-bold text-[#11142d] dark:text-white mb-4">Terms of Service</h1>
           <p className="text-muted-foreground mb-8">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
           
@@ -435,7 +435,7 @@ export default function TermsOfService() {
             </section>
 
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </div>
   );
