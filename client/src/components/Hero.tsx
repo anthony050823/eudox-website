@@ -85,7 +85,7 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                 </div>
-                <div className="text-xs text-gray-400 font-mono">agent_status: active</div>
+                <div className="text-xs text-gray-600 dark:text-gray-400 font-mono">agent_status: active</div>
               </div>
               
               <div className="space-y-4">

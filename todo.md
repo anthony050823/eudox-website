@@ -49,3 +49,4 @@
 - [x] Review and fix text contrast in light mode across all components
 - [x] Ensure dark text colors are used in light mode for readability
 - [x] Update signal notification card text to use theme-aware colors
+- [x] Update UI bar (colored dots and agent_status text) to use theme-aware colors
