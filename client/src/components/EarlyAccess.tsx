@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { AnimatedSection } from "./AnimatedSection";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export default function EarlyAccess() {
   const [formData, setFormData] = useState({
@@ -51,10 +52,11 @@ export default function EarlyAccess() {
   return (
     <section id="early-access" className="py-24 bg-[#f5f6fb] dark:bg-[#0B102C] relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img 
+        <ImageWithFallback 
           src="/images/early-access-bg.png" 
           alt="Background Pattern" 
           className="w-full h-full object-cover opacity-30"
+          fallbackClassName="w-full h-full"
           loading="lazy"
         />
       </div>

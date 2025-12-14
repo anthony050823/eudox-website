@@ -7,6 +7,7 @@ import { Loader2, LogOut, User, Mail, Calendar, Shield } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useLocation } from "wouter";
 import { useTheme } from "@/contexts/ThemeContext";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export default function Dashboard() {
   const { user, loading, isAuthenticated, logout } = useAuth();
@@ -58,7 +59,12 @@ export default function Dashboard() {
       <header className="border-b border-border bg-card/50 backdrop-blur-xl">
         <div className="container py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/logo-light.svg" alt="Eudox" className="w-8 h-8" />
+            <ImageWithFallback 
+              src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
+              alt="Eudox" 
+              className="w-8 h-8"
+              fallbackClassName="w-8 h-8"
+            />
             <h1 className="text-xl font-bold text-foreground">Eudox Dashboard</h1>
           </div>
           <div className="flex items-center gap-3">

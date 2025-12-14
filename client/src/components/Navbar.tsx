@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,10 +52,11 @@ export default function Navbar() {
       <div className="container flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 flex items-center justify-center rounded-xl overflow-hidden transition-transform group-hover:scale-105">
-            <img 
+            <ImageWithFallback 
               src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
               alt="Eudox Logo" 
               className="w-full h-full object-contain"
+              fallbackClassName="w-full h-full"
             />
           </div>
           <span className="text-xl font-bold tracking-tight text-[#11142d] dark:text-white">

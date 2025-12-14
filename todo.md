@@ -66,3 +66,6 @@
 - [x] Audit responsive design across all screen sizes (mobile, 13" laptop, 14" laptop, large desktop)
 - [x] Fix any stretching or layout issues on different screen sizes
 - [x] Test and verify proper display on all breakpoints
+- [x] Create reusable ImageWithFallback component with error handling
+- [x] Replace all image tags with ImageWithFallback component
+- [x] Add "Unable to load" text and icon indicator for failed images

@@ -1,15 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B102C] dark:bg-[#0B102C] bg-gradient-to-b from-gray-50 to-white dark:from-[#0B102C] dark:to-[#0B102C]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img 
+        <ImageWithFallback 
           src="/images/hero-bg.png" 
           alt="Digital Horizon Background" 
           className="w-full h-full object-cover opacity-0 dark:opacity-60 transition-opacity duration-300"
+          fallbackClassName="w-full h-full"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white dark:from-[#0B102C]/30 dark:via-transparent dark:to-[#0B102C]"></div>
       </div>

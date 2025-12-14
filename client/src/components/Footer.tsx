@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Twitter, Linkedin, Github, Mail } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export default function Footer() {
   const { resolvedTheme } = useTheme();
@@ -12,10 +13,11 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-                <img 
+                <ImageWithFallback 
                   src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
                   alt="Eudox" 
-                  className="w-full h-full object-contain" 
+                  className="w-full h-full object-contain"
+                  fallbackClassName="w-full h-full"
                 />
               </div>
               <span className="text-xl font-bold text-[#11142d] dark:text-white">Eudox</span>

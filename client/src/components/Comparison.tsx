@@ -1,4 +1,5 @@
-import { X, Check } from "lucide-react";
+import { Check, X } from "lucide-react";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export default function Comparison() {
   return (
@@ -71,10 +72,11 @@ export default function Comparison() {
         </div>
         
         <div className="mt-16 rounded-3xl overflow-hidden relative h-64 md:h-80">
-          <img 
+          <ImageWithFallback 
             src="/images/comparison-bg.png" 
             alt="Data Comparison" 
             className="w-full h-full object-cover"
+            fallbackClassName="w-full h-full"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B102C] to-transparent opacity-80"></div>
           <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
