@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import Dashboard from "./pages/Dashboard";
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path={"/"} component={Home} />
 
       <Route path={"/privacy"} component={PrivacyPolicy} />
+      <Route path={"/terms"} component={TermsOfService} />
       <Route path={"/cookies"} component={CookiePolicy} />
       <Route path={"/dashboard"} component={Dashboard} />
       <Route path={"/404"} component={NotFound} />

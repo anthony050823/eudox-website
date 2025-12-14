@@ -85,3 +85,6 @@
 - [x] Remove Terms of Service route from App.tsx
 - [x] Remove Terms of Service link from Footer
 - [x] Remove Terms of Service section from homepage
+- [x] Create comprehensive Terms of Service page with service-specific details
+- [x] Add Terms of Service route to App.tsx
+- [x] Add Terms of Service link to Footer
