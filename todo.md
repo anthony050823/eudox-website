@@ -93,3 +93,7 @@
 - [x] Verify z-index layering puts text on top
 - [x] Improve Legal section layout in Footer
 - [x] Ensure Legal section uses same font as main website
+- [x] Analyze Apple's legal page design patterns
+- [x] Redesign Terms of Service page with modern Apple-style layout
+- [x] Add Table of Contents navigation for sections
+- [x] Improve typography and spacing
