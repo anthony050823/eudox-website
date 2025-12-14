@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
   const { isAuthenticated, user } = useAuth();
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme, mode, setThemeMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,19 +50,36 @@ export default function Navbar() {
       )}
     >
       <div className="container flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 flex items-center justify-center rounded-xl overflow-hidden transition-transform group-hover:scale-105">
-            <ImageWithFallback 
-              src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
-              alt="Eudox Logo" 
-              className="w-full h-full object-contain"
-              fallbackClassName="w-full h-full"
-            />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-[#11142d] dark:text-white">
-            Eudox
-          </span>
-        </Link>
+        <div className="flex items-center gap-3">
+          {/* Logo with theme toggle on mobile */}
+          <button
+            onClick={(e) => {
+              // Only toggle theme on mobile, navigate on desktop
+              if (window.innerWidth < 768) {
+                e.preventDefault();
+                // Cycle through themes: light -> dark -> system -> light
+                if (mode === 'light') setThemeMode('dark');
+                else if (mode === 'dark') setThemeMode('system');
+                else setThemeMode('light');
+              } else {
+                setLocation('/');
+              }
+            }}
+            className="flex items-center gap-3 group cursor-pointer"
+          >
+            <div className="relative w-10 h-10 flex items-center justify-center rounded-xl overflow-hidden transition-transform group-hover:scale-105">
+              <ImageWithFallback 
+                src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
+                alt="Eudox Logo" 
+                className="w-full h-full object-contain"
+                fallbackClassName="w-full h-full"
+              />
+            </div>
+            <span className="text-xl font-bold tracking-tight text-[#11142d] dark:text-white">
+              Eudox
+            </span>
+          </button>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">

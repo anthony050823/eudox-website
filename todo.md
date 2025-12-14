@@ -69,3 +69,5 @@
 - [x] Create reusable ImageWithFallback component with error handling
 - [x] Replace all image tags with ImageWithFallback component
 - [x] Add "Unable to load" text and icon indicator for failed images
+- [x] Add theme toggle functionality to logo click in mobile view
+- [x] Test theme switching via logo on mobile devices
