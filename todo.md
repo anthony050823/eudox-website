@@ -91,3 +91,5 @@
 - [x] Fix Terms of Service page display issue (text visibility and layering)
 - [x] Ensure proper text color contrast against background
 - [x] Verify z-index layering puts text on top
+- [x] Improve Legal section layout in Footer
+- [x] Ensure Legal section uses same font as main website

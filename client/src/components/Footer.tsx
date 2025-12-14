@@ -60,11 +60,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-6">Legal</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-              <li><Link href="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link></li>
+            <h4 className="font-semibold text-foreground mb-6 font-sans">Legal</h4>
+            <ul className="space-y-4 text-sm font-sans">
+              <li><Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors font-medium">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors font-medium">Terms of Service</Link></li>
+              <li><Link href="/cookies" className="text-muted-foreground hover:text-primary transition-colors font-medium">Cookie Policy</Link></li>
             </ul>
           </div>
         </div>
