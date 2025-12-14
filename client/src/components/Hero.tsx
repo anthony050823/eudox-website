@@ -119,10 +119,10 @@ export default function Hero() {
                 
                 <div className="p-4 rounded-xl bg-gradient-to-r from-[#4ee8dc]/10 to-[#3dc4ff]/10 border border-[#4ee8dc]/20 mt-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs text-cyan-300 font-medium">Signal Detected</span>
-                    <span className="text-[10px] text-cyan-300/70">Just now</span>
+                    <span className="text-xs text-cyan-600 dark:text-cyan-300 font-medium">Signal Detected</span>
+                    <span className="text-[10px] text-cyan-600/70 dark:text-cyan-300/70">Just now</span>
                   </div>
-                  <p className="text-sm text-gray-200">
+                  <p className="text-sm text-gray-700 dark:text-gray-200">
                     High-intent acquisition target identified in Fintech sector. Revenue growth &gt; 40% YoY.
                   </p>
                 </div>

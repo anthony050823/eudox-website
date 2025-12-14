@@ -46,3 +46,6 @@
 - [x] Create SVG version of dark mode logo with same dimensions as light logo
 - [x] Update logo references to use SVG for both themes
 - [x] Use the same eudox-logo.svg for both light and dark modes
+- [x] Review and fix text contrast in light mode across all components
+- [x] Ensure dark text colors are used in light mode for readability
+- [x] Update signal notification card text to use theme-aware colors
