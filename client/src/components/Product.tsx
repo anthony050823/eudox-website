@@ -16,7 +16,7 @@ export default function Product() {
           </div>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="group p-8 rounded-3xl bg-white dark:bg-[#1a1b1f] border border-border hover:border-[#4ee8dc]/50 shadow-lg hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4ee8dc]/10 to-[#3dc4ff]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">

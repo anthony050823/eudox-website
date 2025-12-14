@@ -196,6 +196,24 @@
       max-width: 1280px;
     }
   }
+
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1360px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1440px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1600px;
+    }
+  }
   
   /* Eudox Custom Utilities */
   .text-gradient {

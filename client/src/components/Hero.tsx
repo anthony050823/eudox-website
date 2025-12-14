@@ -24,14 +24,14 @@ export default function Hero() {
             Now in Early Access
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
             Autonomous <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff]">
               Deal Sourcing
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
             Stop searching. Start discovering. The first AI agent engineered to proactively find private market opportunities before they hit the market.
           </p>
           
@@ -56,7 +56,7 @@ export default function Hero() {
             </Button>
           </div>
           
-          <div className="pt-8 flex items-center gap-8 text-sm text-gray-500 dark:text-gray-400">
+          <div className="pt-8 flex flex-wrap items-center gap-4 sm:gap-8 text-sm text-gray-500 dark:text-gray-400">
             <div>
               <p className="font-semibold text-gray-900 dark:text-white text-2xl">16M+</p>
               <p>Companies Tracked</p>

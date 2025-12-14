@@ -13,7 +13,7 @@ export default function Comparison() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {/* Generic Chat Card */}
           <div className="p-8 rounded-3xl bg-gray-50 dark:bg-[#1a1b1f]/50 border border-border/50 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-10">
