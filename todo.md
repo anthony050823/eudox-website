@@ -98,3 +98,8 @@
 - [x] Add Table of Contents navigation for sections
 - [x] Improve typography and spacing
 - [x] Remove physical address from Terms of Service contact section
+- [x] Verify 'Last Updated' date is displayed on Terms of Service page
+- [x] Ensure Last Updated date is prominently visible and properly formatted
+- [x] Update email addresses in Terms of Service contact section
+- [x] Change legal@eudox.com to privacy@eudox.ai
+- [x] Change support@eudox.com to support@eudox.ai

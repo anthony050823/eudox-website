@@ -459,8 +459,8 @@ export default function TermsOfService() {
               </p>
               <div className="bg-white dark:bg-[#1d1d1f] rounded-xl p-6 mt-6">
                 <p className="font-semibold mb-2">Eudox Inc.</p>
-                <p>Email: <a href="mailto:legal@eudox.com" className="text-blue-600 dark:text-blue-400 hover:underline">legal@eudox.com</a></p>
-                <p>Support: <a href="mailto:support@eudox.com" className="text-blue-600 dark:text-blue-400 hover:underline">support@eudox.com</a></p>
+                <p>Email: <a href="mailto:privacy@eudox.ai" className="text-blue-600 dark:text-blue-400 hover:underline">privacy@eudox.ai</a></p>
+                <p>Support: <a href="mailto:support@eudox.ai" className="text-blue-600 dark:text-blue-400 hover:underline">support@eudox.ai</a></p>
               </div>
             </div>
           </section>
