@@ -31,7 +31,7 @@ export default function CookiePolicy() {
             <section>
               <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">1. Introduction</h2>
               <p className="text-foreground leading-relaxed mb-4">
-                This Cookie Policy explains how Eudox, Inc. ("<strong>Eudox</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") uses cookies and similar tracking technologies when you visit our website at eudox.com or use our autonomous deal sourcing platform and related services (collectively, the "<strong>Services</strong>"). This policy provides detailed information about the types of cookies we use, why we use them, and how you can control your cookie preferences.
+                This Cookie Policy explains how EudoxAi, Inc. ("<strong>Eudox</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") uses cookies and similar tracking technologies when you visit our website at eudox.com or use our autonomous deal sourcing platform and related services (collectively, the "<strong>Services</strong>"). This policy provides detailed information about the types of cookies we use, why we use them, and how you can control your cookie preferences.
               </p>
               <p className="text-foreground leading-relaxed">
                 By continuing to use our Services, you consent to our use of cookies and similar technologies as described in this Cookie Policy. This policy should be read in conjunction with our Privacy Policy and Terms of Service, which provide additional information about how we collect, use, and protect your personal information.
@@ -247,10 +247,9 @@ export default function CookiePolicy() {
                 If you have questions or concerns about our use of cookies or this Cookie Policy, please contact us at:
               </p>
               <div className="bg-muted p-6 rounded-lg">
-                <p className="text-foreground font-semibold mb-2">Eudox, Inc.</p>
+                <p className="text-foreground font-semibold mb-2">EudoxAi, Inc.</p>
                 <p className="text-foreground">Privacy Team</p>
-                <p className="text-foreground">Email: privacy@eudox.com</p>
-                <p className="text-foreground">Address: [Your Company Address]</p>
+                <p className="text-foreground">Email: <a href="mailto:privacy@eudox.ai" className="text-blue-600 dark:text-blue-400 hover:underline">privacy@eudox.ai</a></p>
                 <p className="text-foreground">Phone: 1-800-EUDOX-AI</p>
               </div>
               <p className="text-foreground leading-relaxed mt-4">

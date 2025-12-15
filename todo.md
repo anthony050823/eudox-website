@@ -103,3 +103,8 @@
 - [x] Update email addresses in Terms of Service contact section
 - [x] Change legal@eudox.com to privacy@eudox.ai
 - [x] Change support@eudox.com to support@eudox.ai
+- [x] Find Privacy Team contact information in codebase
+- [x] Change company name from "Eudox, Inc." to "EudoxAi, Inc."
+- [x] Update email to privacy@eudox.ai with mailto hyperlink
+- [x] Remove address line
+- [x] Verify phone number is 1-800-EUDOX-AI

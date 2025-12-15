@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">1. Introduction</h2>
               <p className="text-foreground leading-relaxed mb-4">
-                Eudox, Inc. ("<strong>Eudox</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our autonomous deal sourcing platform and related services (collectively, the "<strong>Services</strong>"). By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy.
+                EudoxAi, Inc. ("<strong>Eudox</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our autonomous deal sourcing platform and related services (collectively, the "<strong>Services</strong>"). By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy.
               </p>
               <p className="text-foreground leading-relaxed">
                 This Privacy Policy applies to all users of our Services, including visitors to our website, early access program participants, and paying subscribers. If you do not agree with the terms of this Privacy Policy, please discontinue use of our Services immediately.
@@ -117,7 +117,7 @@ export default function PrivacyPolicy() {
                 Depending on your jurisdiction, you may have certain rights regarding your personal information. These rights may include the right to access and obtain a copy of your personal information, the right to correct inaccurate or incomplete information, the right to delete your personal information subject to certain exceptions, the right to restrict or object to certain processing activities, the right to data portability in a structured, machine-readable format, the right to withdraw consent where processing is based on consent, and the right to lodge a complaint with a supervisory authority.
               </p>
               <p className="text-foreground leading-relaxed">
-                To exercise any of these rights, please contact us at privacy@eudox.com. We will respond to your request within thirty (30) days or as otherwise required by applicable law. We may require verification of your identity before processing your request to protect your information from unauthorized access.
+                To exercise any of these rights, please contact us at <a href="mailto:privacy@eudox.ai" className="text-blue-600 dark:text-blue-400 hover:underline">privacy@eudox.ai</a>. We will respond to your request within thirty (30) days or as otherwise required by applicable law. We may require verification of your identity before processing your request to protect your information from unauthorized access.
               </p>
             </section>
 
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold text-[#11142d] dark:text-white mb-4">9. Children's Privacy</h2>
               <p className="text-foreground leading-relaxed">
-                Our Services are not directed to individuals under the age of eighteen (18), and we do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child without parental consent, we will take steps to delete that information promptly. If you believe we have collected information from a child, please contact us immediately at privacy@eudox.com.
+                Our Services are not directed to individuals under the age of eighteen (18), and we do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child without parental consent, we will take steps to delete that information promptly. If you believe we have collected information from a child, please contact us immediately at <a href="mailto:privacy@eudox.ai" className="text-blue-600 dark:text-blue-400 hover:underline">privacy@eudox.ai</a>.
               </p>
             </section>
 
@@ -148,7 +148,7 @@ export default function PrivacyPolicy() {
                 If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA). These rights include the right to know what personal information we collect, use, disclose, and sell; the right to delete personal information subject to certain exceptions; the right to opt-out of the sale or sharing of personal information; the right to correct inaccurate personal information; the right to limit the use and disclosure of sensitive personal information; and the right to non-discrimination for exercising your privacy rights.
               </p>
               <p className="text-foreground leading-relaxed">
-                We do not sell your personal information as defined by the CCPA. To exercise your California privacy rights, please contact us at privacy@eudox.com or call our toll-free number at 1-800-EUDOX-AI. You may designate an authorized agent to make requests on your behalf, subject to verification requirements.
+                We do not sell your personal information as defined by the CCPA. To exercise your California privacy rights, please contact us at <a href="mailto:privacy@eudox.ai" className="text-blue-600 dark:text-blue-400 hover:underline">privacy@eudox.ai</a> or call our toll-free number at 1-800-EUDOX-AI. You may designate an authorized agent to make requests on your behalf, subject to verification requirements.
               </p>
             </section>
 
@@ -172,10 +172,9 @@ export default function PrivacyPolicy() {
                 If you have questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:
               </p>
               <div className="bg-muted p-6 rounded-lg">
-                <p className="text-foreground font-semibold mb-2">Eudox, Inc.</p>
+                <p className="text-foreground font-semibold mb-2">EudoxAi, Inc.</p>
                 <p className="text-foreground">Privacy Team</p>
-                <p className="text-foreground">Email: privacy@eudox.com</p>
-                <p className="text-foreground">Address: [Your Company Address]</p>
+                <p className="text-foreground">Email: <a href="mailto:privacy@eudox.ai" className="text-blue-600 dark:text-blue-400 hover:underline">privacy@eudox.ai</a></p>
                 <p className="text-foreground">Phone: 1-800-EUDOX-AI</p>
               </div>
               <p className="text-foreground leading-relaxed mt-4">
