@@ -108,3 +108,5 @@
 - [x] Update email to privacy@eudox.ai with mailto hyperlink
 - [x] Remove address line
 - [x] Verify phone number is 1-800-EUDOX-AI
+- [x] Add clickable LinkedIn hyperlink to Footer icon
+- [x] Link should open https://www.linkedin.com/company/eudox/ in new tab

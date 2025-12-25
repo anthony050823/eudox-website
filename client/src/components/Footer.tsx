@@ -30,7 +30,7 @@ export default function Footer() {
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/company/eudox/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Visit Eudox on LinkedIn">
                 <Linkedin size={20} />
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
