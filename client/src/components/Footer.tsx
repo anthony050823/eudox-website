@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { Instagram, Linkedin, Github, Mail } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 
@@ -27,8 +27,8 @@ export default function Footer() {
               Moving beyond reactive search to proactive discovery.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter size={20} />
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Visit Eudox on Instagram">
+                <Instagram size={20} />
               </a>
               <a href="https://www.linkedin.com/company/eudox/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Visit Eudox on LinkedIn">
                 <Linkedin size={20} />

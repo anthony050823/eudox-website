@@ -110,3 +110,5 @@
 - [x] Verify phone number is 1-800-EUDOX-AI
 - [x] Add clickable LinkedIn hyperlink to Footer icon
 - [x] Link should open https://www.linkedin.com/company/eudox/ in new tab
+- [x] Replace Twitter icon with Instagram icon in Footer
+- [x] Update import statement from Twitter to Instagram
