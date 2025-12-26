@@ -112,3 +112,5 @@
 - [x] Link should open https://www.linkedin.com/company/eudox/ in new tab
 - [x] Replace Twitter icon with Instagram icon in Footer
 - [x] Update import statement from Twitter to Instagram
+- [x] Change "Starter" tier name to "Amateur" in EarlyAccess component
+- [x] Update "For teams up to 5" to "For teams managing multiple projects"

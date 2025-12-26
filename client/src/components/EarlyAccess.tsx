@@ -107,7 +107,7 @@ export default function EarlyAccess() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-4 border-b border-border/50">
                   <div>
-                    <span className="font-medium">Starter</span>
+                    <span className="font-medium">Amateur</span>
                     <p className="text-xs text-muted-foreground">For individual dealmakers</p>
                   </div>
                   <span className="font-bold text-xl">$499<span className="text-sm font-normal text-muted-foreground">/mo</span></span>
@@ -115,7 +115,7 @@ export default function EarlyAccess() {
                 <div className="flex justify-between items-center">
                   <div>
                     <span className="font-medium">Pro Firm</span>
-                    <p className="text-xs text-muted-foreground">For teams up to 5</p>
+                    <p className="text-xs text-muted-foreground">For teams managing multiple projects</p>
                   </div>
                   <span className="font-bold text-xl">$1,999<span className="text-sm font-normal text-muted-foreground">/mo</span></span>
                 </div>
