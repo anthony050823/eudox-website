@@ -65,8 +65,8 @@ export default function Product() {
             />
             <div className="absolute inset-0 z-20 flex items-center justify-center p-8 text-center">
               <div className="max-w-2xl">
-                <h3 className="text-3xl font-bold text-white mb-4">Built for the Modern Dealmaker</h3>
-                <p className="text-gray-300 text-lg mb-8">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Built for the Modern Dealmaker</h3>
+                <p className="text-gray-300 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8">
                   Traditional databases are static. Eudox is dynamic. It learns from your preferences and gets smarter with every interaction.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
