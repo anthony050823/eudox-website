@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
+import { useState } from "react";
 
 export default function Hero() {
+  const [isWatchDemoClicked, setIsWatchDemoClicked] = useState(false);
+
+  const handleWatchDemo = () => {
+    if (isWatchDemoClicked) return;
+    setIsWatchDemoClicked(true);
+    window.open('https://drive.google.com/file/d/1PikZaLyKe1vz8sHUSfwbovezQSAqpUad/view?usp=sharing', '_blank', 'noopener,noreferrer');
+    setTimeout(() => setIsWatchDemoClicked(false), 2000);
+  };
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B102C] dark:bg-[#0B102C] bg-gradient-to-b from-gray-50 to-white dark:from-[#0B102C] dark:to-[#0B102C]">
       {/* Background Image */}
@@ -53,6 +62,8 @@ export default function Hero() {
               variant="outline" 
               size="lg" 
               className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm border-gray-300 dark:border-white/20 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 rounded-xl h-14 px-8 text-base"
+              onClick={handleWatchDemo}
+              disabled={isWatchDemoClicked}
             >
               <Play className="mr-2 h-4 w-4 fill-current" /> Watch Demo
             </Button>

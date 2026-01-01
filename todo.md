@@ -114,3 +114,6 @@
 - [x] Update import statement from Twitter to Instagram
 - [x] Change "Starter" tier name to "Amateur" in EarlyAccess component
 - [x] Update "For teams up to 5" to "For teams managing multiple projects"
+- [x] Add Google Drive video link to Watch Demo button
+- [x] Implement click protection to prevent multiple clicks
+- [x] Open video in new tab with proper security attributes
