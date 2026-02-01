@@ -141,3 +141,5 @@
 - [ ] Verify domain connection in Manus
 - [x] Add Eudox logo as favicon
 - [x] Update HTML head with favicon link
+- [x] Replace favicon with new eudox-logo.svg
+- [x] Update HTML head to reference new favicon
