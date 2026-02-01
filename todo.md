@@ -139,3 +139,5 @@
 - [ ] Set up demo.eudox.ai custom domain
 - [ ] Configure DNS records in AWS Route 53
 - [ ] Verify domain connection in Manus
+- [x] Add Eudox logo as favicon
+- [x] Update HTML head with favicon link
