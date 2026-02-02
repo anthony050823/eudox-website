@@ -67,6 +67,10 @@ export default function Comparison() {
                 <Check className="w-5 h-5 text-[#4ee8dc] shrink-0 mt-0.5" />
                 <span>Trained specifically on M&A and PE deal logic</span>
               </li>
+              <li className="flex items-start gap-3 text-foreground font-medium bg-gradient-to-r from-[#4ee8dc]/10 to-[#3dc4ff]/10 p-3 rounded-xl border border-[#4ee8dc]/20">
+                <Check className="w-5 h-5 text-[#4ee8dc] shrink-0 mt-0.5" />
+                <span>Agentic valuation analysis with enhanced due diligence insights</span>
+              </li>
             </ul>
           </div>
         </div>

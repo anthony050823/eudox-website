@@ -48,7 +48,7 @@ export default function Product() {
               </div>
               <h3 className="text-xl font-bold text-[#11142d] dark:text-white mb-3">Real-time Signals</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Catch the perfect moment. We monitor trigger events like funding rounds, leadership shifts, and competitor moves in real-time.
+                Catch the perfect moment. We monitor trigger events like funding rounds, leadership shifts, and competitor moves.
               </p>
             </div>
           </AnimatedSection>
