@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, X } from "lucide-react";
+import { ArrowRight, Play, X, Maximize } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -229,24 +229,45 @@ export default function Hero() {
 
       {/* Video Modal */}
       <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
-        <DialogContent className="max-w-[80vw] w-[80vw] p-0 bg-black border-0">
+        <DialogContent className="max-w-[80vw] w-[80vw] h-[80vh] p-0 bg-black border-0 flex flex-col">
           <VisuallyHidden>
             <DialogTitle>Product Demo Video</DialogTitle>
           </VisuallyHidden>
+          
+          {/* Close Button - Top Right */}
           <button
             onClick={() => setIsVideoModalOpen(false)}
-            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/70 hover:bg-black/90 text-white transition-colors"
             aria-label="Close video"
           >
             <X className="h-6 w-6" />
           </button>
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+
+          {/* Fullscreen Button - Bottom Right */}
+          <button
+            onClick={() => {
+              if (videoRef.current) {
+                if (document.fullscreenElement) {
+                  document.exitFullscreen();
+                } else {
+                  videoRef.current.requestFullscreen();
+                }
+              }
+            }}
+            className="absolute bottom-20 right-4 z-50 p-2 rounded-full bg-black/70 hover:bg-black/90 text-white transition-colors"
+            aria-label="Toggle fullscreen"
+          >
+            <Maximize className="h-5 w-5" />
+          </button>
+
+          {/* Video Container */}
+          <div className="relative flex-1 w-full h-full flex items-center justify-center">
             <video
               ref={videoRef}
-              className="absolute top-0 left-0 w-full h-full"
+              className="w-full h-full object-contain"
               controls
               autoPlay
-              controlsList=""
+              controlsList="nodownload"
               playsInline
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663218911035/DzQUFbBRJsWqGlOg.mov"
             >

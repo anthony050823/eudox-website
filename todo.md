@@ -216,3 +216,6 @@
 - [x] Create backend mutation for storing video analytics
 - [x] Test video analytics tracking
 - [x] Add dynamic page title setting in App.tsx
+- [x] Redesign video modal to 80% window size with fullscreen button
+- [x] Add single exit button in top right corner
+- [x] Implement working fullscreen functionality
