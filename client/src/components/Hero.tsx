@@ -90,7 +90,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
-            Stop searching. Start discovering. The first AI agent engineered to proactively find private market opportunities before they hit the market.
+            The first AI agent to proactively find private-market opportunities and autonomously source deals for M&A professionals.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
