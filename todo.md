@@ -247,3 +247,8 @@
 - [x] Test smooth scrolling on all anchor links
 - [x] Revert navigation label from 'M&A' to 'Features' in Navbar
 - [x] Revert navigation label from 'M&A' to 'Features' in Footer
+- [x] Remove Dashboard button from Navbar
+- [x] Remove auth-related UI components
+- [x] Revert database schema changes
+- [x] Remove password utility files
+- [x] Test website without authentication

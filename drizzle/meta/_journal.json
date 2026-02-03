@@ -36,6 +36,20 @@
       "when": 1770100460391,
       "tag": "0004_quiet_salo",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1770113109291,
+      "tag": "0005_flowery_valeria_richards",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1770113685764,
+      "tag": "0006_icy_luke_cage",
+      "breakpoints": true
     }
   ]
 }
