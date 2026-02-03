@@ -241,3 +241,4 @@
 - [x] Update favicon to use Eudox logo
 - [x] Update navigation labels from 'Features' to 'M&A' in Navbar
 - [x] Verify Footer navigation label is updated to 'M&A'
+- [x] Update EarlyAccess section background to match page consistency
