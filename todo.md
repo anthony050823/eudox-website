@@ -219,3 +219,4 @@
 - [x] Redesign video modal to 80% window size with fullscreen button
 - [x] Add single exit button in top right corner
 - [x] Implement working fullscreen functionality
+- [x] Fix video modal dimensions to auto-stretch and fill most of screen

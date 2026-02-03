@@ -229,7 +229,7 @@ export default function Hero() {
 
       {/* Video Modal */}
       <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
-        <DialogContent className="max-w-[80vw] w-[80vw] h-[80vh] p-0 bg-black border-0 flex flex-col">
+        <DialogContent className="max-w-[95vw] w-[95vw] max-h-[95vh] h-[95vh] p-0 bg-black border-0 flex flex-col">
           <VisuallyHidden>
             <DialogTitle>Product Demo Video</DialogTitle>
           </VisuallyHidden>
@@ -261,10 +261,11 @@ export default function Hero() {
           </button>
 
           {/* Video Container */}
-          <div className="relative flex-1 w-full h-full flex items-center justify-center">
+          <div className="relative flex-1 w-full h-full flex items-center justify-center overflow-hidden">
             <video
               ref={videoRef}
-              className="w-full h-full object-contain"
+              className="max-w-full max-h-full w-auto h-auto"
+              style={{ objectFit: 'contain' }}
               controls
               autoPlay
               controlsList="nodownload"
