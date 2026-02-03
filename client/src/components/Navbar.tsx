@@ -76,7 +76,7 @@ export default function Navbar() {
               />
             </div>
             <span className="text-xl font-bold tracking-tight text-[#11142d] dark:text-white">
-              Eudox
+              Eudox AI
             </span>
           </button>
         </div>

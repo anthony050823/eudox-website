@@ -183,3 +183,5 @@
 - [x] Add Terms of Service modal to Footer
 - [x] Add Cookie Policy modal to Footer
 - [x] Update routes to redirect and open modals
+- [ ] Update browser title from "Eudox.ai" to "Eudox AI"
+- [x] Update navbar site name from "Eudox" to "Eudox AI"
