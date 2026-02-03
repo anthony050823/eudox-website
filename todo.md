@@ -161,3 +161,7 @@
 - [x] Remove rounded corners from logo backgrounds
 - [x] Adjust logo sizing to match USC flag dimensions
 - [x] Elaborate team section content with more detail about accelerating finance sourcing
+- [x] Change Pricing link to Feedbacks with modal functionality
+- [x] Remove Blog link from Footer
+- [x] Remove Careers link from Footer
+- [x] Create feedback form modal for product comments
