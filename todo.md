@@ -157,3 +157,4 @@
 - [x] Add white backgrounds for university logos in dark mode
 - [x] Remove career section from TeamBadge component
 - [x] Add career modal to Footer Career link
+- [x] Remove white box container from logos and add backgrounds to images only in dark mode

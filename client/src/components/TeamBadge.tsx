@@ -5,17 +5,20 @@ export default function TeamBadge() {
     {
       name: "Emory University",
       logo: "/images/universities/emory-university.png",
-      alt: "Emory University Logo"
+      alt: "Emory University Logo",
+      needsBackground: true
     },
     {
       name: "University of Southern California",
       logo: "/images/universities/usc.png",
-      alt: "USC Logo"
+      alt: "USC Logo",
+      needsBackground: false // USC already has background
     },
     {
       name: "Northwestern University McCormick School of Engineering",
       logo: "/images/universities/northwestern-university.png",
-      alt: "Northwestern University McCormick School of Engineering Logo"
+      alt: "Northwestern University McCormick School of Engineering Logo",
+      needsBackground: true
     }
   ];
 
@@ -36,12 +39,14 @@ export default function TeamBadge() {
           {universities.map((university, index) => (
             <div
               key={`first-${index}`}
-              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105 bg-white dark:bg-white rounded-xl p-3"
+              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105"
             >
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className="max-w-full max-h-full object-contain"
+                className={`max-w-full max-h-full object-contain ${
+                  university.needsBackground ? 'dark:bg-white dark:rounded-lg dark:p-2' : ''
+                }`}
                 fallbackClassName="w-full h-full"
               />
             </div>
@@ -50,12 +55,14 @@ export default function TeamBadge() {
           {universities.map((university, index) => (
             <div
               key={`second-${index}`}
-              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105 bg-white dark:bg-white rounded-xl p-3"
+              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105"
             >
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className="max-w-full max-h-full object-contain"
+                className={`max-w-full max-h-full object-contain ${
+                  university.needsBackground ? 'dark:bg-white dark:rounded-lg dark:p-2' : ''
+                }`}
                 fallbackClassName="w-full h-full"
               />
             </div>
