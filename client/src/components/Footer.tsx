@@ -281,12 +281,12 @@ export default function Footer() {
             {universities.map((university, index) => (
               <div
                 key={index}
-                className="w-40 h-20 flex items-center justify-center bg-white px-4 py-3"
+                className="flex items-center justify-center bg-white px-4 py-3"
               >
                 <ImageWithFallback
                   src={university.logo}
                   alt={university.alt}
-                  className="max-w-full max-h-full object-contain"
+                  className="h-16 object-contain"
                   fallbackClassName="w-full h-full"
                 />
               </div>
