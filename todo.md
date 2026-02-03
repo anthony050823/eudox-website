@@ -258,4 +258,3 @@
 - [x] Update early access discount from 50% to 10% off credit packs
 - [x] Update pricing from $799/pack to $699/pack
 - [x] Update USC logo in "Empowered by Elite College Students" section with new image
-- [x] Add white background to USC logo in dark mode

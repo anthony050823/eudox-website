@@ -39,7 +39,7 @@ export default function Footer() {
       name: "University of Southern California",
       logo: "/images/universities/usc.png",
       alt: "USC Logo",
-      needsBackground: true
+      needsBackground: false
     },
     {
       name: "Northwestern University McCormick School of Engineering",
