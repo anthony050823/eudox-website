@@ -161,3 +161,6 @@
 - [x] Remove rounded corners from logo backgrounds
 - [x] Adjust logo sizing to match USC flag dimensions
 - [x] Elaborate team section content with more detail about accelerating finance sourcing
+- [x] Fix duplicate style attribute on TeamBadge logo image
+- [x] Remove Blog link from Footer
+- [x] Change Careers to Feedback with comment form functionality
