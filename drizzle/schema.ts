@@ -64,3 +64,24 @@ export const feedbackSubmissions = mysqlTable("feedback_submissions", {
 
 export type FeedbackSubmission = typeof feedbackSubmissions.$inferSelect;
 export type InsertFeedbackSubmission = typeof feedbackSubmissions.$inferInsert;
+
+/**
+ * Video analytics tracking table
+ */
+export const videoAnalytics = mysqlTable("video_analytics", {
+  id: int("id").autoincrement().primaryKey(),
+  sessionId: varchar("session_id", { length: 64 }).notNull(),
+  eventType: mysqlEnum("event_type", ["play", "pause", "progress_25", "progress_50", "progress_75", "complete"]).notNull(),
+  videoUrl: varchar("video_url", { length: 512 }).notNull(),
+  currentTime: int("current_time").notNull(), // in seconds
+  duration: int("duration").notNull(), // in seconds
+  userAgent: text("user_agent"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  sessionIdx: index("va_session_idx").on(table.sessionId),
+  eventTypeIdx: index("va_event_type_idx").on(table.eventType),
+  createdAtIdx: index("va_created_at_idx").on(table.createdAt),
+}));
+
+export type VideoAnalytic = typeof videoAnalytics.$inferSelect;
+export type InsertVideoAnalytic = typeof videoAnalytics.$inferInsert;

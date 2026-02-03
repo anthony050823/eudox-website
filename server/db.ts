@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, earlyAccessRequests, InsertEarlyAccessRequest, feedbackSubmissions, InsertFeedbackSubmission } from "../drizzle/schema";
+import { InsertUser, users, earlyAccessRequests, InsertEarlyAccessRequest, feedbackSubmissions, InsertFeedbackSubmission, videoAnalytics, InsertVideoAnalytic } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -138,5 +138,18 @@ export async function getAllFeedbackSubmissions() {
   }
 
   const result = await db.select().from(feedbackSubmissions).orderBy(feedbackSubmissions.createdAt);
+  return result;
+}
+
+/**
+ * Create a new video analytic event
+ */
+export async function createVideoAnalytic(data: InsertVideoAnalytic) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const result = await db.insert(videoAnalytics).values(data);
   return result;
 }

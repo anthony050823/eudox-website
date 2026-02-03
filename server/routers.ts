@@ -1,6 +1,6 @@
 import { COOKIE_NAME } from "@shared/const";
 import { z } from "zod";
-import { createEarlyAccessRequest, getAllEarlyAccessRequests, createFeedbackSubmission, getAllFeedbackSubmissions } from "./db";
+import { createEarlyAccessRequest, getAllEarlyAccessRequests, createFeedbackSubmission, getAllFeedbackSubmissions, createVideoAnalytic } from "./db";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router, protectedProcedure, adminProcedure } from "./_core/trpc";
@@ -94,6 +94,32 @@ export const appRouter = router({
     list: adminProcedure.query(async () => {
       return await getAllFeedbackSubmissions();
     }),
+  }),
+
+  analytics: router({
+    trackVideo: publicProcedure
+      .input(
+        z.object({
+          sessionId: z.string(),
+          eventType: z.enum(["play", "pause", "progress_25", "progress_50", "progress_75", "complete"]),
+          videoUrl: z.string(),
+          currentTime: z.number(),
+          duration: z.number(),
+          userAgent: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        await createVideoAnalytic({
+          sessionId: input.sessionId,
+          eventType: input.eventType,
+          videoUrl: input.videoUrl,
+          currentTime: input.currentTime,
+          duration: input.duration,
+          userAgent: input.userAgent || null,
+        });
+        
+        return { success: true };
+      }),
   }),
 });
 

@@ -1,16 +1,84 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { trpc } from "@/lib/trpc";
 
 export default function Hero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
+  const [trackedMilestones, setTrackedMilestones] = useState({
+    progress_25: false,
+    progress_50: false,
+    progress_75: false,
+    complete: false,
+  });
+
+  const trackVideoMutation = trpc.analytics.trackVideo.useMutation();
 
   const handleWatchDemo = () => {
     setIsVideoModalOpen(true);
   };
+
+  const trackEvent = (eventType: "play" | "pause" | "progress_25" | "progress_50" | "progress_75" | "complete") => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    trackVideoMutation.mutate({
+      sessionId,
+      eventType,
+      videoUrl: video.src,
+      currentTime: Math.floor(video.currentTime),
+      duration: Math.floor(video.duration),
+      userAgent: navigator.userAgent,
+    });
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handlePlay = () => trackEvent("play");
+    const handlePause = () => trackEvent("pause");
+    
+    const handleTimeUpdate = () => {
+      if (!video.duration) return;
+      const progress = (video.currentTime / video.duration) * 100;
+
+      if (progress >= 25 && !trackedMilestones.progress_25) {
+        setTrackedMilestones(prev => ({ ...prev, progress_25: true }));
+        trackEvent("progress_25");
+      } else if (progress >= 50 && !trackedMilestones.progress_50) {
+        setTrackedMilestones(prev => ({ ...prev, progress_50: true }));
+        trackEvent("progress_50");
+      } else if (progress >= 75 && !trackedMilestones.progress_75) {
+        setTrackedMilestones(prev => ({ ...prev, progress_75: true }));
+        trackEvent("progress_75");
+      }
+    };
+
+    const handleEnded = () => {
+      if (!trackedMilestones.complete) {
+        setTrackedMilestones(prev => ({ ...prev, complete: true }));
+        trackEvent("complete");
+      }
+    };
+
+    video.addEventListener("play", handlePlay);
+    video.addEventListener("pause", handlePause);
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    video.addEventListener("ended", handleEnded);
+
+    return () => {
+      video.removeEventListener("play", handlePlay);
+      video.removeEventListener("pause", handlePause);
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, [trackedMilestones]);
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B102C] dark:bg-[#0B102C] bg-gradient-to-b from-gray-50 to-white dark:from-[#0B102C] dark:to-[#0B102C]">
       {/* Background Image */}
@@ -174,6 +242,7 @@ export default function Hero() {
           </button>
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <video
+              ref={videoRef}
               className="absolute top-0 left-0 w-full h-full"
               controls
               autoPlay

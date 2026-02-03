@@ -211,3 +211,7 @@
 - [x] Fix video modal accessibility error by adding DialogTitle
 - [x] Increase video modal size to 80% of screen width
 - [x] Enable fullscreen functionality for video player
+- [x] Create database schema for video analytics
+- [x] Implement video event tracking in frontend
+- [x] Create backend mutation for storing video analytics
+- [x] Test video analytics tracking
