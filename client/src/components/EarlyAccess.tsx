@@ -122,7 +122,7 @@ export default function EarlyAccess() {
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-4 text-center">
-                Early access members get <span className="font-semibold text-[#3dc4ff]">50% off</span> all credit packs for life.
+                Early access members get <span className="font-semibold text-[#3dc4ff]">10% off</span> all credit packs for life.
               </p>
             </div>
           </AnimatedSection>
