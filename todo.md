@@ -226,3 +226,4 @@
 - [x] Implement volume control
 - [x] Fix video dimensions for proper display
 - [x] Test new video player
+- [x] Fix fullscreen permissions policy error

@@ -46,18 +46,18 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, isOpen, onClose }) 
   }, [isOpen]);
 
   const toggleFullscreen = async () => {
-    if (!containerRef.current) return;
+    if (!videoRef.current) return;
 
     try {
       if (!isFullscreen) {
-        if (containerRef.current.requestFullscreen) {
-          await containerRef.current.requestFullscreen();
-        } else if ((containerRef.current as any).webkitRequestFullscreen) {
-          await (containerRef.current as any).webkitRequestFullscreen();
-        } else if ((containerRef.current as any).mozRequestFullScreen) {
-          await (containerRef.current as any).mozRequestFullScreen();
-        } else if ((containerRef.current as any).msRequestFullscreen) {
-          await (containerRef.current as any).msRequestFullscreen();
+        if (videoRef.current.requestFullscreen) {
+          await videoRef.current.requestFullscreen();
+        } else if ((videoRef.current as any).webkitRequestFullscreen) {
+          await (videoRef.current as any).webkitRequestFullscreen();
+        } else if ((videoRef.current as any).mozRequestFullScreen) {
+          await (videoRef.current as any).mozRequestFullScreen();
+        } else if ((videoRef.current as any).msRequestFullscreen) {
+          await (videoRef.current as any).msRequestFullscreen();
         }
       } else {
         if (document.exitFullscreen) {
