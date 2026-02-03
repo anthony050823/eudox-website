@@ -198,3 +198,13 @@
 - [x] Implement CSV export functionality
 - [ ] Add admin route protection
 - [ ] Write tests for backend mutations
+- [x] Protect admin route with authentication middleware
+- [x] Add admin role check for /admin page access
+- [x] Redirect unauthorized users to login
+- [x] Add confirmation email to early access mutation
+- [x] Add confirmation email to feedback mutation
+- [x] Write tests for early access submission
+- [x] Write tests for feedback submission
+- [x] Write tests for email notifications
+- [x] Write tests for admin dashboard queries
+- [x] Run all tests and verify they pass

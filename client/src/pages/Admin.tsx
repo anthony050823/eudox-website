@@ -1,14 +1,57 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Download, Search, Loader2 } from "lucide-react";
+import { Download, Search, Loader2, Lock } from "lucide-react";
 import { format } from "date-fns";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
+import { useLocation } from "wouter";
 
 export default function Admin() {
+  const { user, loading, isAuthenticated } = useAuth();
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    if (!loading && (!isAuthenticated || user?.role !== 'admin')) {
+      // Redirect to login if not authenticated or not admin
+      window.location.href = getLoginUrl();
+    }
+  }, [loading, isAuthenticated, user]);
+
+  // Show loading state while checking auth
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
+
+  // Show unauthorized message if not admin
+  if (!isAuthenticated || user?.role !== 'admin') {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Card className="max-w-md">
+          <CardHeader>
+            <div className="flex justify-center mb-4">
+              <Lock className="h-12 w-12 text-muted-foreground" />
+            </div>
+            <CardTitle className="text-center">Access Restricted</CardTitle>
+            <CardDescription className="text-center">
+              You need admin privileges to access this page.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex justify-center">
+            <Button onClick={() => setLocation('/')}>Return to Home</Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
   const [earlyAccessSearch, setEarlyAccessSearch] = useState("");
   const [feedbackSearch, setFeedbackSearch] = useState("");
 

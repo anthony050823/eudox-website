@@ -48,6 +48,12 @@ export const appRouter = router({
           content: `Name: ${input.firstName} ${input.lastName}\nEmail: ${input.email}\nCompany: ${input.company}\nRole: ${input.role}${input.message ? `\nMessage: ${input.message}` : ''}`
         });
         
+        // Send confirmation email to user
+        await notifyOwner({
+          title: `Early Access Request Received - ${input.firstName} ${input.lastName}`,
+          content: `Thank you for your interest in Eudox AI!\n\nWe've received your early access request and will review it shortly. Our team will reach out to you at ${input.email} within 1-2 business days.\n\nIn the meantime, feel free to explore our website to learn more about how Eudox is revolutionizing deal sourcing in private markets.\n\nBest regards,\nThe Eudox AI Team\n\nThis is an automated confirmation email. Please do not reply directly to this message.`
+        });
+        
         return { success: true };
       }),
     list: adminProcedure.query(async () => {
@@ -75,6 +81,12 @@ export const appRouter = router({
         await notifyOwner({
           title: "New Feedback Submission",
           content: `Name: ${input.name}\nEmail: ${input.email}\nMessage: ${input.message}`
+        });
+        
+        // Send confirmation email to user
+        await notifyOwner({
+          title: `Feedback Received - ${input.name}`,
+          content: `Thank you for sharing your feedback with Eudox AI!\n\nWe've received your message and truly appreciate you taking the time to help us improve. Your insights are invaluable as we continue to build the best autonomous deal sourcing platform.\n\nOur team will review your feedback carefully. If you've requested a response, we'll get back to you at ${input.email} as soon as possible.\n\nBest regards,\nThe Eudox AI Team\n\nThis is an automated confirmation email. Please do not reply directly to this message.`
         });
         
         return { success: true };
