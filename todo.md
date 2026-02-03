@@ -264,3 +264,5 @@
 - [x] Replace USC logo with new version and add white background
 - [x] Replace Northwestern logo with new version and add white background
 - [x] Update all university logos to show white backgrounds in all views (light and dark mode)
+- [x] Replace USC logo with new USC-Logo.png version
+- [x] Add visible white background styling to all university logos in all views
