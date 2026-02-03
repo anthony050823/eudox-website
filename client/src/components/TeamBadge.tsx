@@ -13,9 +13,9 @@ export default function TeamBadge() {
       alt: "USC Logo"
     },
     {
-      name: "Northwestern University",
-      logo: "/images/universities/northwestern-university.svg",
-      alt: "Northwestern University Logo"
+      name: "Northwestern University McCormick School of Engineering",
+      logo: "/images/universities/northwestern-university.png",
+      alt: "Northwestern University McCormick School of Engineering Logo"
     }
   ];
 
@@ -36,7 +36,7 @@ export default function TeamBadge() {
           {universities.map((university, index) => (
             <div
               key={`first-${index}`}
-              className="flex-shrink-0 w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105"
             >
               <ImageWithFallback
                 src={university.logo}
@@ -50,7 +50,7 @@ export default function TeamBadge() {
           {universities.map((university, index) => (
             <div
               key={`second-${index}`}
-              className="flex-shrink-0 w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105"
             >
               <ImageWithFallback
                 src={university.logo}

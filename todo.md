@@ -150,3 +150,5 @@
 - [x] Create team section component with rolling badge animation
 - [x] Embed team section after Early Access submit button
 - [x] Style team section to match existing UI
+- [x] Replace Northwestern logo with McCormick School of Engineering version
+- [x] Remove grayscale filter from all university logos
