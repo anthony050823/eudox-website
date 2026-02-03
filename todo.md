@@ -242,3 +242,6 @@
 - [x] Update navigation labels from 'Features' to 'M&A' in Navbar
 - [x] Verify Footer navigation label is updated to 'M&A'
 - [x] Update EarlyAccess section background to match page consistency
+- [x] Add smooth scroll CSS to global styles
+- [x] Update navigation links to use smooth scrolling
+- [x] Test smooth scrolling on all anchor links
