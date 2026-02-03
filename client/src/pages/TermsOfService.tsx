@@ -8,8 +8,13 @@ export default function TermsOfService() {
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, []);
+    // Redirect to homepage and trigger terms modal
+    setLocation("/");
+    setTimeout(() => {
+      const termsButton = document.querySelector('[data-terms-button]') as HTMLButtonElement;
+      if (termsButton) termsButton.click();
+    }, 100);
+  }, [setLocation]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

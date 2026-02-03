@@ -179,3 +179,7 @@
 - [x] Update page title to 30-60 characters
 - [x] Add meta description (50-160 characters)
 - [x] Add Open Graph tags for social media sharing
+- [x] Add Privacy Policy modal to Footer
+- [x] Add Terms of Service modal to Footer
+- [x] Add Cookie Policy modal to Footer
+- [x] Update routes to redirect and open modals

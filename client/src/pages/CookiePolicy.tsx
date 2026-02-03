@@ -8,8 +8,13 @@ export default function CookiePolicy() {
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, []);
+    // Redirect to homepage and trigger cookie modal
+    setLocation("/");
+    setTimeout(() => {
+      const cookieButton = document.querySelector('[data-cookie-button]') as HTMLButtonElement;
+      if (cookieButton) cookieButton.click();
+    }, 100);
+  }, [setLocation]);
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B102C]">

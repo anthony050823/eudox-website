@@ -8,8 +8,13 @@ export default function PrivacyPolicy() {
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, []);
+    // Redirect to homepage and trigger privacy modal
+    setLocation("/");
+    setTimeout(() => {
+      const privacyButton = document.querySelector('[data-privacy-button]') as HTMLButtonElement;
+      if (privacyButton) privacyButton.click();
+    }, 100);
+  }, [setLocation]);
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B102C]">
