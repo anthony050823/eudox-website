@@ -145,3 +145,4 @@
 - [x] Update HTML head to reference new favicon
 - [x] Align UI box in Product section with other two boxes
 - [x] Highlight agentic valuation capabilities in Comparison section
+- [x] Change browser title to "Eudox AI" instead of "Eudox"
