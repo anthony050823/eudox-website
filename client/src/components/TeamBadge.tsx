@@ -45,7 +45,7 @@ export default function TeamBadge() {
                 src={university.logo}
                 alt={university.alt}
                 className={`max-w-full max-h-full object-contain ${
-                  university.needsBackground ? 'dark:bg-white dark:rounded-lg dark:p-2' : ''
+                  university.needsBackground ? 'dark:bg-white dark:px-4 dark:py-3' : ''
                 }`}
                 fallbackClassName="w-full h-full"
               />
@@ -61,7 +61,7 @@ export default function TeamBadge() {
                 src={university.logo}
                 alt={university.alt}
                 className={`max-w-full max-h-full object-contain ${
-                  university.needsBackground ? 'dark:bg-white dark:rounded-lg dark:p-2' : ''
+                  university.needsBackground ? 'dark:bg-white dark:px-4 dark:py-3' : ''
                 }`}
                 fallbackClassName="w-full h-full"
               />
