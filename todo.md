@@ -267,3 +267,4 @@
 - [x] Replace USC logo with new USC-Logo.png version
 - [x] Add visible white background styling to all university logos in all views
 - [x] Remove rounded corners (chamfer) from university logo containers
+- [x] Add preload tags for all three university logos in HTML head
