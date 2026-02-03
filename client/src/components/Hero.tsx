@@ -1,16 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, X } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 export default function Hero() {
-  const [isWatchDemoClicked, setIsWatchDemoClicked] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const handleWatchDemo = () => {
-    if (isWatchDemoClicked) return;
-    setIsWatchDemoClicked(true);
-    window.open('https://drive.google.com/file/d/1PikZaLyKe1vz8sHUSfwbovezQSAqpUad/view?usp=sharing', '_blank', 'noopener,noreferrer');
-    setTimeout(() => setIsWatchDemoClicked(false), 2000);
+    setIsVideoModalOpen(true);
   };
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B102C] dark:bg-[#0B102C] bg-gradient-to-b from-gray-50 to-white dark:from-[#0B102C] dark:to-[#0B102C]">
@@ -63,7 +61,6 @@ export default function Hero() {
               size="lg" 
               className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm border-gray-300 dark:border-white/20 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 rounded-xl h-14 px-8 text-base"
               onClick={handleWatchDemo}
-              disabled={isWatchDemoClicked}
             >
               <Play className="mr-2 h-4 w-4 fill-current" /> Watch Demo
             </Button>
@@ -160,6 +157,29 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
+        <DialogContent className="max-w-5xl w-[95vw] p-0 bg-black border-0">
+          <button
+            onClick={() => setIsVideoModalOpen(false)}
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+            aria-label="Close video"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <video
+              className="absolute top-0 left-0 w-full h-full"
+              controls
+              autoPlay
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663218911035/DzQUFbBRJsWqGlOg.mov"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
