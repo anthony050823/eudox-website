@@ -26,7 +26,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Product", href: "#product" },
-    { name: "Features", href: "#features" },
+    { name: "M&A", href: "#features" },
     { name: "Why Eudox", href: "#comparison" },
     { name: "Contact", href: "#contact" },
   ];

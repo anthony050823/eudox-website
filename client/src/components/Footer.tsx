@@ -105,7 +105,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-6">Product</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-primary transition-colors">Features</a></li>
+              <li><a href="#features" className="hover:text-primary transition-colors">M&A</a></li>
               <li><a href="#comparison" className="hover:text-primary transition-colors">Why Eudox</a></li>
               <li>
                 <button 

@@ -239,3 +239,5 @@
 - [x] Implement auto-rotation functionality
 - [x] Update hero headline to emphasize M&A professional positioning
 - [x] Update favicon to use Eudox logo
+- [x] Update navigation labels from 'Features' to 'M&A' in Navbar
+- [x] Verify Footer navigation label is updated to 'M&A'
