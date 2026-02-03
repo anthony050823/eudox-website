@@ -19,8 +19,30 @@ export default function Footer() {
   const { resolvedTheme } = useTheme();
   const [careerModalOpen, setCareerModalOpen] = useState(false);
   const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+  const [aboutModalOpen, setAboutModalOpen] = useState(false);
   const [feedbackData, setFeedbackData] = useState({ name: '', email: '', message: '' });
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+
+  const universities = [
+    {
+      name: "Emory University",
+      logo: "/images/universities/emory-university.png",
+      alt: "Emory University Logo",
+      needsBackground: true
+    },
+    {
+      name: "University of Southern California",
+      logo: "/images/universities/usc.png",
+      alt: "USC Logo",
+      needsBackground: false
+    },
+    {
+      name: "Northwestern University McCormick School of Engineering",
+      logo: "/images/universities/northwestern-university.png",
+      alt: "Northwestern University McCormick School of Engineering Logo",
+      needsBackground: true
+    }
+  ];
 
   const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,7 +108,14 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li>
+                <button 
+                  onClick={() => setAboutModalOpen(true)}
+                  className="hover:text-primary transition-colors text-left"
+                >
+                  About Us
+                </button>
+              </li>
               <li>
                 <button 
                   onClick={() => setCareerModalOpen(true)}
@@ -199,6 +228,50 @@ export default function Footer() {
               </Button>
             </form>
           )}
+        </DialogContent>
+      </Dialog>
+      
+      {/* About Us Modal */}
+      <Dialog open={aboutModalOpen} onOpenChange={setAboutModalOpen}>
+        <DialogContent className="sm:max-w-3xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-3xl font-bold text-center">About Eudox</DialogTitle>
+            <DialogDescription className="text-center text-lg pt-2">
+              Empowered by Elite College Students
+            </DialogDescription>
+          </DialogHeader>
+          
+          {/* University Logos */}
+          <div className="flex flex-wrap justify-center items-center gap-8 py-6">
+            {universities.map((university, index) => (
+              <div
+                key={index}
+                className="w-40 h-20 flex items-center justify-center"
+              >
+                <ImageWithFallback
+                  src={university.logo}
+                  alt={university.alt}
+                  className={`max-w-full max-h-full object-contain ${
+                    university.needsBackground ? 'dark:bg-white dark:px-4 dark:py-3' : ''
+                  }`}
+                  fallbackClassName="w-full h-full"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Content */}
+          <div className="space-y-4 pt-4">
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Built by a team of elite students from Emory University, USC, and Northwestern University's McCormick School of Engineering, Eudox represents the convergence of top-tier academic excellence and real-world fintech innovation.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              We're revolutionizing the traditionally manual and time-intensive process of deal sourcing in private markets. What once required weeks of research, countless cold calls, and endless spreadsheet management now happens autonomously through our AI-powered platform. By combining advanced machine learning with deep financial domain expertise, we've transformed reactive searching into proactive discovery—enabling dealmakers to identify high-potential opportunities before they hit the market.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Our mission is to democratize access to private market intelligence, making institutional-grade deal sourcing capabilities available to firms of all sizes while dramatically reducing the time from opportunity identification to actionable insight.
+            </p>
+          </div>
         </DialogContent>
       </Dialog>
     </footer>

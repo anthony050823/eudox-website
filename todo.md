@@ -169,3 +169,6 @@
 - [x] Create About Us page with team content
 - [x] Add Careers button to Footer Company section
 - [x] Link About Us button in Footer to new page
+- [x] Convert About Us to modal dialog in Footer
+- [x] Remove About Us page route from App.tsx
+- [x] Delete About.tsx page file
