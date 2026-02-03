@@ -79,8 +79,8 @@ export default function EarlyAccess() {
                   <span className="font-bold text-[#3dc4ff]">1</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Priority Access</h4>
-                  <p className="text-sm text-muted-foreground">Be the first to test new autonomous features.</p>
+                  <h4 className="font-semibold text-foreground">Free Early Access</h4>
+                  <p className="text-sm text-muted-foreground">Get unlimited access at no cost during the beta period.</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -97,30 +97,33 @@ export default function EarlyAccess() {
                   <span className="font-bold text-[#3dc4ff]">3</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Locked-in Pricing</h4>
-                  <p className="text-sm text-muted-foreground">Early partners get preferred rates for life.</p>
+                  <h4 className="font-semibold text-foreground">Grandfathered Credits</h4>
+                  <p className="text-sm text-muted-foreground">Transition to credit-based pricing with exclusive founding member rates.</p>
                 </div>
               </div>
             </div>
             
             <div className="p-6 bg-white dark:bg-[#1a1b1f] rounded-2xl border border-border shadow-lg">
-              <h4 className="font-semibold text-foreground mb-4">Pricing Plans</h4>
+              <h4 className="font-semibold text-foreground mb-4">Future Credit-Based Pricing</h4>
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-4 border-b border-border/50">
                   <div>
-                    <span className="font-medium">Amateur</span>
-                    <p className="text-xs text-muted-foreground">For individual dealmakers</p>
+                    <span className="font-medium">Starter Pack</span>
+                    <p className="text-xs text-muted-foreground">100 AI-powered searches</p>
                   </div>
-                  <span className="font-bold text-xl">$499<span className="text-sm font-normal text-muted-foreground">/mo</span></span>
+                  <span className="font-bold text-xl">$199<span className="text-sm font-normal text-muted-foreground">/pack</span></span>
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-medium">Pro Firm</span>
-                    <p className="text-xs text-muted-foreground">For teams managing multiple projects</p>
+                    <span className="font-medium">Pro Pack</span>
+                    <p className="text-xs text-muted-foreground">500 searches + priority support</p>
                   </div>
-                  <span className="font-bold text-xl">$1,999<span className="text-sm font-normal text-muted-foreground">/mo</span></span>
+                  <span className="font-bold text-xl">$799<span className="text-sm font-normal text-muted-foreground">/pack</span></span>
                 </div>
               </div>
+              <p className="text-xs text-muted-foreground mt-4 text-center">
+                Early access members get <span className="font-semibold text-[#3dc4ff]">50% off</span> all credit packs for life.
+              </p>
             </div>
           </AnimatedSection>
           

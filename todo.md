@@ -252,3 +252,4 @@
 - [x] Revert database schema changes
 - [x] Remove password utility files
 - [x] Test website without authentication
+- [x] Update early access benefits to emphasize free access with future credit-based pricing
