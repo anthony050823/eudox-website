@@ -86,8 +86,15 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-
+              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li>
+                <button 
+                  onClick={() => setCareerModalOpen(true)}
+                  className="hover:text-primary transition-colors text-left"
+                >
+                  Careers
+                </button>
+              </li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>

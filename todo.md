@@ -165,3 +165,7 @@
 - [x] Remove Blog link from Footer
 - [x] Remove Careers link from Footer
 - [x] Create feedback form modal for product comments
+- [x] Remove team content paragraphs from TeamBadge component
+- [x] Create About Us page with team content
+- [x] Add Careers button to Footer Company section
+- [x] Link About Us button in Footer to new page
