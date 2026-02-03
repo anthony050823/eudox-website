@@ -33,12 +33,12 @@ export default function TeamBadge() {
           {universities.map((university, index) => (
             <div
               key={`first-${index}`}
-              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105 bg-white px-4 py-3"
+              className="flex-shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-105 bg-white px-6 py-4"
             >
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className="max-w-full max-h-full object-contain"
+                className="max-h-16 object-contain"
                 fallbackClassName="w-full h-full"
               />
             </div>
@@ -47,12 +47,12 @@ export default function TeamBadge() {
           {universities.map((university, index) => (
             <div
               key={`second-${index}`}
-              className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105 bg-white px-4 py-3"
+              className="flex-shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-105 bg-white px-6 py-4"
             >
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className="max-w-full max-h-full object-contain"
+                className="max-h-16 object-contain"
                 fallbackClassName="w-full h-full"
               />
             </div>
