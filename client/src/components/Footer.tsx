@@ -110,6 +110,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <button 
+                  data-about-button
                   onClick={() => setAboutModalOpen(true)}
                   className="hover:text-primary transition-colors text-left"
                 >

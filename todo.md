@@ -172,3 +172,5 @@
 - [x] Convert About Us to modal dialog in Footer
 - [x] Remove About Us page route from App.tsx
 - [x] Delete About.tsx page file
+- [x] Create About page that redirects to homepage with modal open
+- [x] Add /about route back to App.tsx
