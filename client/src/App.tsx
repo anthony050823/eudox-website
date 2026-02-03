@@ -1,4 +1,3 @@
-import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
@@ -11,6 +10,7 @@ import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
+import { useEffect } from "react";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -36,11 +36,14 @@ function Router() {
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
+  useEffect(() => {
+    document.title = "Eudox AI";
+  }, []);
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultMode="system">
         <TooltipProvider>
-          <Toaster />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

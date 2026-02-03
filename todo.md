@@ -215,3 +215,4 @@
 - [x] Implement video event tracking in frontend
 - [x] Create backend mutation for storing video analytics
 - [x] Test video analytics tracking
+- [x] Add dynamic page title setting in App.tsx
