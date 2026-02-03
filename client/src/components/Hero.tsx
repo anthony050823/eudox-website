@@ -149,7 +149,7 @@ export default function Hero() {
                     <span className="text-[10px] text-cyan-600/70 dark:text-cyan-300/70">Just now</span>
                   </div>
                   <p className="text-sm text-gray-700 dark:text-gray-200">
-                    High-intent acquisition target identified in Fintech sector. Revenue growth &gt; 40% YoY.
+                    Stripe-adjacent payment processor: $127M ARR, 156% YoY growth, 94% gross margin. Series B stage, 3 acquisition inquiries detected.
                   </p>
                 </div>
               </div>
