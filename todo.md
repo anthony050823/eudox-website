@@ -260,3 +260,4 @@
 - [x] Update USC logo in "Empowered by Elite College Students" section with new image
 - [x] Process USC logo to add white background to transparent areas
 - [x] Ensure USC logo dimensions match other university banners
+- [x] Reprocess USC logo to have clean white background like Emory (no borders or artifacts)
