@@ -231,3 +231,4 @@
 - [x] Integrate analytics tracking with VideoPlayer component
 - [x] Test analytics tracking for all milestones (0%, 25%, 50%, 75%, 100%)
 - [x] Update signal detection text with specific company and professional metrics
+- [x] Add visual confidence score with progress bar to signal detection card

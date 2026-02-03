@@ -148,9 +148,25 @@ export default function Hero() {
                     <span className="text-xs text-cyan-600 dark:text-cyan-300 font-medium">Signal Detected</span>
                     <span className="text-[10px] text-cyan-600/70 dark:text-cyan-300/70">Just now</span>
                   </div>
-                  <p className="text-sm text-gray-700 dark:text-gray-200">
+                  <p className="text-sm text-gray-700 dark:text-gray-200 mb-3">
                     Stripe-adjacent payment processor: $127M ARR, 156% YoY growth, 94% gross margin. Series B stage, 3 acquisition inquiries detected.
                   </p>
+                  
+                  {/* Confidence Score */}
+                  <div className="mt-3 pt-3 border-t border-cyan-500/20">
+                    <div className="flex justify-between items-center mb-1.5">
+                      <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">Match Confidence</span>
+                      <span className="text-xs text-cyan-600 dark:text-cyan-400 font-bold">98%</span>
+                    </div>
+                    <div className="relative h-2 bg-gray-200 dark:bg-gray-700/50 rounded-full overflow-hidden">
+                      <div 
+                        className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: '98%' }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
