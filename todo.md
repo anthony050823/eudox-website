@@ -245,3 +245,5 @@
 - [x] Add smooth scroll CSS to global styles
 - [x] Update navigation links to use smooth scrolling
 - [x] Test smooth scrolling on all anchor links
+- [x] Revert navigation label from 'M&A' to 'Features' in Navbar
+- [x] Revert navigation label from 'M&A' to 'Features' in Footer
