@@ -10,29 +10,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 export default function Footer() {
   const { resolvedTheme } = useTheme();
   const [careerModalOpen, setCareerModalOpen] = useState(false);
-  const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
-  const [feedbackData, setFeedbackData] = useState({ name: '', email: '', message: '' });
-  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the feedback to your backend
-    console.log('Feedback submitted:', feedbackData);
-    setFeedbackSubmitted(true);
-    setTimeout(() => {
-      setFeedbackModalOpen(false);
-      setFeedbackSubmitted(false);
-      setFeedbackData({ name: '', email: '', message: '' });
-    }, 2000);
-  };
   
   return (
     <footer className="bg-white dark:bg-[#0B102C] border-t border-border/40 pt-16 pb-8">
@@ -83,12 +64,13 @@ export default function Footer() {
               <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
               <li>
                 <button 
-                  onClick={() => setFeedbackModalOpen(true)}
+                  onClick={() => setCareerModalOpen(true)}
                   className="hover:text-primary transition-colors text-left"
                 >
-                  Feedback
+                  Careers
                 </button>
               </li>
+              <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -135,64 +117,6 @@ export default function Footer() {
               contact@eudox.ai
             </a>
           </div>
-        </DialogContent>
-      </Dialog>
-      
-      {/* Feedback Modal */}
-      <Dialog open={feedbackModalOpen} onOpenChange={setFeedbackModalOpen}>
-        <DialogContent className="sm:max-w-lg">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Share Your Feedback</DialogTitle>
-            <DialogDescription className="text-base pt-2">
-              We'd love to hear about your experience and suggestions for improvement.
-            </DialogDescription>
-          </DialogHeader>
-          {feedbackSubmitted ? (
-            <div className="py-8 text-center">
-              <div className="text-green-500 text-5xl mb-4">✓</div>
-              <p className="text-lg font-semibold text-foreground">Thank you for your feedback!</p>
-              <p className="text-sm text-muted-foreground mt-2">We appreciate you taking the time to share your thoughts.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4 pt-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  value={feedbackData.name}
-                  onChange={(e) => setFeedbackData({ ...feedbackData, name: e.target.value })}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your.email@example.com"
-                  value={feedbackData.email}
-                  onChange={(e) => setFeedbackData({ ...feedbackData, email: e.target.value })}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">Your Feedback</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Share your thoughts, suggestions, or experience..."
-                  value={feedbackData.message}
-                  onChange={(e) => setFeedbackData({ ...feedbackData, message: e.target.value })}
-                  required
-                  rows={5}
-                  className="resize-none"
-                />
-              </div>
-              <Button type="submit" className="w-full">
-                Submit Feedback
-              </Button>
-            </form>
-          )}
         </DialogContent>
       </Dialog>
     </footer>

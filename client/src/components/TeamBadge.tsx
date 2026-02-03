@@ -72,7 +72,6 @@ export default function TeamBadge() {
                   university.needsBackground ? 'dark:bg-white dark:px-4 dark:py-3' : ''
                 }`}
                 fallbackClassName="w-full h-full"
-                style={{height: '75px'}}
               />
             </div>
           ))}
