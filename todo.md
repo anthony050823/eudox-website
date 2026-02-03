@@ -238,3 +238,4 @@
 - [x] Add E-commerce signal example
 - [x] Implement auto-rotation functionality
 - [x] Update hero headline to emphasize M&A professional positioning
+- [x] Update favicon to use Eudox logo
