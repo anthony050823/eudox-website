@@ -63,27 +63,6 @@ export default function TeamBadge() {
         </div>
       </div>
       
-      
-      {/* Career Section */}
-      <div className="mt-8 pt-8 border-t border-border text-center">
-        <h4 className="text-lg font-semibold text-[#11142d] dark:text-white mb-3">
-          Join Our Team
-        </h4>
-        <p className="text-muted-foreground mb-4">
-          We're looking for people with unique skills and passion in fintech and AI SaaS.
-        </p>
-        <p className="text-sm text-muted-foreground">
-          Feel free to email{" "}
-          <a 
-            href="mailto:contact@eudox.ai" 
-            className="text-[#3dc4ff] hover:text-[#4ee8dc] font-medium underline transition-colors"
-          >
-            contact@eudox.ai
-          </a>
-          {" "}to join our group.
-        </p>
-      </div>
-      
       <style>{`
         @keyframes scroll {
           0% {

@@ -2,9 +2,18 @@ import { Link } from "wouter";
 import { Instagram, Linkedin, Github, Mail } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export default function Footer() {
   const { resolvedTheme } = useTheme();
+  const [careerModalOpen, setCareerModalOpen] = useState(false);
   
   return (
     <footer className="bg-white dark:bg-[#0B102C] border-t border-border/40 pt-16 pb-8">
@@ -53,7 +62,14 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
+              <li>
+                <button 
+                  onClick={() => setCareerModalOpen(true)}
+                  className="hover:text-primary transition-colors text-left"
+                >
+                  Careers
+                </button>
+              </li>
               <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
@@ -79,6 +95,30 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      
+      {/* Career Modal */}
+      <Dialog open={careerModalOpen} onOpenChange={setCareerModalOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">Join Our Team</DialogTitle>
+            <DialogDescription className="text-base pt-4">
+              We're looking for people with unique skills and passion in fintech and AI SaaS.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="pt-4">
+            <p className="text-sm text-muted-foreground mb-4">
+              Feel free to email us to join our group:
+            </p>
+            <a 
+              href="mailto:contact@eudox.ai"
+              className="inline-flex items-center gap-2 text-[#3dc4ff] hover:text-[#4ee8dc] font-medium transition-colors"
+            >
+              <Mail size={18} />
+              contact@eudox.ai
+            </a>
+          </div>
+        </DialogContent>
+      </Dialog>
     </footer>
   );
 }

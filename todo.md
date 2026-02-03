@@ -155,3 +155,5 @@
 - [x] Update team section content to emphasize elite college students
 - [x] Add career section with contact@eudox.ai email
 - [x] Add white backgrounds for university logos in dark mode
+- [x] Remove career section from TeamBadge component
+- [x] Add career modal to Footer Career link
