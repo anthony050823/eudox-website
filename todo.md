@@ -146,3 +146,7 @@
 - [x] Align UI box in Product section with other two boxes
 - [x] Highlight agentic valuation capabilities in Comparison section
 - [x] Change browser title to "Eudox AI" instead of "Eudox"
+- [x] Upload university logos to public directory
+- [x] Create team section component with rolling badge animation
+- [x] Embed team section after Early Access submit button
+- [x] Style team section to match existing UI

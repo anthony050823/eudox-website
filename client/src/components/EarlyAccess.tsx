@@ -8,6 +8,7 @@ import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { AnimatedSection } from "./AnimatedSection";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
+import TeamBadge from "@/components/TeamBadge";
 
 export default function EarlyAccess() {
   const [formData, setFormData] = useState({
@@ -217,6 +218,11 @@ export default function EarlyAccess() {
             </div>
           </AnimatedSection>
         </div>
+        
+        {/* Team Badge Section */}
+        <AnimatedSection animation="fade-up" delay={200} className="mt-16">
+          <TeamBadge />
+        </AnimatedSection>
       </div>
     </section>
   );
