@@ -1,9 +1,10 @@
 import { COOKIE_NAME } from "@shared/const";
 import { z } from "zod";
-import { createEarlyAccessRequest, getAllEarlyAccessRequests } from "./db";
+import { createEarlyAccessRequest, getAllEarlyAccessRequests, createFeedbackSubmission, getAllFeedbackSubmissions } from "./db";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router, protectedProcedure, adminProcedure } from "./_core/trpc";
+import { notifyOwner } from "./_core/notification";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -40,10 +41,46 @@ export const appRouter = router({
           role: input.role,
           message: input.message || null,
         });
+        
+        // Send notification to owner
+        await notifyOwner({
+          title: "New Early Access Request",
+          content: `Name: ${input.firstName} ${input.lastName}\nEmail: ${input.email}\nCompany: ${input.company}\nRole: ${input.role}${input.message ? `\nMessage: ${input.message}` : ''}`
+        });
+        
         return { success: true };
       }),
     list: adminProcedure.query(async () => {
       return await getAllEarlyAccessRequests();
+    }),
+  }),
+
+  feedback: router({
+    submit: publicProcedure
+      .input(
+        z.object({
+          name: z.string().min(1, "Name is required"),
+          email: z.string().email("Invalid email address"),
+          message: z.string().min(1, "Message is required"),
+        })
+      )
+      .mutation(async ({ input }) => {
+        await createFeedbackSubmission({
+          name: input.name,
+          email: input.email,
+          message: input.message,
+        });
+        
+        // Send notification to owner
+        await notifyOwner({
+          title: "New Feedback Submission",
+          content: `Name: ${input.name}\nEmail: ${input.email}\nMessage: ${input.message}`
+        });
+        
+        return { success: true };
+      }),
+    list: adminProcedure.query(async () => {
+      return await getAllFeedbackSubmissions();
     }),
   }),
 });

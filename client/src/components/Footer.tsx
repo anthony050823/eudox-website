@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 export default function Footer() {
   const { resolvedTheme } = useTheme();
@@ -47,15 +49,24 @@ export default function Footer() {
     }
   ];
 
+  const feedbackMutation = trpc.feedback.submit.useMutation({
+    onSuccess: () => {
+      setFeedbackSubmitted(true);
+      toast.success("Thank you! Your feedback has been submitted.");
+      setTimeout(() => {
+        setFeedbackModalOpen(false);
+        setFeedbackSubmitted(false);
+        setFeedbackData({ name: '', email: '', message: '' });
+      }, 2000);
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to submit feedback. Please try again.");
+    },
+  });
+
   const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Feedback submitted:', feedbackData);
-    setFeedbackSubmitted(true);
-    setTimeout(() => {
-      setFeedbackModalOpen(false);
-      setFeedbackSubmitted(false);
-      setFeedbackData({ name: '', email: '', message: '' });
-    }, 2000);
+    feedbackMutation.mutate(feedbackData);
   };
   
   return (

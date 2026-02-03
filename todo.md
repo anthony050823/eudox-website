@@ -185,3 +185,16 @@
 - [x] Update routes to redirect and open modals
 - [x] Update page title to just "Eudox AI"
 - [x] Update navbar site name from "Eudox" to "Eudox AI"
+- [x] Create database schema for early_access_requests and feedback tables
+- [x] Push database schema changes
+- [x] Implement tRPC mutation for early access signup with email notifications
+- [x] Implement tRPC mutation for feedback submission with email notifications
+- [x] Connect EarlyAccess form to backend mutation
+- [x] Connect Feedback form to backend mutation
+- [x] Add product demo video embed to Hero section (already functional)
+- [x] Create admin dashboard page
+- [x] Add early access requests table with filtering
+- [x] Add feedback submissions table with filtering
+- [x] Implement CSV export functionality
+- [ ] Add admin route protection
+- [ ] Write tests for backend mutations

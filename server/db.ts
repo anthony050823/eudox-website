@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, earlyAccessRequests, InsertEarlyAccessRequest } from "../drizzle/schema";
+import { InsertUser, users, earlyAccessRequests, InsertEarlyAccessRequest, feedbackSubmissions, InsertFeedbackSubmission } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -112,5 +112,31 @@ export async function getAllEarlyAccessRequests() {
   }
 
   const result = await db.select().from(earlyAccessRequests).orderBy(earlyAccessRequests.createdAt);
+  return result;
+}
+
+/**
+ * Create a new feedback submission
+ */
+export async function createFeedbackSubmission(data: InsertFeedbackSubmission) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const result = await db.insert(feedbackSubmissions).values(data);
+  return result;
+}
+
+/**
+ * Get all feedback submissions
+ */
+export async function getAllFeedbackSubmissions() {
+  const db = await getDb();
+  if (!db) {
+    return [];
+  }
+
+  const result = await db.select().from(feedbackSubmissions).orderBy(feedbackSubmissions.createdAt);
   return result;
 }

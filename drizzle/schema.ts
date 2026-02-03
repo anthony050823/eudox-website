@@ -48,3 +48,19 @@ export const earlyAccessRequests = mysqlTable("early_access_requests", {
 
 export type EarlyAccessRequest = typeof earlyAccessRequests.$inferSelect;
 export type InsertEarlyAccessRequest = typeof earlyAccessRequests.$inferInsert;
+/**
+ * Feedback submissions table
+ */
+export const feedbackSubmissions = mysqlTable("feedback_submissions", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 100 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+  emailIdx: index("feedback_email_idx").on(table.email),
+  createdAtIdx: index("feedback_created_at_idx").on(table.createdAt),
+}));
+
+export type FeedbackSubmission = typeof feedbackSubmissions.$inferSelect;
+export type InsertFeedbackSubmission = typeof feedbackSubmissions.$inferInsert;
