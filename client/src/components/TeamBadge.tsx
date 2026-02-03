@@ -28,9 +28,17 @@ export default function TeamBadge() {
         <h3 className="text-2xl font-bold text-[#11142d] dark:text-white mb-3">
           Empowered by Elite College Students
         </h3>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          We're accelerating traditional yet crucial finance sourcing processes with cutting-edge AI technology, transforming how dealmakers discover and evaluate opportunities.
-        </p>
+        <div className="max-w-3xl mx-auto space-y-4">
+          <p className="text-muted-foreground leading-relaxed">
+            Built by a team of elite students from Emory University, USC, and Northwestern University's McCormick School of Engineering, Eudox represents the convergence of top-tier academic excellence and real-world fintech innovation.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            We're revolutionizing the traditionally manual and time-intensive process of deal sourcing in private markets. What once required weeks of research, countless cold calls, and endless spreadsheet management now happens autonomously through our AI-powered platform. By combining advanced machine learning with deep financial domain expertise, we've transformed reactive searching into proactive discovery—enabling dealmakers to identify high-potential opportunities before they hit the market.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Our mission is to democratize access to private market intelligence, making institutional-grade deal sourcing capabilities available to firms of all sizes while dramatically reducing the time from opportunity identification to actionable insight.
+          </p>
+        </div>
       </div>
       
       <div className="relative overflow-hidden">
