@@ -256,3 +256,4 @@
 - [x] Fix early access section background color to use dark theme properly
 - [x] Match early access section background with rest of page
 - [x] Update early access discount from 50% to 10% off credit packs
+- [x] Update pricing from $799/pack to $699/pack

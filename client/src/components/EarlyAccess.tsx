@@ -118,7 +118,7 @@ export default function EarlyAccess() {
                     <span className="font-medium">Pro Pack</span>
                     <p className="text-xs text-muted-foreground">500 searches + priority support</p>
                   </div>
-                  <span className="font-bold text-xl">$799<span className="text-sm font-normal text-muted-foreground">/pack</span></span>
+                  <span className="font-bold text-xl">$699<span className="text-sm font-normal text-muted-foreground">/pack</span></span>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-4 text-center">
