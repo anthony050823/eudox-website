@@ -152,3 +152,6 @@
 - [x] Style team section to match existing UI
 - [x] Replace Northwestern logo with McCormick School of Engineering version
 - [x] Remove grayscale filter from all university logos
+- [x] Update team section content to emphasize elite college students
+- [x] Add career section with contact@eudox.ai email
+- [x] Add white backgrounds for university logos in dark mode
