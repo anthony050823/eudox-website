@@ -101,7 +101,6 @@ export default function Footer() {
                   Feedbacks
                 </button>
               </li>
-              <li><a href="#" className="hover:text-primary transition-colors">Changelog</a></li>
             </ul>
           </div>
 
