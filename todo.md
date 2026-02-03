@@ -208,3 +208,4 @@
 - [x] Write tests for email notifications
 - [x] Write tests for admin dashboard queries
 - [x] Run all tests and verify they pass
+- [x] Fix video modal accessibility error by adding DialogTitle

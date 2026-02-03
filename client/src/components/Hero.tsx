@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { useState } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export default function Hero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -161,6 +162,9 @@ export default function Hero() {
       {/* Video Modal */}
       <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
         <DialogContent className="max-w-5xl w-[95vw] p-0 bg-black border-0">
+          <VisuallyHidden>
+            <DialogTitle>Product Demo Video</DialogTitle>
+          </VisuallyHidden>
           <button
             onClick={() => setIsVideoModalOpen(false)}
             className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
