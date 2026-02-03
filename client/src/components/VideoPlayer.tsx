@@ -5,9 +5,11 @@ interface VideoPlayerProps {
   videoUrl: string;
   isOpen: boolean;
   onClose: () => void;
+  sessionId: string;
+  onTrackEvent: (eventType: string, currentTime: number, duration: number) => void;
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, isOpen, onClose }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, isOpen, onClose, sessionId, onTrackEvent }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
@@ -15,6 +17,12 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, isOpen, onClose }) 
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const [showSpeedMenu, setShowSpeedMenu] = useState(false);
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
+  const [trackedMilestones, setTrackedMilestones] = useState({
+    progress_25: false,
+    progress_50: false,
+    progress_75: false,
+    complete: false,
+  });
   
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,6 +52,55 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, isOpen, onClose }) 
       setIsPlaying(true);
     }
   }, [isOpen]);
+
+  // Video analytics tracking
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !isOpen) return;
+
+    const trackEvent = (eventType: string) => {
+      if (!video.duration) return;
+      onTrackEvent(eventType, Math.floor(video.currentTime), Math.floor(video.duration));
+    };
+
+    const handlePlay = () => trackEvent("play");
+    const handlePause = () => trackEvent("pause");
+    
+    const handleTimeUpdate = () => {
+      if (!video.duration) return;
+      const progress = (video.currentTime / video.duration) * 100;
+
+      if (progress >= 25 && !trackedMilestones.progress_25) {
+        setTrackedMilestones(prev => ({ ...prev, progress_25: true }));
+        trackEvent("progress_25");
+      } else if (progress >= 50 && !trackedMilestones.progress_50) {
+        setTrackedMilestones(prev => ({ ...prev, progress_50: true }));
+        trackEvent("progress_50");
+      } else if (progress >= 75 && !trackedMilestones.progress_75) {
+        setTrackedMilestones(prev => ({ ...prev, progress_75: true }));
+        trackEvent("progress_75");
+      }
+    };
+
+    const handleEnded = () => {
+      if (!trackedMilestones.complete) {
+        setTrackedMilestones(prev => ({ ...prev, complete: true }));
+        trackEvent("complete");
+      }
+    };
+
+    video.addEventListener("play", handlePlay);
+    video.addEventListener("pause", handlePause);
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    video.addEventListener("ended", handleEnded);
+
+    return () => {
+      video.removeEventListener("play", handlePlay);
+      video.removeEventListener("pause", handlePause);
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, [isOpen, trackedMilestones, onTrackEvent]);
 
   const toggleFullscreen = async () => {
     if (!videoRef.current) return;
