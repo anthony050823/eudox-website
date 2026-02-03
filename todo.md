@@ -261,3 +261,6 @@
 - [x] Process USC logo to add white background to transparent areas
 - [x] Ensure USC logo dimensions match other university banners
 - [x] Reprocess USC logo to have clean white background like Emory (no borders or artifacts)
+- [x] Replace USC logo with new version and add white background
+- [x] Replace Northwestern logo with new version and add white background
+- [x] Update all university logos to show white backgrounds in all views (light and dark mode)

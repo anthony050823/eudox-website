@@ -5,20 +5,17 @@ export default function TeamBadge() {
     {
       name: "Emory University",
       logo: "/images/universities/emory-university.png",
-      alt: "Emory University Logo",
-      needsBackground: true
+      alt: "Emory University Logo"
     },
     {
       name: "University of Southern California",
       logo: "/images/universities/usc.png",
-      alt: "USC Logo",
-      needsBackground: false // USC already has background
+      alt: "USC Logo"
     },
     {
-      name: "Northwestern University McCormick School of Engineering",
+      name: "Northwestern University",
       logo: "/images/universities/northwestern-university.png",
-      alt: "Northwestern University McCormick School of Engineering Logo",
-      needsBackground: true
+      alt: "Northwestern University Logo"
     }
   ];
 
@@ -41,9 +38,7 @@ export default function TeamBadge() {
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className={`max-w-full max-h-full object-contain ${
-                  university.needsBackground ? 'dark:bg-white dark:px-4 dark:py-3' : ''
-                }`}
+                className="max-w-full max-h-full object-contain"
                 fallbackClassName="w-full h-full"
               />
             </div>
@@ -57,9 +52,7 @@ export default function TeamBadge() {
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className={`max-w-full max-h-full object-contain ${
-                  university.needsBackground ? 'dark:bg-white dark:px-4 dark:py-3' : ''
-                }`}
+                className="max-w-full max-h-full object-contain"
                 fallbackClassName="w-full h-full"
               />
             </div>
