@@ -209,3 +209,4 @@
 - [x] Write tests for admin dashboard queries
 - [x] Run all tests and verify they pass
 - [x] Fix video modal accessibility error by adding DialogTitle
+- [x] Increase video modal size to 80% of screen width

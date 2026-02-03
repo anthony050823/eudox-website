@@ -161,7 +161,7 @@ export default function Hero() {
 
       {/* Video Modal */}
       <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
-        <DialogContent className="max-w-5xl w-[95vw] p-0 bg-black border-0">
+        <DialogContent className="max-w-[80vw] w-[80vw] p-0 bg-black border-0">
           <VisuallyHidden>
             <DialogTitle>Product Demo Video</DialogTitle>
           </VisuallyHidden>
