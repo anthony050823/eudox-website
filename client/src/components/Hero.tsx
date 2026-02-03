@@ -8,9 +8,42 @@ import VideoPlayer from "@/components/VideoPlayer";
 export default function Hero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
+  const [currentSignalIndex, setCurrentSignalIndex] = useState(0);
 
   const trackVideoMutation = trpc.analytics.trackVideo.useMutation();
   console.log('Video analytics session ID:', sessionId);
+
+  // Signal examples from different industries
+  const signals = [
+    {
+      industry: "Fintech",
+      description: "Stripe-adjacent payment processor: $127M ARR, 156% YoY growth, 94% gross margin. Series B stage, 3 acquisition inquiries detected.",
+      confidence: 98
+    },
+    {
+      industry: "Healthcare Tech",
+      description: "Teladoc competitor in mental health: $89M ARR, 203% YoY growth, 12M active users. Series C, strategic interest from 2 major health systems.",
+      confidence: 95
+    },
+    {
+      industry: "SaaS",
+      description: "Salesforce-adjacent CRM for real estate: $54M ARR, 178% YoY growth, 89% NRR. Series B, 4 PE firms conducting due diligence.",
+      confidence: 92
+    },
+    {
+      industry: "E-commerce",
+      description: "Shopify Plus merchant tools: $41M ARR, 145% YoY growth, 8,500 merchants. Seed stage, acquisition talks with Shopify and BigCommerce.",
+      confidence: 96
+    }
+  ];
+
+  // Auto-rotate signals every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSignalIndex((prev) => (prev + 1) % signals.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [signals.length]);
 
   const handleWatchDemo = () => {
     setIsVideoModalOpen(true);
@@ -143,29 +176,68 @@ export default function Hero() {
                   </div>
                 </div>
                 
-                <div className="p-4 rounded-xl bg-gradient-to-r from-[#4ee8dc]/10 to-[#3dc4ff]/10 border border-[#4ee8dc]/20 mt-4">
+                {/* Signal Carousel */}
+                <div className="relative p-4 rounded-xl bg-gradient-to-r from-[#4ee8dc]/10 to-[#3dc4ff]/10 border border-[#4ee8dc]/20 mt-4 overflow-hidden">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs text-cyan-600 dark:text-cyan-300 font-medium">Signal Detected</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-cyan-600 dark:text-cyan-300 font-medium">Signal Detected</span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 font-medium">
+                        {signals[currentSignalIndex].industry}
+                      </span>
+                    </div>
                     <span className="text-[10px] text-cyan-600/70 dark:text-cyan-300/70">Just now</span>
                   </div>
-                  <p className="text-sm text-gray-700 dark:text-gray-200 mb-3">
-                    Stripe-adjacent payment processor: $127M ARR, 156% YoY growth, 94% gross margin. Series B stage, 3 acquisition inquiries detected.
-                  </p>
+                  
+                  {/* Animated Signal Content */}
+                  <div className="relative min-h-[60px]">
+                    {signals.map((signal, index) => (
+                      <p 
+                        key={index}
+                        className={`text-sm text-gray-700 dark:text-gray-200 mb-3 absolute top-0 left-0 w-full transition-all duration-500 ${
+                          index === currentSignalIndex 
+                            ? 'opacity-100 translate-x-0' 
+                            : index < currentSignalIndex 
+                            ? 'opacity-0 -translate-x-4' 
+                            : 'opacity-0 translate-x-4'
+                        }`}
+                      >
+                        {signal.description}
+                      </p>
+                    ))}
+                  </div>
                   
                   {/* Confidence Score */}
                   <div className="mt-3 pt-3 border-t border-cyan-500/20">
                     <div className="flex justify-between items-center mb-1.5">
                       <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">Match Confidence</span>
-                      <span className="text-xs text-cyan-600 dark:text-cyan-400 font-bold">98%</span>
+                      <span className="text-xs text-cyan-600 dark:text-cyan-400 font-bold">
+                        {signals[currentSignalIndex].confidence}%
+                      </span>
                     </div>
                     <div className="relative h-2 bg-gray-200 dark:bg-gray-700/50 rounded-full overflow-hidden">
                       <div 
                         className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: '98%' }}
+                        style={{ width: `${signals[currentSignalIndex].confidence}%` }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
                       </div>
                     </div>
+                  </div>
+                  
+                  {/* Carousel Indicators */}
+                  <div className="flex justify-center gap-1.5 mt-3">
+                    {signals.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSignalIndex(index)}
+                        className={`h-1 rounded-full transition-all duration-300 ${
+                          index === currentSignalIndex 
+                            ? 'w-6 bg-cyan-500' 
+                            : 'w-1.5 bg-gray-300 dark:bg-gray-600 hover:bg-cyan-400'
+                        }`}
+                        aria-label={`View ${signals[index].industry} signal`}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>

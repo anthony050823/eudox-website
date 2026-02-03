@@ -232,3 +232,8 @@
 - [x] Test analytics tracking for all milestones (0%, 25%, 50%, 75%, 100%)
 - [x] Update signal detection text with specific company and professional metrics
 - [x] Add visual confidence score with progress bar to signal detection card
+- [x] Create rotating carousel with multiple industry signal examples
+- [x] Add Healthcare Tech signal example
+- [x] Add SaaS signal example
+- [x] Add E-commerce signal example
+- [x] Implement auto-rotation functionality
