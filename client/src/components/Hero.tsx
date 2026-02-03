@@ -177,6 +177,8 @@ export default function Hero() {
               className="absolute top-0 left-0 w-full h-full"
               controls
               autoPlay
+              controlsList=""
+              playsInline
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663218911035/DzQUFbBRJsWqGlOg.mov"
             >
               Your browser does not support the video tag.

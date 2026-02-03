@@ -210,3 +210,4 @@
 - [x] Run all tests and verify they pass
 - [x] Fix video modal accessibility error by adding DialogTitle
 - [x] Increase video modal size to 80% of screen width
+- [x] Enable fullscreen functionality for video player
