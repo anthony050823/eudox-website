@@ -273,3 +273,4 @@
 - [x] Switch comparison section to show Eudox Agent on left, Generic AI Chatbots on right
 - [x] Add Columbia College logo to "Empowered by Elite College Students" section
 - [x] Resize USC and Columbia logos to match Emory and Northwestern dimensions
+- [x] Increase text size in Columbia and USC logos while keeping box dimensions the same
