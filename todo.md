@@ -275,3 +275,4 @@
 - [x] Resize USC and Columbia logos to match Emory and Northwestern dimensions
 - [x] Increase text size in Columbia and USC logos while keeping box dimensions the same
 - [x] Fix "g\"/>" text appearing at the top of the screen
+- [x] Update light mode CSS color variables to match dark mode quality with reversed colors
