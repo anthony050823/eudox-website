@@ -54,7 +54,7 @@ export default function EarlyAccess() {
     <section id="early-access" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-[#0B102C] dark:to-[#0B102C] relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <ImageWithFallback 
-          src="/images/early-access-bg.png" 
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663218911035/CjwFriCExbdHnBWu.png" 
           alt="Background Pattern" 
           className="w-full h-full object-cover opacity-30"
           fallbackClassName="w-full h-full"

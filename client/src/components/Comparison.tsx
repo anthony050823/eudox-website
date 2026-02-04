@@ -77,7 +77,7 @@ export default function Comparison() {
         
         <div className="mt-16 rounded-3xl overflow-hidden relative h-64 md:h-80">
           <ImageWithFallback 
-            src="/images/comparison-bg.png" 
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663218911035/cUWBnaYPmUvyEEVd.png" 
             alt="Data Comparison" 
             className="w-full h-full object-cover"
             fallbackClassName="w-full h-full"

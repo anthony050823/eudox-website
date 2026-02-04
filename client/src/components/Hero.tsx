@@ -64,7 +64,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback 
-          src="/images/hero-bg.png" 
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663218911035/kSTMhAwVVJNPHrMz.png" 
           alt="Digital Horizon Background" 
           className="w-full h-full object-cover opacity-0 dark:opacity-60 transition-opacity duration-300"
           fallbackClassName="w-full h-full"

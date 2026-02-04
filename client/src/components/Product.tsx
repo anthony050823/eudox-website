@@ -58,7 +58,7 @@ export default function Product() {
           <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl">
             <div className="absolute inset-0 bg-gradient-to-r from-[#0B102C]/80 to-[#1a1b1f]/80 z-10"></div>
             <img 
-              src="/images/feature-ai-agent.png" 
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663218911035/bnwQkQvbbPiFZUad.png" 
               alt="AI Agent Visualization" 
               className="w-full h-[400px] object-cover"
               loading="lazy"

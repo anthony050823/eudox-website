@@ -274,3 +274,4 @@
 - [x] Add Columbia College logo to "Empowered by Elite College Students" section
 - [x] Resize USC and Columbia logos to match Emory and Northwestern dimensions
 - [x] Increase text size in Columbia and USC logos while keeping box dimensions the same
+- [x] Fix "g\"/>" text appearing at the top of the screen
