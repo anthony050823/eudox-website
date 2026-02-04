@@ -15,32 +15,6 @@ export default function Comparison() {
         </div>
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {/* Generic Chat Card */}
-          <div className="p-8 rounded-3xl bg-gray-50 dark:bg-[#1a1b1f]/50 border border-border/50 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10">
-              <X className="w-32 h-32" />
-            </div>
-            <h3 className="text-xl font-bold text-muted-foreground mb-6">Generic AI Chatbots</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-muted-foreground">
-                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-                <span>Hallucinates financial data and company details</span>
-              </li>
-              <li className="flex items-start gap-3 text-muted-foreground">
-                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-                <span>No real-time access to private market signals</span>
-              </li>
-              <li className="flex items-start gap-3 text-muted-foreground">
-                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-                <span>Cannot execute workflows (email, CRM sync)</span>
-              </li>
-              <li className="flex items-start gap-3 text-muted-foreground">
-                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-                <span>Generic knowledge, lacks investment context</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Eudox Card */}
           <div className="p-8 rounded-3xl bg-white dark:bg-[#1a1b1f] border border-[#4ee8dc]/30 shadow-xl shadow-cyan-500/5 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff]"></div>
@@ -70,6 +44,32 @@ export default function Comparison() {
               <li className="flex items-start gap-3 text-foreground font-medium bg-gradient-to-r from-[#4ee8dc]/10 to-[#3dc4ff]/10 p-3 rounded-xl border border-[#4ee8dc]/20">
                 <Check className="w-5 h-5 text-[#4ee8dc] shrink-0 mt-0.5" />
                 <span>Agentic valuation analysis with enhanced due diligence insights</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Generic Chat Card */}
+          <div className="p-8 rounded-3xl bg-gray-50 dark:bg-[#1a1b1f]/50 border border-border/50 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
+              <X className="w-32 h-32" />
+            </div>
+            <h3 className="text-xl font-bold text-muted-foreground mb-6">Generic AI Chatbots</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-muted-foreground">
+                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                <span>Hallucinates financial data and company details</span>
+              </li>
+              <li className="flex items-start gap-3 text-muted-foreground">
+                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                <span>No real-time access to private market signals</span>
+              </li>
+              <li className="flex items-start gap-3 text-muted-foreground">
+                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                <span>Cannot execute workflows (email, CRM sync)</span>
+              </li>
+              <li className="flex items-start gap-3 text-muted-foreground">
+                <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                <span>Generic knowledge, lacks investment context</span>
               </li>
             </ul>
           </div>
