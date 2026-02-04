@@ -271,3 +271,4 @@
 - [x] Update logo styling to maintain natural proportions like in reference screenshot
 - [x] Replace USC logo with new full-text version with white background
 - [x] Switch comparison section to show Eudox Agent on left, Generic AI Chatbots on right
+- [x] Add Columbia College logo to "Empowered by Elite College Students" section

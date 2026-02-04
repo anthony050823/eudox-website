@@ -16,6 +16,11 @@ export default function TeamBadge() {
       name: "Northwestern University",
       logo: "/images/universities/northwestern-university.png",
       alt: "Northwestern University Logo"
+    },
+    {
+      name: "Columbia College",
+      logo: "/images/universities/columbia.png",
+      alt: "Columbia College Logo"
     }
   ];
 
