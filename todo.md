@@ -276,3 +276,4 @@
 - [x] Increase text size in Columbia and USC logos while keeping box dimensions the same
 - [x] Fix "g\"/>" text appearing at the top of the screen
 - [x] Update light mode CSS color variables to match dark mode quality with reversed colors
+- [x] Update pricing plan text to show "Free" and "Customized" instead of current pricing

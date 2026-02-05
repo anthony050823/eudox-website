@@ -104,25 +104,25 @@ export default function EarlyAccess() {
             </div>
             
             <div className="p-6 bg-white dark:bg-[#1a1b1f] rounded-2xl border border-border shadow-lg">
-              <h4 className="font-semibold text-foreground mb-4">Future Credit-Based Pricing</h4>
+              <h4 className="font-semibold text-foreground mb-4">Available Plans</h4>
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-4 border-b border-border/50">
                   <div>
-                    <span className="font-medium">Starter Pack</span>
-                    <p className="text-xs text-muted-foreground">100 AI-powered searches</p>
+                    <span className="font-medium">Free</span>
+                    <p className="text-xs text-muted-foreground">10k daily tokens. Perfect for trying out the platform.</p>
                   </div>
-                  <span className="font-bold text-xl">$199<span className="text-sm font-normal text-muted-foreground">/pack</span></span>
+                  <span className="font-bold text-xl">Free</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-medium">Pro Pack</span>
-                    <p className="text-xs text-muted-foreground">500 searches + priority support</p>
+                    <span className="font-medium">Customized</span>
+                    <p className="text-xs text-muted-foreground">Tailored plan with token allowance best fit for your usage</p>
                   </div>
-                  <span className="font-bold text-xl">$699<span className="text-sm font-normal text-muted-foreground">/pack</span></span>
+                  <span className="font-bold text-xl">Custom</span>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-4 text-center">
-                Early access members get <span className="font-semibold text-[#3dc4ff]">10% off</span> all credit packs for life.
+                Early access members get <span className="font-semibold text-[#3dc4ff]">priority support</span> and flexible pricing.
               </p>
             </div>
           </AnimatedSection>
