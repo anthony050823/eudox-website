@@ -285,3 +285,4 @@
 - [x] Replace Emory logo with Emory University shield version
 - [x] Process all logos to have white backgrounds
 - [x] Ensure consistent text sizing across all university logos
+- [x] Resize all university logos to have identical width and height (same box dimensions)
