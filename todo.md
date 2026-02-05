@@ -288,3 +288,4 @@
 - [x] Resize all university logos to have identical width and height (same box dimensions)
 - [x] Increase university logo display size by 20%
 - [x] Optimize Early Access section background color to match rest of page in dark mode
+- [x] Update Early Access section to use #0b102c background in both light and dark modes
