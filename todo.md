@@ -287,3 +287,4 @@
 - [x] Ensure consistent text sizing across all university logos
 - [x] Resize all university logos to have identical width and height (same box dimensions)
 - [x] Increase university logo display size by 20%
+- [x] Optimize Early Access section background color to match rest of page in dark mode
