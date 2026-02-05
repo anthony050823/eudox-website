@@ -279,3 +279,9 @@
 - [x] Update pricing plan text to show "Free" and "Customized" instead of current pricing
 - [x] Add "Get Started" button to Free plan pricing card
 - [x] Add "Contact Sales" button to Customized plan pricing card
+- [x] Replace USC logo with USC Viterbi School of Engineering version
+- [x] Replace Northwestern logo with Northwestern University formal horizontal version
+- [x] Replace Columbia logo with Columbia University crown logo version
+- [x] Replace Emory logo with Emory University shield version
+- [x] Process all logos to have white backgrounds
+- [x] Ensure consistent text sizing across all university logos
