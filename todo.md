@@ -289,3 +289,5 @@
 - [x] Increase university logo display size by 20%
 - [x] Optimize Early Access section background color to match rest of page in dark mode
 - [x] Update Early Access section to use #0b102c background in both light and dark modes
+- [x] Replace USC logo with new USC shield and text version
+- [x] Enlarge Columbia text while keeping crown border size unchanged
