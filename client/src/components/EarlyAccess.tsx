@@ -106,19 +106,36 @@ export default function EarlyAccess() {
             <div className="p-6 bg-white dark:bg-[#1a1b1f] rounded-2xl border border-border shadow-lg">
               <h4 className="font-semibold text-foreground mb-4">Available Plans</h4>
               <div className="space-y-4">
-                <div className="flex justify-between items-center pb-4 border-b border-border/50">
-                  <div>
-                    <span className="font-medium">Free</span>
-                    <p className="text-xs text-muted-foreground">10k daily tokens. Perfect for trying out the platform.</p>
+                <div className="pb-4 border-b border-border/50">
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <span className="font-medium">Free</span>
+                      <p className="text-xs text-muted-foreground">10k daily tokens. Perfect for trying out the platform.</p>
+                    </div>
+                    <span className="font-bold text-xl">Free</span>
                   </div>
-                  <span className="font-bold text-xl">Free</span>
+                  <Button 
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="w-full bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 h-10 text-sm font-semibold shadow-md shadow-cyan-500/20"
+                  >
+                    Get Started
+                  </Button>
                 </div>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <span className="font-medium">Customized</span>
-                    <p className="text-xs text-muted-foreground">Tailored plan with token allowance best fit for your usage</p>
+                <div>
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <span className="font-medium">Customized</span>
+                      <p className="text-xs text-muted-foreground">Tailored plan with token allowance best fit for your usage</p>
+                    </div>
+                    <span className="font-bold text-xl">Custom</span>
                   </div>
-                  <span className="font-bold text-xl">Custom</span>
+                  <Button 
+                    onClick={() => window.location.href = 'mailto:contact@eudox.ai?subject=Customized Plan Inquiry'}
+                    variant="outline"
+                    className="w-full border-[#3dc4ff] text-[#3dc4ff] hover:bg-[#3dc4ff]/10 h-10 text-sm font-semibold"
+                  >
+                    Contact Sales
+                  </Button>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-4 text-center">

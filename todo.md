@@ -277,3 +277,5 @@
 - [x] Fix "g\"/>" text appearing at the top of the screen
 - [x] Update light mode CSS color variables to match dark mode quality with reversed colors
 - [x] Update pricing plan text to show "Free" and "Customized" instead of current pricing
+- [x] Add "Get Started" button to Free plan pricing card
+- [x] Add "Contact Sales" button to Customized plan pricing card
