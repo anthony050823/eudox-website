@@ -43,7 +43,7 @@ export default function TeamBadge() {
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className="max-h-16 object-contain"
+                className="max-h-20 object-contain"
                 fallbackClassName="w-full h-full"
               />
             </div>
@@ -57,7 +57,7 @@ export default function TeamBadge() {
               <ImageWithFallback
                 src={university.logo}
                 alt={university.alt}
-                className="max-h-16 object-contain"
+                className="max-h-20 object-contain"
                 fallbackClassName="w-full h-full"
               />
             </div>

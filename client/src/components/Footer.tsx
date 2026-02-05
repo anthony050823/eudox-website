@@ -291,7 +291,7 @@ export default function Footer() {
                 <ImageWithFallback
                   src={university.logo}
                   alt={university.alt}
-                  className="max-h-14 object-contain"
+                  className="max-h-17 object-contain"
                   fallbackClassName="w-full h-full"
                 />
               </div>

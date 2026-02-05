@@ -286,3 +286,4 @@
 - [x] Process all logos to have white backgrounds
 - [x] Ensure consistent text sizing across all university logos
 - [x] Resize all university logos to have identical width and height (same box dimensions)
+- [x] Increase university logo display size by 20%
