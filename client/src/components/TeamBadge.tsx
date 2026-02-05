@@ -68,7 +68,7 @@ export default function TeamBadge() {
       <style>{`
         @keyframes scroll {
           0% {
-            transform: translateX(0);
+            transform: translateX(0%);
           }
           100% {
             transform: translateX(-50%);
@@ -77,6 +77,7 @@ export default function TeamBadge() {
         
         .animate-scroll {
           animation: scroll 20s linear infinite;
+          will-change: transform;
         }
         
         .animate-scroll:hover {

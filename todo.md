@@ -291,3 +291,5 @@
 - [x] Update Early Access section to use #0b102c background in both light and dark modes
 - [x] Replace USC logo with new USC shield and text version
 - [x] Enlarge Columbia text while keeping crown border size unchanged
+- [x] Reorder university logos to: Emory, USC, Northwestern, Columbia (already in correct order)
+- [x] Fix carousel animation to show logos in correct visual order (Emory, USC, Northwestern, Columbia)
