@@ -295,3 +295,13 @@
 - [x] Fix carousel animation to show logos in correct visual order (Emory, USC, Northwestern, Columbia)
 - [x] Replace Northwestern logo with full seal and text version at 800x280 dimensions
 - [x] Update pricing section to have white background in light mode
+- [x] Analyze app.eudoxi.ai UI/UX design elements (colors, typography, components)
+- [x] Extract conversation interface design patterns from the app
+- [x] Create Soren-AI-style window chrome component (macOS dots, breadcrumb)
+- [x] Build chat interface component matching Eudox app screenshot
+- [x] Add file display component (green Excel icon with metadata)
+- [x] Create progress card with company table
+- [x] Add action button group (Additional Research, Excel Edit, Report Generation, Q&A)
+- [ ] Update all primary CTAs to cyan color (#00D9D9)
+- [x] Replace hero mockup image with interactive demo window
+- [ ] Update color scheme throughout site to match app

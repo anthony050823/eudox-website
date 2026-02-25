@@ -1,49 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
-import { useState, useRef, useEffect } from "react";
+import AppWindow from "@/components/AppWindow";
+import ChatDemo from "@/components/ChatDemo";
+import { useState } from "react";
 import { trpc } from "@/lib/trpc";
 import VideoPlayer from "@/components/VideoPlayer";
 
 export default function Hero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
-  const [currentSignalIndex, setCurrentSignalIndex] = useState(0);
 
   const trackVideoMutation = trpc.analytics.trackVideo.useMutation();
   console.log('Video analytics session ID:', sessionId);
-
-  // Signal examples from different industries
-  const signals = [
-    {
-      industry: "Fintech",
-      description: "Stripe-adjacent payment processor: $127M ARR, 156% YoY growth, 94% gross margin. Series B stage, 3 acquisition inquiries detected.",
-      confidence: 98
-    },
-    {
-      industry: "Healthcare Tech",
-      description: "Teladoc competitor in mental health: $89M ARR, 203% YoY growth, 12M active users. Series C, strategic interest from 2 major health systems.",
-      confidence: 95
-    },
-    {
-      industry: "SaaS",
-      description: "Salesforce-adjacent CRM for real estate: $54M ARR, 178% YoY growth, 89% NRR. Series B, 4 PE firms conducting due diligence.",
-      confidence: 92
-    },
-    {
-      industry: "E-commerce",
-      description: "Shopify Plus merchant tools: $41M ARR, 145% YoY growth, 8,500 merchants. Seed stage, acquisition talks with Shopify and BigCommerce.",
-      confidence: 96
-    }
-  ];
-
-  // Auto-rotate signals every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSignalIndex((prev) => (prev + 1) % signals.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [signals.length]);
 
   const handleWatchDemo = () => {
     setIsVideoModalOpen(true);
@@ -59,6 +28,7 @@ export default function Hero() {
       userAgent: navigator.userAgent,
     });
   };
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B102C] dark:bg-[#0B102C] bg-gradient-to-b from-gray-50 to-white dark:from-[#0B102C] dark:to-[#0B102C]">
       {/* Background Image */}
@@ -134,131 +104,10 @@ export default function Hero() {
         </div>
         
         <div className="relative hidden lg:block animate-in slide-in-from-right-10 duration-1000 fade-in delay-200">
-          {/* Abstract UI Representation */}
-          <div className="relative w-full aspect-square max-w-lg mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl transform rotate-[-5deg] hover:rotate-0 transition-transform duration-500">
-              <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                </div>
-                <div className="text-xs text-gray-800 dark:text-gray-400 font-mono">agent_status: active</div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex gap-4 items-start">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4ee8dc] to-[#3dc4ff] flex items-center justify-center shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                    </svg>
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <div className="h-2 w-24 bg-white/20 rounded-full"></div>
-                    <div className="h-16 w-full rounded-lg border p-3 bg-white dark:bg-white/5 border-gray-300 dark:border-white/10">
-                      <div className="h-2 w-3/4 bg-gray-300 dark:bg-white/10 rounded-full mb-2"></div>
-                      <div className="h-2 w-1/2 bg-gray-200 dark:bg-white/10 rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4 items-start">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4ee8dc] to-[#3dc4ff] flex items-center justify-center shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
-                      <circle cx="11" cy="11" r="8"></circle>
-                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                  </div>
-                  <div className="flex-1 space-y-2 rounded-xl p-3 bg-white dark:bg-transparent border border-gray-300 dark:border-transparent">
-                    <div className="h-2 w-32 bg-gray-300 dark:bg-white/20 rounded-full"></div>
-                    <div className="h-2 w-full bg-gray-200 dark:bg-white/5 rounded-full"></div>
-                  </div>
-                </div>
-                
-                {/* Signal Carousel */}
-                <div className="relative p-4 rounded-xl bg-gradient-to-r from-[#4ee8dc]/10 to-[#3dc4ff]/10 border border-[#4ee8dc]/20 mt-4 overflow-hidden">
-                  <div className="flex justify-between items-center mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-cyan-600 dark:text-cyan-300 font-medium">Signal Detected</span>
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 font-medium">
-                        {signals[currentSignalIndex].industry}
-                      </span>
-                    </div>
-                    <span className="text-[10px] text-cyan-600/70 dark:text-cyan-300/70">Just now</span>
-                  </div>
-                  
-                  {/* Animated Signal Content */}
-                  <div className="relative min-h-[60px]">
-                    {signals.map((signal, index) => (
-                      <p 
-                        key={index}
-                        className={`text-sm text-gray-700 dark:text-gray-200 mb-3 absolute top-0 left-0 w-full transition-all duration-500 ${
-                          index === currentSignalIndex 
-                            ? 'opacity-100 translate-x-0' 
-                            : index < currentSignalIndex 
-                            ? 'opacity-0 -translate-x-4' 
-                            : 'opacity-0 translate-x-4'
-                        }`}
-                      >
-                        {signal.description}
-                      </p>
-                    ))}
-                  </div>
-                  
-                  {/* Confidence Score */}
-                  <div className="mt-3 pt-3 border-t border-cyan-500/20">
-                    <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">Match Confidence</span>
-                      <span className="text-xs text-cyan-600 dark:text-cyan-400 font-bold">
-                        {signals[currentSignalIndex].confidence}%
-                      </span>
-                    </div>
-                    <div className="relative h-2 bg-gray-200 dark:bg-gray-700/50 rounded-full overflow-hidden">
-                      <div 
-                        className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${signals[currentSignalIndex].confidence}%` }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Carousel Indicators */}
-                  <div className="flex justify-center gap-1.5 mt-3">
-                    {signals.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentSignalIndex(index)}
-                        className={`h-1 rounded-full transition-all duration-300 ${
-                          index === currentSignalIndex 
-                            ? 'w-6 bg-cyan-500' 
-                            : 'w-1.5 bg-gray-300 dark:bg-gray-600 hover:bg-cyan-400'
-                        }`}
-                        aria-label={`View ${signals[index].industry} signal`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating Elements */}
-            <div className="absolute -top-10 -right-10 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl shadow-xl animate-bounce duration-[3000ms]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">Match Found</div>
-                  <div className="text-xs text-gray-400">98% Compatibility</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Real App Demo */}
+          <AppWindow>
+            <ChatDemo />
+          </AppWindow>
         </div>
       </div>
 
