@@ -310,42 +310,6 @@ export default function Footer() {
               Our mission is to democratize access to private market intelligence, making institutional-grade deal sourcing capabilities available to firms of all sizes while dramatically reducing the time from opportunity identification to actionable insight.
             </p>
           </div>
-
-          {/* Team Experience Section */}
-          <div className="pt-6 border-t border-border/40">
-            <h3 className="text-lg font-bold text-foreground mb-4">Team Experience</h3>
-            <div className="rounded-xl border border-border bg-muted/30 p-5">
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-foreground text-base">GroupUltra</span>
-                    <span className="text-xs text-muted-foreground">·</span>
-                    <span className="text-xs text-muted-foreground">San Francisco, United States</span>
-                  </div>
-                  <div className="text-sm font-medium text-[#3dc4ff]">Product Manager Intern</div>
-                </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap mt-1">Feb 2026 – Present</span>
-              </div>
-              <div className="space-y-3 text-sm text-muted-foreground">
-                <p className="leading-relaxed">
-                  Owned Intent discovery → PRD → execution end-to-end: ran 20+ user interviews and competitive teardowns, shipped 3 core PRDs, and reduced alignment cycle time by ~30% while cutting rework by ~25%.
-                </p>
-                <p className="leading-relaxed">
-                  Built and delivered an MVP independently (prototype + minimal implementation) to validate key flows with Design and Engineering, compressing validation to 1–2 weeks and pulling the first testable build forward by ~3 weeks.
-                </p>
-                <p className="leading-relaxed">
-                  Led three growth and infrastructure initiatives in parallel: onboarding and retention funnel optimization (activation +18%, D1 retention +10%); invite-link auto-add friend SDK pre-research and PRD driving invite conversion +22%; and AI translation embedded in social increasing cross-language message engagement by ~15%.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {["Product Strategy", "PRD", "User Research", "Growth", "AI/ML", "SDK"].map((tag) => (
-                  <span key={tag} className="text-xs px-2 py-1 rounded-full bg-[#3dc4ff]/10 text-[#3dc4ff] border border-[#3dc4ff]/20">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
         </DialogContent>
       </Dialog>
       
