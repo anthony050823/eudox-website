@@ -295,3 +295,5 @@
 - [x] Fix carousel animation to show logos in correct visual order (Emory, USC, Northwestern, Columbia)
 - [x] Replace Northwestern logo with full seal and text version at 800x280 dimensions
 - [x] Update pricing section to have white background in light mode
+- [x] Add GroupUltra PM Intern experience to team/about section of website
+- [x] Add GroupUltra PM Intern personal experience as team credential in About Us modal
