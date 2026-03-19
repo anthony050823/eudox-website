@@ -66,7 +66,7 @@ export default function Navbar() {
             }}
             className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="relative w-10 h-10 flex items-center justify-center rounded-xl overflow-hidden transition-transform group-hover:scale-105">
+            <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
               <ImageWithFallback 
                 src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
                 alt="Eudox Logo" 
