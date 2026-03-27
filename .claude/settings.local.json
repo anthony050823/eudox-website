@@ -4,7 +4,8 @@
       "Bash(pnpm approve-builds:*)",
       "Bash(pnpm install:*)",
       "Bash(pnpm remove:*)",
-      "Bash(pnpm add:*)"
+      "Bash(pnpm add:*)",
+      "Bash(xargs kill:*)"
     ]
   }
 }

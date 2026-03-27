@@ -98,12 +98,9 @@ export default function Navbar() {
           <ThemeToggle />
           <Button 
             className="bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 rounded-xl shadow-lg shadow-cyan-500/20 transition-all hover:-translate-y-0.5"
-            onClick={() => {
-              const element = document.querySelector("#early-access");
-              element?.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={() => window.open('https://app.eudox.ai', '_blank')}
           >
-            Get Early Access
+            Free Early Access
           </Button>
         </div>
 

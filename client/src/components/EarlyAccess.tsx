@@ -103,7 +103,11 @@ export default function EarlyAccess() {
               </div>
             </div>
             
-            <div className="p-6 bg-white dark:bg-[#1a1b1f] rounded-2xl border border-border shadow-lg">
+            
+          </AnimatedSection>
+          
+          <AnimatedSection animation="slide-left">
+            <div id="contact" className="p-6 bg-white dark:bg-[#1a1b1f] rounded-2xl border border-border shadow-lg scroll-mt-20">
               <h4 className="font-semibold text-foreground mb-4">Available Plans</h4>
               <div className="space-y-4">
                 <div className="pb-4 border-b border-border/50">
@@ -114,12 +118,12 @@ export default function EarlyAccess() {
                     </div>
                     <span className="font-bold text-xl">Free</span>
                   </div>
-                  <Button 
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    <Button 
+                    onClick={() => window.open('https://app.eudox.ai', '_blank')}
                     className="w-full bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 h-10 text-sm font-semibold shadow-md shadow-cyan-500/20"
-                  >
+                    >
                     Get Started
-                  </Button>
+                    </Button>
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-3">
@@ -141,100 +145,6 @@ export default function EarlyAccess() {
               <p className="text-xs text-muted-foreground mt-4 text-center">
                 Early access members get <span className="font-semibold text-[#3dc4ff]">priority support</span> and flexible pricing.
               </p>
-            </div>
-          </AnimatedSection>
-          
-          <AnimatedSection animation="slide-left">
-            <div id="contact">
-            <Card className="border-border shadow-2xl bg-white/80 dark:bg-[#1a1b1f]/80 backdrop-blur-xl">
-              <CardHeader>
-                <CardTitle>Request Access</CardTitle>
-                <CardDescription>Fill out the form below and we'll be in touch within 24 hours.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName">First name</Label>
-                      <Input 
-                        id="firstName" 
-                        placeholder="Jane" 
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName">Last name</Label>
-                      <Input 
-                        id="lastName" 
-                        placeholder="Doe" 
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Work Email</Label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="jane@firm.com" 
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Firm / Company Name</Label>
-                    <Input 
-                      id="company" 
-                      placeholder="Acme Capital" 
-                      value={formData.company}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="role">Role</Label>
-                    <Input 
-                      id="role" 
-                      placeholder="Partner, Associate, etc." 
-                      value={formData.role}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message">What's your primary deal sourcing challenge?</Label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Tell us about your current workflow..." 
-                      className="min-h-[100px]" 
-                      value={formData.message}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-to-r from-[#4ee8dc] to-[#3dc4ff] hover:opacity-90 text-white border-0 h-12 text-base font-semibold shadow-lg shadow-cyan-500/20"
-                    disabled={submitMutation.isPending}
-                  >
-                    {submitMutation.isPending ? "Submitting..." : "Submit Request"}
-                  </Button>
-                  
-                  <p className="text-xs text-center text-muted-foreground pt-2">
-                    By submitting, you agree to our Terms of Service and Privacy Policy.
-                  </p>
-                </form>
-              </CardContent>
-            </Card>
             </div>
           </AnimatedSection>
         </div>

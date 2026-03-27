@@ -118,7 +118,7 @@ export default function ChatDemo() {
           <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
             <input
               type="text"
-              placeholder="Ask Eudox"
+              placeholder="Ask Eudox..."
               className="flex-1 bg-transparent border-none outline-none text-sm"
               disabled
             />
