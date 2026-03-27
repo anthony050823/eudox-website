@@ -1,4 +1,4 @@
-import { index, integer, pgEnum, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { boolean, index, integer, pgEnum, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const roleEnum = pgEnum("role", ["user", "admin"]);
 export const eventTypeEnum = pgEnum("event_type", ["play", "pause", "progress_25", "progress_50", "progress_75", "complete"]);
@@ -89,3 +89,28 @@ export const videoAnalytics = pgTable("video_analytics", {
 
 export type VideoAnalytic = typeof videoAnalytics.$inferSelect;
 export type InsertVideoAnalytic = typeof videoAnalytics.$inferInsert;
+
+/**
+ * Blog posts table
+ */
+export const blogPosts = pgTable("blog_posts", {
+  id: serial("id").primaryKey(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  title: text("title").notNull(),
+  excerpt: text("excerpt").notNull(),
+  content: text("content").default("").notNull(),
+  category: varchar("category", { length: 50 }).notNull(),
+  date: varchar("date", { length: 100 }).notNull(),
+  readTime: varchar("read_time", { length: 50 }).notNull(),
+  featured: boolean("featured").default(false).notNull(),
+  published: boolean("published").default(true).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+}, (table) => ({
+  slugIdx: index("bp_slug_idx").on(table.slug),
+  categoryIdx: index("bp_category_idx").on(table.category),
+  createdAtIdx: index("bp_created_at_idx").on(table.createdAt),
+}));
+
+export type BlogPost = typeof blogPosts.$inferSelect;
+export type InsertBlogPost = typeof blogPosts.$inferInsert;

@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
                 <ImageWithFallback 
                   src={resolvedTheme === 'dark' ? "/logo-dark.svg" : "/logo-light.svg"}
                   alt="Eudox" 

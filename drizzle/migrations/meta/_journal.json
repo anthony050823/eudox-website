@@ -8,6 +8,13 @@
       "when": 1773813223399,
       "tag": "0000_parallel_stark_industries",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1774589979258,
+      "tag": "0001_nice_mandroid",
+      "breakpoints": true
     }
   ]
 }

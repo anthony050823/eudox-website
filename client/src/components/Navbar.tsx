@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -23,10 +23,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
+  const isOnBlogPage = location.startsWith("/blog");
+
+  const scrollLinks = [
     { name: "Product", href: "#product" },
     { name: "Features", href: "#features" },
     { name: "Why Eudox", href: "#comparison" },
+    { name: "About Us", href: "#about-us" },
+    { name: "Blog", href: "#blog-preview" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -82,7 +86,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {!isOnBlogPage && scrollLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
@@ -116,12 +120,12 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-4 flex flex-col gap-4 shadow-xl animate-in slide-in-from-top-5">
-          {navLinks.map((link) => (
+          {!isOnBlogPage && scrollLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="text-base font-medium py-2 border-b border-border/50 last:border-0"
+              className="text-base font-medium py-2 border-b border-border/50"
             >
               {link.name}
             </a>

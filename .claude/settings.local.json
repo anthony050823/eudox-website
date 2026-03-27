@@ -5,7 +5,8 @@
       "Bash(pnpm install:*)",
       "Bash(pnpm remove:*)",
       "Bash(pnpm add:*)",
-      "Bash(xargs kill:*)"
+      "Bash(xargs kill:*)",
+      "Bash(grep -E \"\\\\.ts$\")"
     ]
   }
 }

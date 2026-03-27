@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/postgres-js";
-import { InsertUser, users, earlyAccessRequests, InsertEarlyAccessRequest, feedbackSubmissions, InsertFeedbackSubmission, videoAnalytics, InsertVideoAnalytic } from "../drizzle/schema";
+import { InsertUser, users, earlyAccessRequests, InsertEarlyAccessRequest, feedbackSubmissions, InsertFeedbackSubmission, videoAnalytics, InsertVideoAnalytic, blogPosts, InsertBlogPost } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -153,4 +153,62 @@ export async function createVideoAnalytic(data: InsertVideoAnalytic) {
 
   const result = await db.insert(videoAnalytics).values(data);
   return result;
+}
+
+/**
+ * Get all published blog posts ordered by most recent
+ */
+export async function getAllBlogPosts() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(blogPosts).where(eq(blogPosts.published, true)).orderBy(desc(blogPosts.createdAt));
+}
+
+/**
+ * Get all blog posts (including unpublished) for admin
+ */
+export async function getAllBlogPostsAdmin() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(blogPosts).orderBy(desc(blogPosts.createdAt));
+}
+
+/**
+ * Get a single blog post by slug
+ */
+export async function getBlogPostBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+/**
+ * Create a new blog post
+ */
+export async function createBlogPost(data: InsertBlogPost) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(blogPosts).values(data).returning();
+  return result[0];
+}
+
+/**
+ * Update a blog post by id
+ */
+export async function updateBlogPost(id: number, data: Partial<InsertBlogPost>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.update(blogPosts).set({ ...data, updatedAt: new Date() }).where(eq(blogPosts.id, id)).returning();
+  return result[0];
+}
+
+/**
+ * Delete a blog post by id
+ */
+export async function deleteBlogPost(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(blogPosts).where(eq(blogPosts.id, id));
+  return { success: true };
 }

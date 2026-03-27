@@ -1,10 +1,31 @@
 import { COOKIE_NAME } from "@shared/const";
 import { z } from "zod";
-import { createEarlyAccessRequest, getAllEarlyAccessRequests, createFeedbackSubmission, getAllFeedbackSubmissions, createVideoAnalytic } from "./db";
+import { createEarlyAccessRequest, getAllEarlyAccessRequests, createFeedbackSubmission, getAllFeedbackSubmissions, createVideoAnalytic, getAllBlogPosts, getAllBlogPostsAdmin, getBlogPostBySlug, createBlogPost, updateBlogPost, deleteBlogPost } from "./db";
+import { TRPCError } from "@trpc/server";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router, protectedProcedure, adminProcedure } from "./_core/trpc";
 import { notifyOwner } from "./_core/notification";
+
+const BLOG_ADMIN_PASSWORD = process.env.BLOG_ADMIN_PASSWORD || "eud0x@dm1n!";
+
+function verifyAdminPassword(password: string) {
+  if (password !== BLOG_ADMIN_PASSWORD) {
+    throw new TRPCError({ code: "UNAUTHORIZED", message: "Invalid password" });
+  }
+}
+
+const blogPostInput = z.object({
+  slug: z.string().min(1),
+  title: z.string().min(1),
+  excerpt: z.string().min(1),
+  content: z.string().optional(),
+  category: z.enum(["Product", "Insights", "Industry", "Company"]),
+  date: z.string().min(1),
+  readTime: z.string().min(1),
+  featured: z.boolean().optional(),
+  published: z.boolean().optional(),
+});
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -119,6 +140,72 @@ export const appRouter = router({
         });
         
         return { success: true };
+      }),
+  }),
+
+  blog: router({
+    list: publicProcedure.query(async () => getAllBlogPosts()),
+
+    getBySlug: publicProcedure
+      .input(z.string())
+      .query(async ({ input }) => getBlogPostBySlug(input)),
+
+    verify: publicProcedure
+      .input(z.object({ password: z.string() }))
+      .mutation(({ input }) => {
+        verifyAdminPassword(input.password);
+        return { success: true };
+      }),
+
+    adminList: publicProcedure
+      .input(z.object({ password: z.string() }))
+      .mutation(async ({ input }) => {
+        verifyAdminPassword(input.password);
+        return getAllBlogPostsAdmin();
+      }),
+
+    create: publicProcedure
+      .input(z.object({ password: z.string() }).merge(blogPostInput))
+      .mutation(async ({ input }) => {
+        verifyAdminPassword(input.password);
+        const { password, ...data } = input;
+        return createBlogPost({
+          ...data,
+          content: data.content || "",
+          featured: data.featured ?? false,
+          published: data.published ?? true,
+        });
+      }),
+
+    update: publicProcedure
+      .input(z.object({ password: z.string(), id: z.number() }).merge(blogPostInput.partial()))
+      .mutation(async ({ input }) => {
+        verifyAdminPassword(input.password);
+        const { password, id, ...data } = input;
+        return updateBlogPost(id, data);
+      }),
+
+    delete: publicProcedure
+      .input(z.object({ password: z.string(), id: z.number() }))
+      .mutation(async ({ input }) => {
+        verifyAdminPassword(input.password);
+        return deleteBlogPost(input.id);
+      }),
+  }),
+
+  secureAdmin: router({
+    earlyAccessList: publicProcedure
+      .input(z.object({ password: z.string() }))
+      .mutation(async ({ input }) => {
+        verifyAdminPassword(input.password);
+        return getAllEarlyAccessRequests();
+      }),
+
+    feedbackList: publicProcedure
+      .input(z.object({ password: z.string() }))
+      .mutation(async ({ input }) => {
+        verifyAdminPassword(input.password);
+        return getAllFeedbackSubmissions();
       }),
   }),
 });
