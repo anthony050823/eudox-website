@@ -13,6 +13,12 @@ docker tag eudox-website:latest <account-id>.dkr.ecr.us-west-1.amazonaws.com/eud
 docker push <account-id>.dkr.ecr.us-west-1.amazonaws.com/eudox-website:latest
 
 # Then go to App Runner → your service → Rebuild
+
+# After the docker push, invalidate CloudFront cache
+aws cloudfront list-distributions --query "DistributionList.Items[*].{ID:Id,Domain:DomainName}" --output table
+
+aws cloudfront create-invalidation --distribution-id <YOUR_DIST_ID> --paths "/*"
+
 ```
 
 ### Update environment variables
