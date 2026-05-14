@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eudox AI – Deal Sourcing Agent</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f6fb;
+    }
+
+    /* ── Widget shell ── */
+    .widget {
+      width: 100%;
+      height: 100vh;
+      background: #f5f6fb;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Fade overlay ── */
+    .fade-overlay {
+      position: absolute;
+      inset: 0;
+      background: #f5f6fb;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease;
+      z-index: 10;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 80px;
+      background: #fff;
+      border-right: 1px solid #eaecf2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 22px 0 18px;
+      flex-shrink: 0;
+    }
+
+    .sidebar__logo {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .sidebar__logo img { width: 38px; height: 38px; object-fit: contain; }
+
+    .sidebar__nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .sidebar__btn {
+      width: 50px; height: 50px;
+      border: none; border-radius: 12px;
+      background: transparent; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #9498a7;
+    }
+
+    .sidebar__btn.active { background: #f0fdf9; color: #34c9b8; }
+    .sidebar__btn svg { width: 25px; height: 25px; }
+
+    .sidebar__dots {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 6px; padding-top: 12px; margin-top: 8px;
+      border-top: 1px solid #eaecf2; width: 100%;
+    }
+
+    .sidebar__dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    .sidebar__bottom {
+      margin-top: auto;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+
+    .sidebar__avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #62e2d8, #4cc3ff);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: #fff;
+    }
+
+    /* ── Main ── */
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+    /* ── Topbar ── */
+    .topbar {
+      background: #fff; border-bottom: 1px solid #eaecf2;
+      padding: 16px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-shrink: 0;
+    }
+
+    .topbar__title { font-size: 19px; font-weight: 600; color: #1a1b1f; }
+
+    .topbar__sub {
+      font-size: 15px; color: #9498a7;
+      display: flex; align-items: center; gap: 5px; margin-top: 3px;
+    }
+
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #34d399; display: inline-block;
+    }
+
+    .topbar__actions { display: flex; gap: 6px; }
+
+    .topbar__btn {
+      width: 38px; height: 38px;
+      border: 1px solid #e0e4ef; border-radius: 10px;
+      background: #fff; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #9498a7;
+    }
+
+    .topbar__btn svg { width: 19px; height: 19px; }
+
+    /* ── Tabs ── */
+    .tabs {
+      background: #fff; border-bottom: 1px solid #eaecf2;
+      padding: 0 18px; display: flex; gap: 2px; flex-shrink: 0;
+    }
+
+    .tab {
+      padding: 10px 16px; border: none; background: transparent;
+      font-size: 16px; font-weight: 500; color: #9498a7; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      display: flex; align-items: center; gap: 7px;
+    }
+
+    .tab.active { color: #1a1b1f; border-bottom-color: #34c9b8; font-weight: 600; }
+    .tab svg { width: 18px; height: 18px; }
+
+    /* ── Chat body ── */
+    .chat-body {
+      flex: 1; overflow-y: auto;
+      padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 14px;
+      scrollbar-width: thin; scrollbar-color: #e0e4ef transparent;
+    }
+
+    .chat-body::-webkit-scrollbar { width: 4px; }
+    .chat-body::-webkit-scrollbar-thumb { background: #e0e4ef; border-radius: 2px; }
+
+    /* ── Messages ── */
+    .msg { display: flex; gap: 9px; align-items: flex-start; }
+    .msg--user { flex-direction: row-reverse; }
+
+    .msg__avatar {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #62e2d8, #4cc3ff);
+      display: flex; align-items: center; justify-content: center; padding: 6px;
+    }
+
+    .msg__avatar img { width: 100%; height: 100%; object-fit: contain; }
+
+    .msg__body { display: flex; flex-direction: column; gap: 6px; max-width: 88%; }
+
+    .msg__bubble {
+      background: #fff; border: 1px solid #eaecf2;
+      border-radius: 4px 12px 12px 12px;
+      padding: 12px 16px; font-size: 17px; color: #1a1b1f; line-height: 1.5;
+    }
+
+    .msg--user .msg__bubble {
+      background: linear-gradient(135deg, #62e2d8, #4cc3ff);
+      color: #fff; border: none;
+      border-radius: 12px 4px 12px 12px;
+    }
+
+    /* ── Typing indicator ── */
+    .typing { display: flex; gap: 4px; padding: 3px 2px; align-items: center; }
+
+    .typing__dot {
+      width: 9px; height: 9px; border-radius: 50%; background: #62e2d8;
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+
+    .typing__dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing__dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%,60%,100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    /* ── Task board ── */
+    .task-board {
+      background: #fff; border: 1px solid #eaecf2;
+      border-radius: 10px; overflow: hidden; width: 360px;
+    }
+
+    .task-board__header {
+      padding: 10px 15px; background: #f6f7fb;
+      border-bottom: 1px solid #eaecf2;
+      font-size: 14px; font-weight: 600; color: #6f7381;
+      display: flex; align-items: center; gap: 7px;
+    }
+
+    .task-board__header svg { width: 16px; height: 16px; color: #62e2d8; flex-shrink: 0; }
+
+    .task-row {
+      padding: 10px 15px; border-bottom: 1px solid #f1f2f6;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .task-row:last-child { border-bottom: none; }
+
+    .task-icon {
+      width: 29px; height: 29px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 15px;
+    }
+
+    .task-info { flex: 1; min-width: 0; }
+
+    .task-label { font-size: 15px; color: #1a1b1f; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .task-bar-wrap {
+      height: 3px; background: #eaecf2; border-radius: 99px; overflow: hidden; margin-top: 5px;
+    }
+
+    .task-bar-fill {
+      height: 100%; border-radius: 99px;
+      background: linear-gradient(90deg, #62e2d8, #4cc3ff);
+      width: 0%; transition: width 0.75s ease;
+    }
+
+    .task-status {
+      font-size: 13.5px; font-weight: 600; flex-shrink: 0; min-width: 60px; text-align: right;
+    }
+
+    .task-status--idle   { color: #c0c3ce; }
+    .task-status--run    { color: #4cc3ff; }
+    .task-status--done   { color: #34d399; }
+
+    /* ── Deal card ── */
+    .deal-card {
+      background: #fff; border: 1px solid #eaecf2;
+      border-radius: 10px; overflow: hidden; width: 360px;
+    }
+
+    .deal-card__head {
+      padding: 12px 16px; border-bottom: 1px solid #f1f2f6;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+
+    .deal-card__name { font-size: 17px; font-weight: 700; color: #1a1b1f; }
+    .deal-card__sector { font-size: 14px; color: #9498a7; margin-top: 2px; }
+
+    .deal-card__fit {
+      font-size: 13px; font-weight: 700;
+      padding: 3px 9px; border-radius: 20px; flex-shrink: 0;
+    }
+
+    .fit--high { background: #d1fae5; color: #059669; }
+    .fit--mid  { background: #dbeafe; color: #2563eb; }
+
+    .deal-card__metrics {
+      display: flex; padding: 11px 0;
+    }
+
+    .deal-metric {
+      flex: 1; text-align: center; padding: 0 4px;
+    }
+
+    .deal-metric:not(:last-child) { border-right: 1px solid #f1f2f6; }
+
+    .deal-metric__val  { font-size: 17px; font-weight: 700; color: #1a1b1f; }
+    .deal-metric__lbl  { font-size: 13px; color: #9498a7; margin-top: 2px; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #fff; border-top: 1px solid #eaecf2;
+      padding: 13px 18px; flex-shrink: 0;
+    }
+
+    .footer__row { display: flex; align-items: center; gap: 8px; }
+
+    .footer__input-wrap {
+      flex: 1; border: 2px solid #e0e4ef; border-radius: 11px;
+      padding: 10px 15px; font-size: 17px; color: #1a1b1f;
+      background: #f6f7fb; min-height: 44px;
+      display: flex; align-items: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .footer__input-wrap.active { border-color: #62e2d8; background: #fff; }
+
+    .footer__input-text { flex: 1; }
+    .footer__placeholder { color: #b0b4c0; }
+
+.footer__send {
+      width: 44px; height: 44px; border: none; border-radius: 11px;
+      background: linear-gradient(135deg, #62e2d8, #4cc3ff);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 10px rgba(82,212,227,.3); flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+
+    .footer__send.dim { opacity: 0.35; }
+    .footer__send svg { width: 18px; height: 18px; color: #fff; }
+
+    .footer__attach {
+      width: 44px; height: 44px; border: 1px solid #e0e4ef; border-radius: 11px;
+      background: #fff; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #9498a7; flex-shrink: 0;
+    }
+
+    .footer__attach svg { width: 19px; height: 19px; }
+
+    .footer__hint { font-size: 13px; color: #c0c3ce; text-align: right; margin-top: 5px; }
+
+    /* ── Slide-in animation ── */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: translateY(0);   }
+    }
+
+    .slide-in { animation: slideIn 0.28s ease forwards; }
+  </style>
+</head>
+<body>
+
+<div class="widget">
+
+  <div class="fade-overlay" id="fadeOverlay"></div>
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <div class="sidebar__logo">
+      <img src="/eudox-logo.svg" alt="Eudox" />
+    </div>
+    <nav class="sidebar__nav">
+      <button class="sidebar__btn active" title="Chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+      <button class="sidebar__btn" title="Pipeline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </button>
+      <button class="sidebar__btn" title="Analytics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+      </button>
+      <div class="sidebar__dots">
+        <div class="sidebar__dot" style="background:#62e2d8;"></div>
+        <div class="sidebar__dot" style="background:#4cc3ff;opacity:.6;"></div>
+        <div class="sidebar__dot" style="background:#c0c3ce;opacity:.4;"></div>
+      </div>
+    </nav>
+    <div class="sidebar__bottom">
+      <button class="sidebar__btn" title="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+      <div class="sidebar__avatar">SL</div>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">M&amp;A Deal Sourcing</div>
+        <div class="topbar__sub">
+          <span class="status-dot"></span>
+          Agent online · watching 847 targets
+        </div>
+      </div>
+      <div class="topbar__actions">
+        <button class="topbar__btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </button>
+        <button class="topbar__btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Research
+      </button>
+      <button class="tab active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        General
+      </button>
+      <button class="tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        Q&amp;A
+      </button>
+    </div>
+
+    <div class="chat-body" id="chatBody"></div>
+
+    <div class="footer">
+      <div class="footer__row">
+        <button class="footer__attach">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </button>
+        <div class="footer__input-wrap" id="inputWrap">
+          <span class="footer__input-text" id="inputText">
+            <span class="footer__placeholder">Ask about your deal pipeline…</span>
+          </span>
+        </div>
+        <button class="footer__send dim" id="sendBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="footer__hint">Powered by Eudox AI</div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const chatBody    = document.getElementById('chatBody')
+const inputText   = document.getElementById('inputText')
+const inputWrap   = document.getElementById('inputWrap')
+const sendBtn     = document.getElementById('sendBtn')
+const fadeOverlay = document.getElementById('fadeOverlay')
+
+let timers = []
+
+function wait(ms) {
+  return new Promise(r => { const t = setTimeout(r, ms); timers.push(t) })
+}
+
+function clearTimers() { timers.forEach(clearTimeout); timers = [] }
+
+// ── DOM helpers ──────────────────────────────────────────────────────────────
+
+function avatarHTML() {
+  return `<div class="msg__avatar"><img src="/eudox-logo-white.svg" alt="" /></div>`
+}
+
+function appendMsg(innerHTML, cls = 'msg--ai') {
+  const el = document.createElement('div')
+  el.className = `msg ${cls} slide-in`
+  el.innerHTML = innerHTML
+  chatBody.appendChild(el)
+  chatBody.scrollTop = chatBody.scrollHeight
+  return el
+}
+
+function setInput(text, placeholder = false) {
+  inputText.innerHTML = placeholder
+    ? `<span class="footer__placeholder">${text}</span>`
+    : (text === '' ? '' : '')
+  if (!placeholder) inputText.textContent = text
+}
+
+// ── Typewriter ────────────────────────────────────────────────────────────────
+
+async function typeQuery(text) {
+  setInput('', false)
+  inputWrap.classList.add('active')
+  sendBtn.classList.remove('dim')
+
+  for (let i = 0; i <= text.length; i++) {
+    inputText.textContent = text.slice(0, i)
+    await wait(i === 0 ? 100 : 48 + Math.random() * 28)
+  }
+  await wait(380)
+}
+
+// ── Task board ────────────────────────────────────────────────────────────────
+
+function buildTaskBoard(tasks) {
+  const rows = tasks.map((t, i) => `
+    <div class="task-row">
+      <div class="task-icon" style="background:${t.bg}">${t.icon}</div>
+      <div class="task-info">
+        <div class="task-label" id="tlbl-${i}">${t.name}</div>
+        <div class="task-bar-wrap"><div class="task-bar-fill" id="tbar-${i}"></div></div>
+      </div>
+      <div class="task-status task-status--idle" id="tsts-${i}">Queued</div>
+    </div>`).join('')
+
+  return `<div class="task-board">
+    <div class="task-board__header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+      Running ${tasks.length} parallel agents
+    </div>
+    ${rows}
+  </div>`
+}
+
+async function animateTasks(tasks) {
+  for (let i = 0; i < tasks.length; i++) {
+    const bar  = document.getElementById(`tbar-${i}`)
+    const lbl  = document.getElementById(`tlbl-${i}`)
+    const sts  = document.getElementById(`tsts-${i}`)
+
+    sts.textContent = 'Running…'
+    sts.className = 'task-status task-status--run'
+
+    await wait(80)
+    if (bar) bar.style.width = '100%'
+    await wait(820)
+
+    lbl.textContent = tasks[i].done
+    sts.textContent = '✓'
+    sts.className = 'task-status task-status--done'
+    await wait(260)
+  }
+}
+
+// ── Deal card ─────────────────────────────────────────────────────────────────
+
+function buildDealCard(c) {
+  return `<div class="deal-card slide-in">
+    <div class="deal-card__head">
+      <div>
+        <div class="deal-card__name">${c.name}</div>
+        <div class="deal-card__sector">${c.sector} · ${c.stage}</div>
+      </div>
+      <div class="deal-card__fit ${c.fitCls}">Fit ${c.fit}</div>
+    </div>
+    <div class="deal-card__metrics">
+      <div class="deal-metric">
+        <div class="deal-metric__val">${c.arr}</div>
+        <div class="deal-metric__lbl">ARR</div>
+      </div>
+      <div class="deal-metric">
+        <div class="deal-metric__val">${c.growth}</div>
+        <div class="deal-metric__lbl">YoY Growth</div>
+      </div>
+      <div class="deal-metric">
+        <div class="deal-metric__val">${c.nrr}</div>
+        <div class="deal-metric__lbl">Net Rev. Ret.</div>
+      </div>
+    </div>
+  </div>`
+}
+
+function typingBubble() {
+  return appendMsg(`${avatarHTML()}<div class="msg__body"><div class="msg__bubble">
+    <div class="typing">
+      <div class="typing__dot"></div><div class="typing__dot"></div><div class="typing__dot"></div>
+    </div>
+  </div></div>`)
+}
+
+// ── Scenarios ─────────────────────────────────────────────────────────────────
+
+const SCENARIOS = [
+  {
+    query: 'Source profitable healthcare SaaS targets — Series B, $15–50M ARR',
+    intro: 'On it. Launching 4 research agents across private-market databases…',
+    outro: 'Done. Found <strong>3 high-conviction acquisition targets</strong>:',
+    tasks: [
+      { icon: '🔍', bg: '#f0fdf9', name: 'Market Scanner',     done: 'Hunter & Apollo · 2,341 cos scanned' },
+      { icon: '💰', bg: '#eff6ff', name: 'Financial Analyst',  done: 'Filtered to 91 · ARR + margins' },
+      { icon: '⚡', bg: '#fefce8', name: 'Fit Scorer',         done: 'Top 3 ranked by acq. fit' },
+      { icon: '🔗', bg: '#fdf4ff', name: 'Network Mapper',     done: 'Board & leadership mapped' },
+    ],
+    cards: [
+      { name: 'HealthFlow AI',  sector: 'Clinical SaaS',    stage: 'Series B', fit: '94/100', fitCls: 'fit--high', arr: '$18M', growth: '+127%', nrr: '118%' },
+      { name: 'CareMetrics',    sector: 'Payer Analytics',  stage: 'Series B', fit: '91/100', fitCls: 'fit--high', arr: '$23M', growth: '+89%',  nrr: '112%' },
+      { name: 'MedBridge SaaS', sector: 'EHR Middleware',   stage: 'Series B', fit: '87/100', fitCls: 'fit--mid',  arr: '$31M', growth: '+64%',  nrr: '109%' },
+    ],
+  },
+  {
+    query: 'Find PE-backed fintech approaching exit — EBITDA positive, $30M+ ARR',
+    intro: 'Searching. Running 4 specialist agents across 12 databases…',
+    outro: 'Identified <strong>3 exit-ready targets</strong> matching your criteria:',
+    tasks: [
+      { icon: '🔍', bg: '#f0fdf9', name: 'Market Scanner',     done: 'CB Insights · 1,803 cos scanned' },
+      { icon: '💰', bg: '#eff6ff', name: 'Financial Analyst',  done: 'EBITDA+ filter · 74 cos remain' },
+      { icon: '⚡', bg: '#fefce8', name: 'Fit Scorer',         done: 'Top 3 ranked by exit readiness' },
+      { icon: '🔗', bg: '#fdf4ff', name: 'Network Mapper',     done: 'LP & sponsor network mapped' },
+    ],
+    cards: [
+      { name: 'Nexara Payments', sector: 'B2B Payments',      stage: 'PE-backed', fit: '96/100', fitCls: 'fit--high', arr: '$44M', growth: '+52%', nrr: '121%' },
+      { name: 'LendFlow',        sector: 'Embedded Finance',  stage: 'PE-backed', fit: '90/100', fitCls: 'fit--high', arr: '$29M', growth: '+78%', nrr: '116%' },
+      { name: 'ClaimOS',         sector: 'InsurTech SaaS',   stage: 'PE-backed', fit: '85/100', fitCls: 'fit--mid',  arr: '$37M', growth: '+41%', nrr: '107%' },
+    ],
+  },
+]
+
+let scenarioIdx = 0
+
+// ── Main animation loop ───────────────────────────────────────────────────────
+
+async function runLoop() {
+  const s = SCENARIOS[scenarioIdx % SCENARIOS.length]
+  scenarioIdx++
+
+  // 1. Type query
+  await typeQuery(s.query)
+
+  // 2. Send — user bubble appears
+  inputWrap.classList.remove('active')
+  sendBtn.classList.add('dim')
+  setInput('Ask about your deal pipeline…', true)
+
+  appendMsg(`<div class="msg__bubble">${s.query}</div>`, 'msg--user')
+  await wait(280)
+
+  // 3. Agent typing → intro message
+  const t1 = typingBubble()
+  await wait(1100)
+  t1.remove()
+
+  appendMsg(`${avatarHTML()}<div class="msg__body"><div class="msg__bubble">${s.intro}</div></div>`)
+  await wait(380)
+
+  // 4. Task board
+  appendMsg(`${avatarHTML()}<div class="msg__body">${buildTaskBoard(s.tasks)}</div>`)
+  chatBody.scrollTop = chatBody.scrollHeight
+  await wait(500)
+
+  // 5. Animate tasks
+  await animateTasks(s.tasks)
+  await wait(400)
+
+  // 6. Agent typing → results intro
+  const t2 = typingBubble()
+  await wait(950)
+  t2.remove()
+
+  appendMsg(`${avatarHTML()}<div class="msg__body"><div class="msg__bubble">${s.outro}</div></div>`)
+  await wait(280)
+
+  // 7. Deal cards — staggered
+  const cardsWrap = document.createElement('div')
+  cardsWrap.className = 'msg msg--ai slide-in'
+  cardsWrap.innerHTML = avatarHTML()
+  const cardsBody = document.createElement('div')
+  cardsBody.className = 'msg__body'
+  cardsWrap.appendChild(cardsBody)
+  chatBody.appendChild(cardsWrap)
+
+  for (const c of s.cards) {
+    const div = document.createElement('div')
+    div.innerHTML = buildDealCard(c)
+    cardsBody.appendChild(div.firstElementChild)
+    chatBody.scrollTop = chatBody.scrollHeight
+    await wait(580)
+  }
+
+  // 8. Pause for reading
+  await wait(3800)
+
+  // 9. Fade out → reset
+  fadeOverlay.style.opacity = '1'
+  await wait(750)
+  chatBody.innerHTML = ''
+  fadeOverlay.style.opacity = '0'
+  await wait(550)
+
+  runLoop()
+}
+
+setTimeout(runLoop, 600)
+</script>
+
+</body>
+</html>

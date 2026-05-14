@@ -29,8 +29,8 @@ export default function Features() {
                 </div>
                 <div className="p-8 space-y-6">
                   <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
-                      <span className="text-blue-600 dark:text-blue-400 text-xs font-bold">AI</span>
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#62e2d8] to-[#4cc3ff] flex items-center justify-center shrink-0 p-1.5">
+                      <img src="/eudox-logo-white.svg" alt="Eudox" className="w-full h-full object-contain" />
                     </div>
                     <div className="bg-gray-100 dark:bg-white/5 rounded-2xl rounded-tl-none p-4 text-sm text-foreground">
                       I've analyzed 1,400 companies in the vertical SaaS space. Based on your thesis for "mission-critical B2B software," I've flagged 3 high-priority targets that just opened senior sales roles.
@@ -47,8 +47,8 @@ export default function Features() {
                   </div>
                   
                   <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
-                      <span className="text-blue-600 dark:text-blue-400 text-xs font-bold">AI</span>
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#62e2d8] to-[#4cc3ff] flex items-center justify-center shrink-0 p-1.5">
+                      <img src="/eudox-logo-white.svg" alt="Eudox" className="w-full h-full object-contain" />
                     </div>
                     <div className="bg-gray-100 dark:bg-white/5 rounded-2xl rounded-tl-none p-4 text-sm text-foreground space-y-3">
                       <p><strong>Acme Corp</strong> matches 94% of your criteria.</p>

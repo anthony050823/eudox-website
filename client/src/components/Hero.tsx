@@ -1,15 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
-import AppWindow from "@/components/AppWindow";
-import ChatDemo from "@/components/ChatDemo";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { trpc } from "@/lib/trpc";
 import VideoPlayer from "@/components/VideoPlayer";
 
 export default function Hero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
+  const iframeContainerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const container = iframeContainerRef.current;
+    const iframe = iframeRef.current;
+    if (!container || !iframe) return;
+
+    const IFRAME_W = 625;
+    const update = () => {
+      const scale = container.clientWidth / IFRAME_W;
+      iframe.style.transform = `scale(${scale})`;
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(container);
+    return () => ro.disconnect();
+  }, []);
 
   const trackVideoMutation = trpc.analytics.trackVideo.useMutation();
   console.log('Video analytics session ID:', sessionId);
@@ -104,10 +121,25 @@ export default function Hero() {
         </div>
         
         <div className="relative hidden lg:block animate-in slide-in-from-right-10 duration-1000 fade-in delay-200">
-          {/* Real App Demo */}
-          <AppWindow>
-            <ChatDemo />
-          </AppWindow>
+          <div
+            ref={iframeContainerRef}
+            className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
+            style={{ aspectRatio: '625 / 560' }}
+          >
+            <iframe
+              ref={iframeRef}
+              src="/project-htmls/eudox-ai.html"
+              title="Eudox AI Deal Sourcing Demo"
+              scrolling="no"
+              style={{
+                width: '625px',
+                height: '560px',
+                border: 'none',
+                display: 'block',
+                transformOrigin: 'top left',
+              }}
+            />
+          </div>
         </div>
       </div>
 
